@@ -1,0 +1,71 @@
+@import '../colors.scss';
+
+.aboutus{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2em 2em;
+
+    &__title{
+        position: relative;
+        padding-left: 0.5em;
+        font-weight: bold;
+        font-size: 2.3rem;
+        text-transform: uppercase;
+        color: white;
+
+        &::before{
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: '';
+            width: 5px;
+            height: 100%;
+            background-color: $primary-color;
+        }
+    }
+
+    &__description{
+        margin: 2em 0;
+        color: white;
+    }
+
+    &__map{
+        width: 70%;
+        margin: 0 auto;
+    } 
+}
+
+@media (min-width:768px) {
+    .aboutus{
+    
+        &__title{
+            font-size: 2.8rem;
+        }
+    
+        &__description{
+            font-size: 1.7rem
+        }
+    }
+}
+
+@media (min-width:992px) {
+    .aboutus{
+        display: flex;
+        flex-direction: row;
+        padding: 4em 3em;
+    
+        &__title{
+            font-size: 2.4rem;
+        }
+    
+        &__description{
+            width: 85%;
+            margin: 1.5em 0;
+        }
+    
+        &__map{
+            width: 48%;
+        } 
+    }
+}

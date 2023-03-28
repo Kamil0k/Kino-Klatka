@@ -1,4 +1,4 @@
-import { IconChevronsDown } from '@tabler/icons-react';
+import { IconChevronsDown } from '@tabler/icons-react'
 
 import './Header.css'
 
@@ -7,10 +7,13 @@ const Header = () => {
 		<div className='header'>
 			<div className='header__img'>
 				<h1 className='header__img-text'>
-					<span className="header__img-text-title">Witajcie w Kinie Klatka</span>
-					<br />w miejscu, gdzie <span className="header__img-text-color">filmy</span> to nasza <span className="header__img-text-color">pasja</span>!
+					<span className='header__img-text-title'>Witajcie w Kinie Klatka</span>
+					<br />w miejscu, gdzie <span className='header__img-text-color'>filmy</span> to nasza{' '}
+					<span className='header__img-text-color'>pasja</span>!
 				</h1>
-                <IconChevronsDown className='header__img-arrows'/>
+				<a href='#aboutus'>
+					<IconChevronsDown className='header__img-arrows' />
+				</a>
 				<div className='header__img-shadow'></div>
 			</div>
 		</div>
