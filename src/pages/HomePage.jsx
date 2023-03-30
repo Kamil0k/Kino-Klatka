@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Header from '../components/Header'
-import HomePageContent from '../components/homePageComponents/HomePageCotent'
+import HomePageContent from '../components/HomePageComponents/HomePageCotent'
 
 function HomePage() {
 	return (

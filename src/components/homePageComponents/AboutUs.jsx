@@ -1,20 +1,28 @@
-import Map from '../../assets/img/mapka.png'
+import Map from '../../assets/img/mapa.png'
 
 import './AboutUs.css'
+
+import SectionTitle from '../UI/SectionTitle'
 
 const AboutUs = () => {
 	return (
 		<>
 			<div className='aboutus wrapper'>
 				<div>
-					<h2 className='aboutus__title' id='aboutus'>
-						O nas
-					</h2>
+					<SectionTitle title="o nas"/>
 					<p className='aboutus__description'>
-						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla consectetur temporibus deleniti reiciendis?
-						Repudiandae, fugit enim? Aperiam ex est, iste ab ipsam, corrupti totam eaque quis ut recusandae vel pariatur
-						culpa eligendi dignissimos suscipit dicta et, beatae tenetur. Voluptatum sint suscipit placeat laudantium
-						autem. Perspiciatis aliquam cum nisi vel. Sapiente!
+						Kino Klatka należy do międzynarodowego koncernu zespołu kin Film & Chill, który operuje na rynkach
+						światowych od lat 80. Na ten moment koncern Film & Chill jest trzecim największym zrzeszeniem kin na całym
+						świecie.
+						<br />
+						<br />
+						Przedsiębiorstwo Film & Chill działa w 18 krajach - Polska, Wielka Brytania, Francja, Hiszpania, Portugalia,
+						Bułgaria, Grecja, Włochy, Stany Zjednoczone, Kanada, Brazylia, Chile, Urugwaj, Kolumbia, Algieria, Republika
+						Południowej Afryki, Indie, Australia.
+						<br />
+						<br />
+						Kino Klatka działa w Polsce w 20 lokalizacjach. Niezależnie od tego, w której części Polski mieszkasz,
+						napewno znajdziesz nasze kino w promieniu 100 kilometrów!
 					</p>
 				</div>
 				<img className='aboutus__map' src={Map} alt='Mapa Polski z pinezkami kin Klatka' />

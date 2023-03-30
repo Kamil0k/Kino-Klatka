@@ -1,0 +1,12 @@
+@import '../colors.scss';
+
+.repertoire {
+	padding: 2em;
+
+	&__items {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+}

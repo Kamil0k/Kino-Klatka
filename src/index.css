@@ -12,5 +12,5 @@ html {
 body {
 	font-size: 1.6rem;
 	font-family: 'Lato', sans-serif;
-	background-color: #111;
+	background: radial-gradient(circle, rgb(43, 44, 46) 0%, rgb(25, 25, 25) 93%);
 }

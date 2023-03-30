@@ -1,9 +1,11 @@
-import AboutUs from "./AboutUs"
+import InRepertoire from './InRepertoire'
+import AboutUs from './AboutUs'
 
 const HomePageContent = () => {
 	return (
 		<>
-			<AboutUs/>
+			<InRepertoire />
+			<AboutUs />
 		</>
 	)
 }

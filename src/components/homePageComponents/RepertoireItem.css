@@ -1,0 +1,44 @@
+.wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.item {
+  position: relative;
+  margin-top: 1em;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+.item__img {
+  width: 250px;
+  height: 350px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.item__shadow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s;
+}
+.item__shadow:hover {
+  opacity: 1;
+}
+.item__shadow-icon {
+  width: 80px;
+  height: 80px;
+}
+.item__shadow-text {
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: bold;
+}/*# sourceMappingURL=RepertoireItem.css.map */

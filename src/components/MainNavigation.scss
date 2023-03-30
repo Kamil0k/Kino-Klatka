@@ -10,6 +10,7 @@
 	min-height: 80px;
 	width: 100%;
 	z-index: 1000;
+	backdrop-filter: blur(5px);
 
 	.nav-mobile {
 		&__icon {
@@ -46,7 +47,7 @@
 		color: white;
 		text-transform: uppercase;
 		text-decoration: none;
-		font-size: 3rem;
+		font-size: 2.7rem;
 		padding: 0.5em;
 		margin: 0.5em;
 		cursor: pointer;

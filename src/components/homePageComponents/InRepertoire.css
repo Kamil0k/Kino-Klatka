@@ -1,0 +1,15 @@
+.wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.repertoire {
+  padding: 2em;
+}
+.repertoire__items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}/*# sourceMappingURL=InRepertoire.css.map */
