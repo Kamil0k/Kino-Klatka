@@ -1,6 +1,6 @@
 .wrapper {
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1300px;
   width: 100%;
 }
 
@@ -19,7 +19,7 @@
   content: "";
   width: 5px;
   height: 100%;
-  background-color: #9d2428;
+  background-color: #b82227;
 }
 
 @media (min-width: 768px) {

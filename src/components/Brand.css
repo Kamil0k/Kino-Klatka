@@ -1,6 +1,6 @@
 .wrapper {
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1300px;
   width: 100%;
 }
 
@@ -12,7 +12,7 @@
   cursor: pointer;
 }
 .brand__icon {
-  color: #9d2428;
+  color: #b82227;
   width: 6rem;
   height: 6rem;
   stroke-width: 1.3;
@@ -26,7 +26,7 @@
 
 @media (min-width: 992px) {
   .brand__icon {
-    color: #9d2428;
+    color: #b82227;
     width: 7rem;
     height: 7rem;
     stroke-width: 1.3;

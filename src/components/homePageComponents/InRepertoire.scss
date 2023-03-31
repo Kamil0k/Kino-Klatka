@@ -4,9 +4,17 @@
 	padding: 2em;
 
 	&__items {
+		margin-top: 1em;
 		display: flex;
-		flex-direction: column;
-		justify-content: center;
+		justify-content: space-between;
 		align-items: center;
 	}
+}
+
+.slick-dots li button:before {
+	color: white;
+}
+
+.slick-dots li.slick-active button:before {
+    color: $primary-color;
 }
