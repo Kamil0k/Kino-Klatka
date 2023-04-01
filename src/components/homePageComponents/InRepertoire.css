@@ -1,6 +1,6 @@
 .wrapper {
   margin: 0 auto;
-  max-width: 1300px;
+  max-width: 1200px;
   width: 100%;
 }
 
@@ -8,10 +8,22 @@
   padding: 2em;
 }
 .repertoire__items {
-  margin-top: 1em;
+  margin-top: 2em;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.repertoire__link {
+  margin-top: 2.5em;
+  font-size: 1.7rem;
+  text-align: center;
+  color: white;
+}
+.repertoire__link a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #cfb53b;
+  cursor: pointer;
 }
 
 .slick-dots li button:before {

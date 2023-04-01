@@ -2,10 +2,10 @@
 
 .item {
 	position: relative;
-	margin-top: 1em;
-	margin: 0 auto;
 	width: 310px;
 	height: 450px;
+	margin-top: 1em;
+	margin: 0 auto;
 
 	&__img {
 		width: 100%;
@@ -15,10 +15,10 @@
 
 	&__shadow {
 		position: absolute;
-		width: 310px;
-		height: 450px;
 		left: 0;
 		bottom: 0;
+		width: 310px;
+		height: 450px;
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-end;

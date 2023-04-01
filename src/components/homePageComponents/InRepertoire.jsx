@@ -56,6 +56,7 @@ const InRepertoire = () => {
 					<RepertoireItem src={film4} alt='Jest alt!' title='Dawno temu w trawie' />
 					<RepertoireItem src={film5} alt='Jest alt!' title='Tylko mnie kochaj' />
 				</Slider>
+				<p className="repertoire__link">Zapoznaj się z <a href="#">repertuarem</a>, który przygotowaliśmy dla was!</p>
 			</div>
 		</>
 	)

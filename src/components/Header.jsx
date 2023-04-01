@@ -7,9 +7,11 @@ const Header = () => {
 		<div className='header'>
 			<div className='header__img'>
 				<h1 className='header__img-text'>
-					<span className='header__img-text-title'>Witajcie w Kinie Klatka</span>
-					<br />w miejscu, gdzie <span className='header__img-text-color'>filmy</span> to nasza{' '}
-					<span className='header__img-text-color'>pasja</span>!
+					<span className='header__img-text-title'>
+						Otwórz się na emocje w <span className='header__img-text-color'>kinie Klatka </span>-{' '}
+					</span>{' '}
+					<br />
+					najlepsze filmy czekają na Ciebie"
 				</h1>
 				<a href='#aboutus'>
 					<IconChevronsDown className='header__img-arrows' />

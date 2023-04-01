@@ -1,0 +1,86 @@
+@import '../colors.scss';
+
+.box {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 2em;
+	overflow: hidden;
+
+	&__img {
+        width: 100%;
+		object-fit: contain;
+		transition: transform 0.3s;
+
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
+
+	&__content {
+		background-color: $background-brighter;
+		padding: 1em;
+		color: white;
+		z-index: 10;
+
+		&-title {
+			margin: 0.5em 0;
+			font-size: 2rem;
+            color: $secondary-color;
+		}
+
+		&-description {
+			font-weight: lighter;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.box {
+		height: 230px;
+		flex-direction: row;
+
+		&--right {
+			flex-direction: row-reverse;
+		}
+
+		&__img {
+			width: 45%;
+			height: auto;
+		}
+
+		&__content {
+			height: 100%;
+
+            &-title{
+                margin-bottom: 1em;
+            }
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.box {
+		height: 300px;
+		&__img {
+			object-fit: cover;
+			height: 100%;
+		}
+
+		&__content {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			height: 100%;
+
+            &-title{
+                font-size: 2.3rem;
+            }
+
+            &-description{
+                font-size: 1.8rem;
+            }
+		}
+	}
+}

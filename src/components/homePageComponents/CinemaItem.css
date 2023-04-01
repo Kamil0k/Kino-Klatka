@@ -1,0 +1,79 @@
+.wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2em;
+  overflow: hidden;
+}
+.box__img {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  transition: transform 0.3s;
+}
+.box__img:hover {
+  transform: scale(1.1);
+}
+.box__content {
+  background-color: #2a2929;
+  padding: 1em;
+  color: white;
+  z-index: 10;
+}
+.box__content-title {
+  margin: 0.5em 0;
+  font-size: 2rem;
+  color: #cfb53b;
+}
+.box__content-description {
+  font-weight: lighter;
+}
+
+@media (min-width: 768px) {
+  .box {
+    height: 230px;
+    flex-direction: row;
+  }
+  .box--right {
+    flex-direction: row-reverse;
+  }
+  .box__img {
+    width: 45%;
+    height: auto;
+  }
+  .box__content {
+    height: 100%;
+  }
+  .box__content-title {
+    margin-bottom: 1em;
+  }
+}
+@media (min-width: 992px) {
+  .box {
+    height: 300px;
+  }
+  .box__img {
+    -o-object-fit: cover;
+       object-fit: cover;
+    height: 100%;
+  }
+  .box__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+  .box__content-title {
+    font-size: 2.3rem;
+  }
+  .box__content-description {
+    font-size: 1.8rem;
+  }
+}/*# sourceMappingURL=CinemaItem.css.map */
