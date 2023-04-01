@@ -32,4 +32,10 @@
 
 .slick-dots li.slick-active button:before {
   color: #b82227;
+}
+
+@media (min-width: 576px) {
+  .repertoire {
+    padding: 2em 0;
+  }
 }/*# sourceMappingURL=InRepertoire.css.map */

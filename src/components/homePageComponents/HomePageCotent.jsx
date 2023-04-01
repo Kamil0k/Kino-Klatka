@@ -1,6 +1,7 @@
 import InRepertoire from './InRepertoire'
 import AboutUs from './AboutUs'
 import OurCinemas from './OurCinemas'
+import OurAchievements from './OurAchievements'
 
 const HomePageContent = () => {
 	return (
@@ -8,6 +9,7 @@ const HomePageContent = () => {
 			<InRepertoire />
 			<AboutUs />
 			<OurCinemas/>
+			<OurAchievements/>
 		</>
 	)
 }

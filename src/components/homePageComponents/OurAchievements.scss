@@ -1,0 +1,20 @@
+.section{
+    padding: 2em;
+}
+
+.achievements{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 3em;
+}
+
+@media (min-width:576px) {
+    .section{
+        padding: 2em 0;
+    }
+    
+}

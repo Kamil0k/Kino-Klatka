@@ -5,10 +5,10 @@
 }
 
 .aboutus {
+  padding: 2em;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 2em;
 }
 .aboutus__description {
   margin: 2em 0;
@@ -17,8 +17,17 @@
 .aboutus__map {
   width: 70%;
   margin: 0 auto;
+  transition: transform 0.3s;
+}
+.aboutus__map:hover {
+  transform: scale(0.9);
 }
 
+@media (min-width: 576px) {
+  .aboutus {
+    padding: 2em 0;
+  }
+}
 @media (min-width: 768px) {
   .aboutus__title {
     font-size: 2.8rem;
@@ -31,7 +40,7 @@
   .aboutus {
     display: flex;
     flex-direction: row;
-    padding: 4em 3em;
+    padding-top: 2em;
   }
   .aboutus__title {
     font-size: 2.4rem;

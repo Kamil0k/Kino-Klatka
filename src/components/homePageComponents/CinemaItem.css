@@ -22,7 +22,7 @@
   transform: scale(1.1);
 }
 .box__content {
-  background-color: #2a2929;
+  background-color: #1a1a1a;
   padding: 1em;
   color: white;
   z-index: 10;

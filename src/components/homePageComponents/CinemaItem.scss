@@ -8,7 +8,7 @@
 	overflow: hidden;
 
 	&__img {
-        width: 100%;
+		width: 100%;
 		object-fit: contain;
 		transition: transform 0.3s;
 
@@ -18,7 +18,7 @@
 	}
 
 	&__content {
-		background-color: $background-brighter;
+		background-color: $background-darker;
 		padding: 1em;
 		color: white;
 		z-index: 10;
@@ -26,7 +26,7 @@
 		&-title {
 			margin: 0.5em 0;
 			font-size: 2rem;
-            color: $secondary-color;
+			color: $secondary-color;
 		}
 
 		&-description {
@@ -52,9 +52,9 @@
 		&__content {
 			height: 100%;
 
-            &-title{
-                margin-bottom: 1em;
-            }
+			&-title {
+				margin-bottom: 1em;
+			}
 		}
 	}
 }
@@ -73,13 +73,13 @@
 			justify-content: center;
 			height: 100%;
 
-            &-title{
-                font-size: 2.3rem;
-            }
+			&-title {
+				font-size: 2.3rem;
+			}
 
-            &-description{
-                font-size: 1.8rem;
-            }
+			&-description {
+				font-size: 1.8rem;
+			}
 		}
 	}
 }

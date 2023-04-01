@@ -1,15 +1,17 @@
 import { Fragment } from 'react'
 import { Outlet } from 'react-router-dom'
 
-import HamburgerNavigation from '../components/MainNavigation'
+import MainNavigation from '../components/MainNavigation'
+import Footer from '../components/Footer'
 
 function RootLayout() {
 	return (
 		<>
-			<HamburgerNavigation />
+			<MainNavigation />
 			<main>
 				<Outlet />
 			</main>
+			<Footer />
 		</>
 	)
 }
