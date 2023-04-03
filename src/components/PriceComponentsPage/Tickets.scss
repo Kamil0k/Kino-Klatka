@@ -1,0 +1,120 @@
+@import '../UI/colors.scss';
+
+.tickets {
+	padding: 1em;
+
+	&__header {
+		margin-top: 1.5em;
+		text-align: center;
+
+		&-icon {
+			font-size: 5rem;
+			transform: rotateZ(-45deg);
+			color: $secondary-color;
+		}
+
+		&-title {
+			margin-top: 1em;
+			font-size: 1.7rem;
+			color: white;
+		}
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		padding: 0.7em;
+		margin: 1em auto;
+		border-radius: 5px;
+		border: 1px solid black;
+		background-color: $background-darker;
+		box-shadow: 5px 5px 5px black;
+		color: white;
+
+		&-item {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			margin: 0.5em 0;
+
+			&-title {
+				width: 70%;
+				text-align: left;
+			}
+
+			&-price {
+				width: 20%;
+				text-align: right;
+			}
+		}
+
+		&-attentions {
+			margin-top: 1em;
+		}
+		&-attention {
+			font-size: 1rem;
+			font-weight: lighter;
+		}
+	}
+}
+
+@media (min-width: 576px) {
+	.tickets {
+		&__header {
+			margin-top: 2em;
+
+			&-icon {
+				font-size: 6rem;
+			}
+		}
+
+		&__list {
+			padding: 1em;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.tickets {
+		&__header {
+			margin-top: 2em;
+
+			&-icon {
+				font-size: 7rem;
+			}
+
+			&-title {
+				font-size: 1.8rem;
+			}
+		}
+
+		&__list {
+			width: 60vw;
+			padding: 1em;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.tickets {
+        padding: 1em 0;
+		&__header {
+			&-title {
+				font-size: 1.8rem;
+			}
+		}
+
+		&__list {
+			padding: 1.2em;
+			margin: 1em auto;
+			width: 40vw;
+
+			&-item {
+				font-size: 1.7rem;
+			}
+			&-attention {
+				font-size: 1.1rem;
+			}
+		}
+	}
+}

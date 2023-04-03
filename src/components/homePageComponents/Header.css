@@ -7,7 +7,7 @@
 .header__img {
   width: 100vw;
   height: 100vh;
-  background-image: url(../assets/img/cinema-small.jpg);
+  background-image: url(../../assets/img/cinema-small.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -70,7 +70,7 @@
 }
 @media (min-width: 768px) {
   .header__img {
-    background-image: url(../assets/img/cinema-big.jpg);
+    background-image: url(../../assets/img/cinema-big.jpg);
   }
 }
 @media (min-width: 992px) {

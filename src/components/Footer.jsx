@@ -1,6 +1,6 @@
 import './Footer.css'
 
-import Brand from './Brand'
+import Brand from './UI/Brand'
 
 const date = new Date();
 const year = date.getFullYear()
