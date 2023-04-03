@@ -43,7 +43,7 @@
 			height: 3.5rem;
 			cursor: pointer;
 			z-index: 100;
-            animation: jumpArrows 2s infinite;
+			animation: jumpArrows 3s infinite;
 		}
 
 		&-shadow {
@@ -52,82 +52,78 @@
 			bottom: 0;
 			left: 0;
 			right: 0;
-			background-color: rgba(0, 0, 0, 0.6);
+			background-color: rgba(0, 0, 0, 0.4);
 		}
 	}
 }
 
-@media (min-width:576px) {
-    .header {
-        &__img {
-    
-            &-text {
-                font-size: 2rem;
-                line-height: 3rem;
-    
-                &-title {
-                    font-size: 2.5rem;
-                }
-            }
-    
-            &-arrows {
-                color: white;
-                width: 4.5rem;
-                height: 4.5rem;
-            }
-        }
-    }   
+@media (min-width: 576px) {
+	.header {
+		&__img {
+			&-text {
+				font-size: 2rem;
+				line-height: 3rem;
+
+				&-title {
+					font-size: 2.5rem;
+				}
+			}
+
+			&-arrows {
+				color: white;
+				width: 4.5rem;
+				height: 4.5rem;
+			}
+		}
+	}
 }
 
 @media (min-width: 768px) {
 	.header {
 		&__img {
 			background-image: url(../assets/img/cinema-big.jpg);
-
 		}
 	}
 }
 
-@media (min-width:992px) {
-    .header {
-        &__img {
-    
-            &-text {
-                font-size: 2.5rem;
-                line-height: 3.3rem;
-    
-                &-title {
-                    font-size: 3rem;
-                }
-            }
-            &-arrows {
-                color: white;
-                width: 4.5rem;
-                height: 4.5rem;
-            }
-        }
-    }   
+@media (min-width: 992px) {
+	.header {
+		&__img {
+			&-text {
+				font-size: 2.5rem;
+				line-height: 3.3rem;
+
+				&-title {
+					font-size: 3rem;
+				}
+			}
+			&-arrows {
+				color: white;
+				width: 4.5rem;
+				height: 4.5rem;
+			}
+		}
+	}
 }
 
-@media (min-width:1200px) {
-    .header {
-        &__img {
-    
-            &-text {
-                font-size: 2.8rem;
-                line-height: 3.8rem;
-    
-                &-title {
-                    font-size: 3.3rem;
-                }
-            }
-            &-arrows {
-                color: white;
-                width: 5.5rem;
-                height: 5.5rem;
-            }
-        }
-    }   
+@media (min-width: 1200px) {
+	.header {
+		&__img {
+			&-text {
+				font-size: 2.8rem;
+				line-height: 3.8rem;
+
+				&-title {
+					font-size: 3.3rem;
+				}
+			}
+			&-arrows {
+				color: white;
+				width: 5.5rem;
+				height: 5.5rem;
+			}
+		}
+	}
 }
 
 @keyframes jumpArrows {
@@ -135,33 +131,33 @@
 		transform: translateY(0);
 	}
 	10% {
-		transform: translateY(-2rem);
+		transform: translateY(-3rem);
 	}
 	20% {
-		transform: translateY(-0.2rem);
+		transform: translateY(-0.4rem);
 	}
 	30% {
-		transform: translateY(-1.7rem);
+		transform: translateY(-2.6rem);
 	}
 	40% {
-		transform: translateY(-0.5rem);
+		transform: translateY(-0.8rem);
 	}
 	50% {
-		transform: translateY(-1.5rem);
+		transform: translateY(-2rem);
 	}
 	60% {
-		transform: translateY(-0.7rem);
+		transform: translateY(-0.8rem);
 	}
 	70% {
-		transform: translateY(-1.3rem);
+		transform: translateY(-2.6rem);
 	}
 	80% {
-		transform: translateY(-0.9rem);
+		transform: translateY(-0.4rem);
 	}
 	90% {
-		transform: translateY(-1.2rem);
+		transform: translateY(-3rem);
 	}
 	100% {
-		transform: translateY(-1rem);
+		transform: translateY(0rem);
 	}
 }

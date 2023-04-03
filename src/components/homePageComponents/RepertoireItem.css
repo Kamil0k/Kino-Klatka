@@ -25,6 +25,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  padding: 2em;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.8);
   opacity: 0;
@@ -32,26 +33,6 @@
 }
 .item__shadow:hover {
   opacity: 1;
-}
-.item__shadow-icon {
-  margin-top: 1em;
-  font-size: 10rem;
-}
-.item__shadow-button {
-  width: 60%;
-  padding: 0.5em 1em;
-  margin-bottom: 1em;
-  text-align: center;
-  border-radius: 5px;
-  color: white;
-  background-color: #b82227;
-}
-.item__shadow-button:hover {
-  cursor: pointer;
-}
-.item__shadow-button-text {
-  font-size: 1.5rem;
-  font-weight: bold;
 }
 
 .name {

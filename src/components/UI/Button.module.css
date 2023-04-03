@@ -1,0 +1,24 @@
+.wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.button {
+  padding: 0.5em 1em;
+  text-align: center;
+  font-size: 1.6rem;
+  border-radius: 3px;
+  border: none;
+  color: white;
+  background-color: #b82227;
+}
+.button:hover {
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .button {
+    font-size: 1.7rem;
+  }
+}/*# sourceMappingURL=Button.module.css.map */

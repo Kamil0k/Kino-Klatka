@@ -42,13 +42,32 @@
   list-style: none;
   transform: translateX(-102%);
 }
+.nav .nav-mobile__list .login-mobile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 3%;
+  left: 5%;
+  color: white;
+}
+.nav .nav-mobile__list .login-mobile__user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.8em;
+}
+.nav .nav-mobile__list .login-mobile__user i {
+  margin-right: 0.3em;
+}
 .nav .nav-item {
   position: relative;
   display: block;
   color: white;
   text-transform: uppercase;
   text-decoration: none;
-  font-size: 2.7rem;
+  font-size: 2.5rem;
   padding: 0.5em;
   margin: 0.5em;
   cursor: pointer;
@@ -66,6 +85,9 @@
 .nav .nav-item:hover::before, .nav .nav-item:hover::after {
   width: 100%;
   left: 0;
+}
+.nav .login-desktop {
+  display: none;
 }
 
 .active {
@@ -96,6 +118,11 @@
     transform: translateX(102%);
   }
 }
+@media (min-width: 576px) {
+  .login-mobile__user {
+    font-size: 1.8rem;
+  }
+}
 @media (max-width: 992px) {
   .nav-desktop {
     display: none;
@@ -116,11 +143,27 @@
     color: white;
   }
   .nav-desktop__list .nav-item {
-    font-size: 2.2rem;
+    font-size: 2rem;
+  }
+  .nav .login-desktop {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+  }
+  .nav .login-desktop__user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5em;
+    font-size: 1.9rem;
+  }
+  .nav .login-desktop__user i {
+    margin-right: 0.3em;
   }
 }
 @media (min-width: 1200px) {
   .nav-desktop .nav-item {
-    font-size: 2.5rem;
+    font-size: 2.3rem;
   }
 }/*# sourceMappingURL=MainNavigation.css.map */

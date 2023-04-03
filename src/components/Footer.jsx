@@ -14,10 +14,10 @@ const Footer = () => {
 					Otwórz swoją <span className='footer__slogan-bolder'>klatkę wyobraźni</span> w kinie Klatka!
 				</p>
 				<div className='footer__social'>
-					<i className='fa-brands fa-square-facebook'></i>
-					<i className='fa-brands fa-square-instagram'></i>
-					<i className='fa-brands fa-square-twitter'></i>
-					<i className='fa-brands fa-square-youtube'></i>
+					<i className='fa-brands fa-facebook'></i>
+					<i className='fa-brands fa-instagram'></i>
+					<i className='fa-brands fa-twitter'></i>
+					<i className='fa-brands fa-youtube'></i>
 					<i className='fa-brands fa-google-plus'></i>
 				</div>
                 <div className="footer__bottom">
