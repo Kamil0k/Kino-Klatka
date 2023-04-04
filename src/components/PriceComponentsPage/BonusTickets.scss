@@ -1,0 +1,107 @@
+@import '../UI/colors.scss';
+
+.ticket {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+    height: 420px;
+    margin: 1.5em 1em;
+    padding: 1em;
+	background-color: $background-darker;
+    box-shadow: 5px 5px 5px black;
+    border-radius: 5px;
+    color: white;
+
+    &__title{
+        margin: 1em 0;
+        font-size: 2rem;
+        text-transform: uppercase;
+    }
+
+    &__icon{
+        font-size: 5rem;
+        margin-bottom: 0.5em;
+        color: $primary-color;
+        text-shadow: 2px 2px 2px black;
+    }
+
+    &__motto{
+        margin-bottom: 1em;
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.7rem;
+        text-shadow: 2px 2px 2px black;
+    }
+
+    &__duration, &__price{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.4rem;
+    }
+
+    &__duration{
+        margin-top: 1em;
+        
+        &-item{
+            position: relative;
+            padding-bottom: 1em;
+
+            &::before{
+                position: absolute;
+                top: 95%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                content: '';
+                width: 3px;
+                height: 20px;
+                background-color: $primary-color;
+            }
+        }
+    }
+
+    &__price{
+        padding-top: 0.8em;
+        margin-bottom: 1em;
+    }
+
+    Button{
+        width: 80%;
+        margin-top: 1em;
+    }
+}
+
+.ticket:nth-child(2){
+    background-color: $secondary-color;
+}
+
+@media (min-width:576px) {
+    .ticket{
+        width: 70%;
+    }
+}
+
+@media (min-width:768px) {
+    .ticket{
+        width: 45%;
+
+        &:nth-child(2){
+            order: 3;
+        }
+    }
+}
+
+@media (min-width:992px) {
+    .ticket{
+        width: 30%;
+
+        &:nth-child(2){
+            order: 0;
+        }
+    }
+}

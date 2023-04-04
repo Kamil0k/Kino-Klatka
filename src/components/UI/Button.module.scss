@@ -1,6 +1,7 @@
 @import './colors.scss';
 
 .button {
+	position: relative;
 	padding: 0.5em 1em;
 	text-align: center;
     font-size: 1.6rem;
@@ -8,9 +9,24 @@
     border: none;
 	color: white;
 	background-color: $primary-color;
+	cursor: pointer;
+	overflow: hidden;
+	z-index: 100;
 
-	&:hover {
-		cursor: pointer;
+	&:hover::before {
+		width: 100%;
+	}
+
+	&::before{
+		position: absolute;
+		top: 0;
+		left: 0;
+		content: '';
+		width: 0px;
+		height: 100%;
+		background-color: $primary-color-darker;
+		transition: width 0.3s;
+		z-index: -10;
 	}
 }
 

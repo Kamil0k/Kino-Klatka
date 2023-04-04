@@ -133,21 +133,21 @@
   }
 }
 @media (min-width: 992px) {
-  .nav-mobile {
+  .nav .nav-mobile {
     display: none;
   }
-  .nav-desktop {
+  .nav .nav-desktop {
     display: block;
   }
-  .nav-desktop__list {
+  .nav .nav-desktop__list {
     display: flex;
     flex-direction: row;
     align-items: center;
     list-style: none;
     color: white;
   }
-  .nav-desktop__list .nav-item {
-    font-size: 1.8rem;
+  .nav .nav-desktop__list .nav-item {
+    font-size: 2rem;
   }
   .nav .login-desktop {
     display: flex;
@@ -167,7 +167,7 @@
   }
 }
 @media (min-width: 1200px) {
-  .nav-desktop .nav-item {
-    font-size: 2rem;
+  .nav .nav-desktop .nav-item {
+    font-size: 2.2rem;
   }
 }/*# sourceMappingURL=MainNavigation.css.map */

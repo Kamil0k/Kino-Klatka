@@ -1,0 +1,18 @@
+.ticket-area {
+  padding: 1em;
+  margin-bottom: 3em;
+}
+.ticket-area__list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 0.7em;
+}
+
+@media (min-width: 992px) {
+  .ticket-area {
+    padding: 0;
+  }
+}/*# sourceMappingURL=BonusTicket.css.map */

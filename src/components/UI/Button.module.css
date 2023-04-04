@@ -5,6 +5,7 @@
 }
 
 .button {
+  position: relative;
   padding: 0.5em 1em;
   text-align: center;
   font-size: 1.6rem;
@@ -12,9 +13,23 @@
   border: none;
   color: white;
   background-color: #b82227;
-}
-.button:hover {
   cursor: pointer;
+  overflow: hidden;
+  z-index: 100;
+}
+.button:hover::before {
+  width: 100%;
+}
+.button::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 0px;
+  height: 100%;
+  background-color: #97171c;
+  transition: width 0.3s;
+  z-index: -10;
 }
 
 @media (min-width: 768px) {
