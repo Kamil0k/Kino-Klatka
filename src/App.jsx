@@ -4,6 +4,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import RootLayout from './pages/Root'
 import HomePage from './pages/HomePage'
 import PricePage from './pages/PricePage'
+import SignInPage from './pages/SignInPage'
 
 const router = createBrowserRouter([
 	{
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
 			{
 				path: 'prices',
 				element: <PricePage />,
+			},
+			{
+				path: 'signin',
+				element: <SignInPage/>,
 			},
 		],
 	},

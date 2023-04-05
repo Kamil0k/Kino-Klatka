@@ -30,13 +30,13 @@ function MainNavigation() {
 						)}
 						<ul className={`nav-mobile__list ` + `${isMenuVisible ? 'show' : 'hide'}`}>
 							<div className='login-mobile'>
-								<Link>
-									<Button>Wyloguj się</Button>
-								</Link>
-								<div className='login-mobile__user'>
+								<NavLink to='/signin'>
+									<Button>Zaloguj się</Button>
+								</NavLink>
+								{/* <div className='login-mobile__user'>
 									<i className='fa-solid fa-user'></i>
 									<p className='login-mobile__user-name'>Kamil Porada</p>
-								</div>
+								</div> */}
 							</div>
 							<li>
 								<NavLink
@@ -98,13 +98,13 @@ function MainNavigation() {
 						</ul>
 					</nav>
 					<div className='login-desktop'>
-						<Link>
-							<Button>Wyloguj się</Button>
-						</Link>
-						<div className='login-desktop__user'>
+						<NavLink to='/signin'>
+							<Button>Zaloguj się</Button>
+						</NavLink>
+						{/* <div className='login-desktop__user'>
 							<i className='fa-solid fa-user'></i>
 							<p className='login-desktop__user-name'>Kamil Porada</p>
-						</div>
+						</div> */}
 					</div>
 				</div>
 			</div>
