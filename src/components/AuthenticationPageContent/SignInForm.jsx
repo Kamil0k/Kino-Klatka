@@ -5,13 +5,21 @@ import { Link } from 'react-router-dom'
 const SignInForm = () => {
 	return (
 		<>
-			<form action='post' className='form'>
-				<h3 className='form__title'>Zaloguj się do twojego konta w kinie Klatka!</h3>
-				<input type='text' placeholder='E-mail' />
-				<input type='password' placeholder='Hasło' />
+			<form action='post' className='form-signin'>
+				<i className='fa-regular fa-user form-signin__icon'></i>
+				<h3 className='form-signin__title'>Zaloguj się!</h3>
+				<input type='email' id='email' placeholder='Email' required className='form-signin__input'/>
+				<input type='password' placeholder='Hasło' required className='form-signin__input'/>
+				<div className='form-signin__check'>
+					<input type='checkbox' id='employee-checkbox' name='employee' className='form-signin__check-input' />
+                    <label className='form-signin__check-label' for='employee-checkbox'>
+						Jestem pracownikiem
+					</label>
+				</div>
 				<Button>Zaloguj się</Button>
-				<p className='form__text'>
-					Nie masz jeszcze konta? <Link className='form__text-link'>Zarejestruj się!</Link>
+				<p className='form-signin__text'>
+					Nie masz jeszcze konta?
+					<br /> <Link to='/dupa' className='form-signin__text-link'>Zarejestruj się!</Link>
 				</p>
 			</form>
 		</>

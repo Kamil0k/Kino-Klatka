@@ -30,8 +30,8 @@ function MainNavigation() {
 						)}
 						<ul className={`nav-mobile__list ` + `${isMenuVisible ? 'show' : 'hide'}`}>
 							<div className='login-mobile'>
-								<NavLink to='/signin'>
-									<Button>Zaloguj się</Button>
+								<NavLink to='/signin'onClick={handleLinks}>
+									<Button >Zaloguj się</Button>
 								</NavLink>
 								{/* <div className='login-mobile__user'>
 									<i className='fa-solid fa-user'></i>

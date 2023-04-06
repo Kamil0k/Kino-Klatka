@@ -4,21 +4,114 @@
   width: 100%;
 }
 
-.form {
+.form-signin {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 30%;
-  height: 40%;
-  z-index: 100;
-  border: 2px solid black;
+  width: 90%;
+  height: 60%;
+  padding: 1em 4em;
+  margin-bottom: 6em;
   border-radius: 5px;
   text-align: center;
+  border: 1px solid black;
   color: white;
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
+  background-color: rgba(100, 100, 100, 0.6);
+  z-index: 100;
 }
-.form__title {
-  text-shadow: 2px 2px 2px black;
+.form-signin__icon {
+  font-size: 5rem;
+  color: #cfb53b;
+  filter: drop-shadow(3px 3px 0px black);
+}
+.form-signin__title {
+  font-size: 2rem;
+}
+.form-signin__input {
+  width: 100%;
+  padding: 0.5em;
+  font-size: 1.5rem;
+  background-color: transparent;
+  border: 1px solid rgb(160, 160, 160);
+  color: white;
+  outline: none;
+}
+.form-signin__input:focus {
+  outline: 1px solid #cfb53b;
+  border: none;
+}
+.form-signin__input::-moz-placeholder {
+  color: white;
+}
+.form-signin__input::placeholder {
+  color: white;
+}
+.form-signin__check {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  margin-right: auto;
+}
+.form-signin__check-label {
+  margin-right: auto;
+  margin-left: 0.2em;
+}
+.form-signin__check-input {
+  width: auto;
+  accent-color: #b82227;
+}
+.form-signin Button {
+  width: 100%;
+}
+.form-signin__text {
+  padding: 0.5em;
+}
+.form-signin__text-link {
+  padding-left: 0.2em;
+  text-decoration: none;
+  font-weight: bold;
+  color: #cfb53b;
+}
+
+@media (min-height: 800px) {
+  .form-signin {
+    height: 55%;
+  }
+}
+@media (min-width: 576px) {
+  .form-signin {
+    width: 70%;
+  }
+}
+@media (min-width: 768px) {
+  .form-signin {
+    width: 50%;
+  }
+}
+@media (min-width: 992px) {
+  .form-signin {
+    width: 35%;
+  }
+  .form-signin__icon {
+    font-size: 6rem;
+  }
+  .form-signin__title {
+    font-size: 2.2rem;
+  }
+}
+@media (min-width: 1200px) {
+  .form-signin {
+    width: 25%;
+  }
+  .form-signin__icon {
+    font-size: 6.5rem;
+  }
+  .form-signin__title {
+    font-size: 2.3rem;
+  }
 }/*# sourceMappingURL=SignInForm.css.map */

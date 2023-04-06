@@ -1,20 +1,127 @@
 @import '../UI/colors.scss';
 
-.form {
+.form-signin {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
-    width: 30%;
-    height: 40%;
+	width: 90%;
+	height: 60%;
+	padding: 1em 4em;
+	margin-bottom: 6em;
+	border-radius: 5px;
+	text-align: center;
+	border: 1px solid black;
+	color: white;
+	backdrop-filter: blur(6px);
+	background-color: rgba(100, 100, 100, 0.6);
 	z-index: 100;
-	border: 2px solid black;
-    // box-shadow: 5px 5px 5px black;
-    border-radius: 5px;
-    text-align: center;
-    color: white;
-    backdrop-filter: blur(5px);
-    &__title{
-        text-shadow: 2px 2px 2px black;
-    }
+
+	&__icon {
+		font-size: 5rem;
+		color: $secondary-color;
+		filter: drop-shadow(3px 3px 0px black);
+	}
+	&__title {
+		font-size: 2rem;
+	}
+
+	&__input {
+		width: 100%;
+		padding: 0.5em;
+		font-size: 1.5rem;
+		background-color: transparent;
+		border: 1px solid rgb(160, 160, 160);
+		color: white;
+		outline: none;
+
+		&:focus {
+			outline: 1px solid $secondary-color;
+			border: none;
+		}
+
+		&::placeholder {
+			color: white;
+		}
+	}
+
+	&__check {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
+		width: 100%;
+		margin-right: auto;
+
+		&-label {
+			margin-right: auto;
+			margin-left: 0.2em;
+		}
+
+		&-input {
+			width: auto;
+			accent-color: $primary-color;
+		}
+	}
+
+	Button {
+		width: 100%;
+	}
+
+	&__text {
+		padding: 0.5em;
+
+		&-link {
+			padding-left: 0.2em;
+			text-decoration: none;
+			font-weight: bold;
+			color: $secondary-color;
+		}
+	}
+}
+
+@media (min-height:800px) {
+    .form-signin {
+		height: 55%;
+	}
+}
+
+@media (min-width: 576px) {
+	.form-signin {
+		width: 70%;
+	}
+}
+
+@media (min-width: 768px) {
+	.form-signin {
+		width: 50%;
+	}
+}
+
+@media (min-width: 992px) {
+	.form-signin {
+		width: 35%;
+
+		&__icon {
+			font-size: 6rem;
+		}
+
+		&__title {
+			font-size: 2.2rem;
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	.form-signin {
+		width: 25%;
+
+		&__icon {
+			font-size: 6.5rem;
+		}
+
+		&__title {
+			font-size: 2.3rem;
+		}
+	}
 }
