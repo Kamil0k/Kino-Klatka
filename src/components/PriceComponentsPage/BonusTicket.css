@@ -1,6 +1,5 @@
 .ticket-area {
   padding: 1em;
-  margin-bottom: 3em;
 }
 .ticket-area__list {
   display: flex;
@@ -9,6 +8,7 @@
   align-items: center;
   flex-wrap: wrap;
   padding: 0 0.7em;
+  margin-bottom: 5em;
 }
 
 @media (min-width: 992px) {

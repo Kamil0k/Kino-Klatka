@@ -5,8 +5,8 @@ import { useState } from 'react'
 
 const SignInForm = () => {
 	const [formData, setFormData] = useState({
-		email:'',
-		password:''
+		email: '',
+		password: '',
 	})
 
 	const [errors, setErrors] = useState({})
@@ -41,15 +41,20 @@ const SignInForm = () => {
 		return errors
 	}
 
-
 	return (
 		<>
 			<form onSubmit={handleSubmit} className='form-signin'>
 				<i className='fa-regular fa-user form-signin__icon'></i>
 				<h3 className='form-signin__title'>Zaloguj się!</h3>
-				<input type='email' id='email' placeholder='Email' className='form-signin__input' onChange={handleChange}/>
+				<input type='email' id='email' placeholder='Email' className='form-signin__input' onChange={handleChange} />
 				{errors.email && <span className='form-signup__error'>{errors.email}</span>}
-				<input type='password' id='password' placeholder='Hasło' className='form-signin__input' onChange={handleChange}/>
+				<input
+					type='password'
+					id='password'
+					placeholder='Hasło'
+					className='form-signin__input'
+					onChange={handleChange}
+				/>
 				{errors.password && <span className='form-signup__error'>{errors.password}</span>}
 				<div className='form-signin__check'>
 					<input type='checkbox' id='employee-checkbox' name='employee' className='form-signin__check-input' />

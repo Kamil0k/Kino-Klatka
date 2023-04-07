@@ -1,6 +1,10 @@
 import { useState } from 'react'
 import './SignUpForm.css'
 import Button from '../UI/Button'
+import { useAuth } from '../../contexts/AuthContext'
+import firebase from 'firebase/compat/app'
+import { useNavigate } from 'react-router-dom'
+import { auth, firestore } from '../../firebase'
 
 const SignUpForm = () => {
 	const [formData, setFormData] = useState({
@@ -12,9 +16,13 @@ const SignUpForm = () => {
 		confirmPassword: '',
 	})
 
+	const { signup, currentUser } = useAuth()
+
 	const [errors, setErrors] = useState({})
+	const [errorMessage, setErrorMessage] = useState(null)
 
 	const [isEmployee, setIsEmployee] = useState(false)
+	const navigate = useNavigate()
 
 	const employeeHandler = () => {
 		setIsEmployee(!isEmployee)
@@ -26,12 +34,28 @@ const SignUpForm = () => {
 		setFormData({ ...formData, [name]: value })
 	}
 
-	const handleSubmit = event => {
+	const handleSubmit = async event => {
 		event.preventDefault()
 		const validationErrors = validateFormData(formData)
 		setErrors(validationErrors)
 		if (Object.keys(validationErrors).length === 0) {
-			//zapis do bazy danych
+			try {
+				const { user } = await auth.createUserWithEmailAndPassword(formData.email, formData.password)
+				await user.updateProfile({
+					displayName: `${formData.name} ${formData.surname}`,
+				})
+				// await user.updateEmail(formData.email)
+				// await user.updatePassword(formData.password)
+				// await firebase.firestore().collection('users').doc(user.uid).set({
+				// 	formData,
+				// })
+				// console.log(`Zarejestrowano użytkownika ${user.displayName}`)
+				// setFormData({ name: '', surname: '', idOfEmployee: '', email: '', password: '', confirmPassword: '' })
+				// setErrorMessage(null)
+				navigate('/')
+			} catch (error) {
+				setErrorMessage(error.message)
+			}
 		}
 	}
 

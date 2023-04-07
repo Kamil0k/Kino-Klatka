@@ -9,8 +9,8 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 90%;
-  height: 75%;
+  width: 95%;
+  height: 95%;
   padding: 1em 3em;
   margin-bottom: 1em;
   border-radius: 5px;
@@ -85,6 +85,11 @@
   color: #cfb53b;
 }
 
+@media (min-height: 770px) {
+  .form-signup {
+    height: 65%;
+  }
+}
 @media (min-width: 576px) {
   .form-signup {
     width: 70%;
@@ -108,7 +113,7 @@
 }
 @media (min-width: 1200px) {
   .form-signup {
-    width: 30%;
+    width: 25%;
   }
   .form-signup__icon {
     font-size: 6.5rem;

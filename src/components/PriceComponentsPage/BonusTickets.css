@@ -16,6 +16,10 @@
   box-shadow: 5px 5px 5px black;
   border-radius: 5px;
   color: white;
+  transition: transform 0.3s;
+}
+.ticket:hover {
+  transform: scale(1.05);
 }
 .ticket__title {
   margin: 1em 0;

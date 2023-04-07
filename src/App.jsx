@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage'
 import PricePage from './pages/PricePage'
 import SignInPage from './pages/SignInPage'
 import SignUpPage from './pages/SignUpPage'
+import AuthProvider from './contexts/AuthContext'
 
 const router = createBrowserRouter([
 	{
@@ -33,7 +34,11 @@ const router = createBrowserRouter([
 ])
 
 function App() {
-	return <RouterProvider router={router} />
+	return (
+		<AuthProvider>
+			<RouterProvider router={router} />
+		</AuthProvider>
+	)
 }
 
 export default App
