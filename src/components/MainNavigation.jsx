@@ -3,11 +3,15 @@ import { NavLink, Link } from 'react-router-dom'
 import Brand from './UI/Brand'
 import Button from './UI/Button'
 import { IconMenu2, IconX } from '@tabler/icons-react'
+import { useAuth } from '../contexts/AuthContext'
+import { useNavigate } from 'react-router-dom'
 
 import './MainNavigation.css'
 
 function MainNavigation() {
 	const [isMenuVisible, setMenuVisible] = useState(false)
+	const { currentUser, signout } = useAuth()
+	const navigate = useNavigate()
 
 	const handleHamburgerMenu = () => {
 		setMenuVisible(isMenuVisible => !isMenuVisible)
@@ -15,6 +19,15 @@ function MainNavigation() {
 
 	const handleLinks = () => {
 		setMenuVisible(false)
+	}
+
+	const handleSignout = async () => {
+		try {
+			await signout()
+			navigate('/signin')
+		} catch {
+			console.log('Błąd wylogowania')
+		}
 	}
 
 	return (
@@ -30,13 +43,15 @@ function MainNavigation() {
 						)}
 						<ul className={`nav-mobile__list ` + `${isMenuVisible ? 'show' : 'hide'}`}>
 							<div className='login-mobile'>
-								<NavLink to='/signin'onClick={handleLinks}>
-									<Button >Zaloguj się</Button>
+								<NavLink to='/signin' onClick={handleLinks}>
+									<Button>{currentUser ? 'Wyloguj się' : 'Zaloguj się'}</Button>
 								</NavLink>
-								{/* <div className='login-mobile__user'>
-									<i className='fa-solid fa-user'></i>
-									<p className='login-mobile__user-name'>Kamil Porada</p>
-								</div> */}
+								{currentUser && (
+									<div className='login-mobile__user'>
+										<i className='fa-solid fa-user'></i>
+										<p className='login-mobile__user-name'>{currentUser.displayName}</p>
+									</div>
+								)}
 							</div>
 							<li>
 								<NavLink
@@ -98,13 +113,20 @@ function MainNavigation() {
 						</ul>
 					</nav>
 					<div className='login-desktop'>
-						<NavLink to='/signin'>
-							<Button>Zaloguj się</Button>
-						</NavLink>
-						{/* <div className='login-desktop__user'>
-							<i className='fa-solid fa-user'></i>
-							<p className='login-desktop__user-name'>Kamil Porada</p>
-						</div> */}
+						{currentUser ? (
+							<Button onClick={handleSignout}>Wyloguj się</Button>
+						) : (
+							<NavLink to='/signin'>
+								<Button>Zaloguj się</Button>
+							</NavLink>
+						)}
+
+						{currentUser && (
+							<div className='login-desktop__user'>
+								<i className='fa-solid fa-user'></i>
+								<p className='login-desktop__user-name'>{currentUser.displayName}</p>
+							</div>
+						)}
 					</div>
 				</div>
 			</div>
