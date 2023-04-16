@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
-import { auth, db } from '../firebase'
+import { firebase, auth, db } from '../firebase'
 
 const AuthContext = React.createContext()
 
@@ -9,13 +9,13 @@ export function useAuth() {
 export default function AuthProvider({ children }) {
 	const [currentUser, setCurrentUser] = useState()
 	const [loading, setLoading] = useState(false)
+	const [isEmployee, setIsEmployee] = useState(false)
 
 	function signup(name, surname, email, password, isEmployee, idOfEmployee) {
 		auth
 			.createUserWithEmailAndPassword(email, password)
 			.then(userCredential => {
-				const userId = userCredential.uid
-				db.collection('users').doc(userId).set({
+				db.collection('users').doc(email).set({
 					name: name,
 					surname: surname,
 					isEmployee: isEmployee,
@@ -39,9 +39,17 @@ export default function AuthProvider({ children }) {
 	}
 
 	useEffect(() => {
-		const unsubscribe = auth.onAuthStateChanged(user => {
+		const unsubscribe = auth.onAuthStateChanged(async user => {
 			setLoading(false)
 			setCurrentUser(user)
+			if (user) {
+				const userRef = db.collection('users').doc(user.email)
+				const doc = await userRef.get()
+				if (doc.exists) {
+					const data = doc.data()
+					setIsEmployee(data.isEmployee)
+				}
+			}
 		})
 
 		return unsubscribe
@@ -49,6 +57,7 @@ export default function AuthProvider({ children }) {
 
 	const value = {
 		currentUser,
+		isEmployee,
 		signin,
 		signup,
 		signout,

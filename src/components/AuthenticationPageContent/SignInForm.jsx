@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
 import Button from '../UI/Button'
@@ -13,7 +13,7 @@ const SignInForm = () => {
 
 	const [disabledButton, setDisabledButton] = useState(false)
 	const [error, setError] = useState(null)
-	const { signin } = useAuth()
+	const { signin, currentUser, isEmployee } = useAuth()
 	const navigate = useNavigate()
 
 	const handleChange = event => {
@@ -26,15 +26,13 @@ const SignInForm = () => {
 		event.preventDefault()
 		try {
 			setError(null)
-			setDisabledButton(true) 
+			setDisabledButton(true)
 			await signin(formData.email, formData.password)
-			navigate('/')
 		} catch {
 			setError('Błędny email lub hasło!')
+		} finally {
+			setDisabledButton(false)
 		}
-		finally {
-			setDisabledButton(false) 
-		  }
 	}
 
 	return (

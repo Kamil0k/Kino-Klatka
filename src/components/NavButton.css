@@ -1,0 +1,35 @@
+.wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.nav-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  padding: 2.8em;
+  background-color: #1a1a1a;
+  border: 1px solid #777;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.nav-button:hover {
+  background-color: #424242;
+}
+.nav-button__icon {
+  font-size: 3.7rem;
+  color: #cfb53b;
+  filter: drop-shadow(3px 3px 0px black);
+}
+.nav-button__name {
+  margin-top: 0.3em;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.4rem;
+  color: white;
+}/*# sourceMappingURL=NavButton.css.map */

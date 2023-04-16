@@ -1,11 +1,13 @@
 import React from 'react'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
-import RootLayout from './pages/Root'
-import HomePage from './pages/HomePage'
-import PricePage from './pages/PricePage'
-import SignInPage from './pages/SignInPage'
-import SignUpPage from './pages/SignUpPage'
+import RootLayout from './Pages/Root'
+import EmployeeRoot from './Pages/EmployeePages/EmployeeRoot'
+import HomePage from './Pages/HomePage'
+import PricePage from './Pages/PricePage'
+import SignInPage from './Pages/SignInPage'
+import SignUpPage from './Pages/SignUpPage'
+import Dashboard from './Pages/EmployeePages/EmployeeDashboard'
 import AuthProvider from './contexts/AuthContext'
 
 const router = createBrowserRouter([
@@ -28,6 +30,16 @@ const router = createBrowserRouter([
 			{
 				path: 'signup',
 				element: <SignUpPage />,
+			},
+		],
+	},
+	{
+		path: '/employee',
+		element: <EmployeeRoot />,
+		children: [
+			{
+				index: true,
+				element: <Dashboard />,
 			},
 		],
 	},

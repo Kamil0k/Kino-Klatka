@@ -17,7 +17,6 @@ const BonusTicket = (props) =>{
             <p className="ticket__price-item">{props.price2}</p>
             <p className="ticket__price-item">{props.price3}</p>
         </div>
-        <Button>Wybierz</Button>
     </div>
     </>
 }

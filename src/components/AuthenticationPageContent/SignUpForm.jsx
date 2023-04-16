@@ -18,7 +18,7 @@ const SignUpForm = () => {
 	})
 	const [errors, setErrors] = useState({})
 	const [disabledButton, setDisabledButton] = useState(false)
-	const { signup } = useAuth()
+	const { signup, isEmployee } = useAuth()
 	const navigate = useNavigate()
 
 	const handleChange = event => {
@@ -37,7 +37,7 @@ const SignUpForm = () => {
 		setErrors(validationErrors)
 		if (Object.keys(validationErrors).length === 0) {
 			try {
-				setDisabledButton(true) 
+				setDisabledButton(true)
 				await signup(
 					formData.name,
 					formData.surname,
@@ -49,10 +49,9 @@ const SignUpForm = () => {
 				navigate('/')
 			} catch (error) {
 				errors.auth = error
+			} finally {
+				setDisabledButton(false)
 			}
-			finally {
-				setDisabledButton(false) 
-			  }
 		}
 	}
 

@@ -1,0 +1,36 @@
+@import './UI/colors.scss';
+
+.nav-button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    padding: 2.8em;
+    background-color: $background-darker;
+    border: 1px solid #777;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover{
+        background-color: $background-brighter;
+    }
+
+    &__icon{
+        font-size: 3.7rem;
+        color: $secondary-color;
+        filter: drop-shadow(3px 3px 0px black);
+
+    }
+
+    &__name{
+        margin-top: 0.3em;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 1.4rem;
+        color: white;
+    }
+
+}

@@ -9,7 +9,7 @@ import './MainNavigation.css'
 
 function MainNavigation() {
 	const [isMenuVisible, setMenuVisible] = useState(false)
-	const { currentUser, signout } = useAuth()
+	const { currentUser, signout, isEmployee } = useAuth()
 	const navigate = useNavigate()
 
 	const handleHamburgerMenu = () => {
@@ -29,6 +29,13 @@ function MainNavigation() {
 		}
 	}
 
+	useEffect(() => {
+		if (isEmployee && currentUser) {
+			navigate('/employee')
+		} else {
+			navigate('/')
+		}
+	}, [isEmployee, currentUser])
 
 	return (
 		<>
@@ -43,9 +50,13 @@ function MainNavigation() {
 						)}
 						<ul className={`nav-mobile__list ` + `${isMenuVisible ? 'show' : 'hide'}`}>
 							<div className='login-mobile'>
-								<NavLink to='/signin' onClick={handleLinks}>
-									<Button>{currentUser ? 'Wyloguj się' : 'Zaloguj się'}</Button>
-								</NavLink>
+								{currentUser ? (
+									<Button onClick={handleSignout}>Wyloguj się</Button>
+								) : (
+									<NavLink to='/signin'>
+										<Button>Zaloguj się</Button>
+									</NavLink>
+								)}
 								{currentUser && (
 									<div className='login-mobile__user'>
 										<i className='fa-solid fa-user'></i>
