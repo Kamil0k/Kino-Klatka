@@ -17,6 +17,13 @@
   overflow: hidden;
   z-index: 100;
 }
+.button:disabled {
+  background-color: #777;
+  cursor: default;
+}
+.button:disabled::before {
+  height: 0;
+}
 .button:hover::before {
   width: 100%;
 }

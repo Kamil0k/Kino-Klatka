@@ -1,37 +1,34 @@
 import { useState } from 'react'
-import './SignUpForm.css'
-import Button from '../UI/Button'
 import { useAuth } from '../../contexts/AuthContext'
 import { useNavigate } from 'react-router-dom'
 import 'firebase/auth'
+import Button from '../UI/Button'
+
+import './SignUpForm.css'
 
 const SignUpForm = () => {
 	const [formData, setFormData] = useState({
 		name: '',
 		surname: '',
+		isEmployee: false,
 		idOfEmployee: '',
 		email: '',
 		password: '',
 		confirmPassword: '',
 	})
-
-	const { signup, currentUser } = useAuth()
-
 	const [errors, setErrors] = useState({})
-	const [errorMessage, setErrorMessage] = useState(null)
-	const [loading, setLoading] = useState(false)
-
-	const [isEmployee, setIsEmployee] = useState(false)
+	const [disabledButton, setDisabledButton] = useState(false)
+	const { signup } = useAuth()
 	const navigate = useNavigate()
-
-	const employeeHandler = () => {
-		setIsEmployee(!isEmployee)
-	}
 
 	const handleChange = event => {
 		const name = event.target.id
-		const value = event.target.value
-		setFormData({ ...formData, [name]: value })
+		const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value
+		if (name === 'isEmployee' && !value) {
+			setFormData({ ...formData, [name]: value, idOfEmployee: '' })
+		} else {
+			setFormData({ ...formData, [name]: value })
+		}
 	}
 
 	const handleSubmit = async event => {
@@ -40,22 +37,22 @@ const SignUpForm = () => {
 		setErrors(validationErrors)
 		if (Object.keys(validationErrors).length === 0) {
 			try {
-				setLoading(true)
+				setDisabledButton(true) 
 				await signup(
 					formData.name,
 					formData.surname,
 					formData.email,
 					formData.password,
-					isEmployee,
-					isEmployee ? formData.idOfEmployee : null
+					formData.isEmployee,
+					formData.isEmployee ? formData.idOfEmployee : null
 				)
-
-				setErrorMessage(null)
 				navigate('/')
 			} catch (error) {
-				setErrorMessage(error.message)
+				errors.auth = error
 			}
-			setLoading(false)
+			finally {
+				setDisabledButton(false) 
+			  }
 		}
 	}
 
@@ -67,7 +64,7 @@ const SignUpForm = () => {
 		if (!data.surname) {
 			errors.surname = 'Podaj nazwisko!'
 		}
-		if (isEmployee) {
+		if (formData.isEmployee) {
 			if (!data.idOfEmployee) {
 				errors.idOfEmployee = 'Podaj identfikator!'
 			} else if (data.idOfEmployee.length !== 12) {
@@ -103,7 +100,7 @@ const SignUpForm = () => {
 				{errors.name && <span className='form-signup__error'>{errors.name}</span>}
 				<input type='text' id='surname' placeholder='Nazwisko' className='form-signup__input' onChange={handleChange} />
 				{errors.surname && <span className='form-signup__error'>{errors.surname}</span>}
-				{isEmployee && (
+				{formData.isEmployee && (
 					<input
 						type='text'
 						id='idOfEmployee'
@@ -112,7 +109,9 @@ const SignUpForm = () => {
 						onChange={handleChange}
 					/>
 				)}
-				{errors.idOfEmployee && isEmployee && <span className='form-signup__error'>{errors.idOfEmployee}</span>}
+				{errors.idOfEmployee && formData.isEmployee && (
+					<span className='form-signup__error'>{errors.idOfEmployee}</span>
+				)}
 				<input type='email' id='email' placeholder='Email' className='form-signup__input' onChange={handleChange} />
 				{errors.email && <span className='form-signup__error'>{errors.email}</span>}
 				<input
@@ -134,16 +133,16 @@ const SignUpForm = () => {
 				<div className='form-signup__check'>
 					<input
 						type='checkbox'
-						id='employee-checkbox'
+						id='isEmployee'
 						name='employee'
 						className='form-signup__check-input'
-						onChange={employeeHandler}
+						onChange={handleChange}
 					/>
 					<label className='form-signup__check-label' forhtml='employee-checkbox'>
 						Jestem pracownikiem
 					</label>
 				</div>
-				<Button>{loading ? 'Wysyłanie...' : 'Zarejestruj się'}</Button>
+				<Button disabled={disabledButton}>Zarejestruj się</Button>
 			</form>
 		</>
 	)

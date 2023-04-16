@@ -1,9 +1,9 @@
-import './SignInForm.css'
-import Button from '../UI/Button'
-import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
-import { useNavigate } from 'react-router-dom'
+import Button from '../UI/Button'
+
+import './SignInForm.css'
 
 const SignInForm = () => {
 	const [formData, setFormData] = useState({
@@ -11,7 +11,8 @@ const SignInForm = () => {
 		password: '',
 	})
 
-	const [error, setError] = useState(null);
+	const [disabledButton, setDisabledButton] = useState(false)
+	const [error, setError] = useState(null)
 	const { signin } = useAuth()
 	const navigate = useNavigate()
 
@@ -23,14 +24,17 @@ const SignInForm = () => {
 
 	const handleSubmit = async event => {
 		event.preventDefault()
-
 		try {
 			setError(null)
+			setDisabledButton(true) 
 			await signin(formData.email, formData.password)
 			navigate('/')
 		} catch {
-			setError('Błędny email lub hasło!');
+			setError('Błędny email lub hasło!')
 		}
+		finally {
+			setDisabledButton(false) 
+		  }
 	}
 
 	return (
@@ -46,15 +50,14 @@ const SignInForm = () => {
 					className='form-signin__input'
 					onChange={handleChange}
 				/>
-				{/* <span className='form-signup__error'>{errors.auth}</span> */}
-				{error && <span className="form-signup__error">{error}</span>}
+				{error && <span className='form-signup__error'>{error}</span>}
 				<div className='form-signin__check'>
 					<input type='checkbox' id='employee-checkbox' name='employee' className='form-signin__check-input' />
 					<label className='form-signin__check-label' forhtml='employee-checkbox'>
 						Jestem pracownikiem
 					</label>
 				</div>
-				<Button>Zaloguj się</Button>
+				<Button disabled={disabledButton}>Zaloguj się</Button>
 				<p className='form-signin__text'>
 					Nie masz jeszcze konta?
 					<br />{' '}

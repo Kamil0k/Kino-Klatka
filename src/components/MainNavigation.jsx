@@ -1,10 +1,9 @@
-import { useState } from 'react'
-import { NavLink, Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { NavLink, useNavigate } from 'react-router-dom'
+import { useAuth } from '../contexts/AuthContext'
+import { IconMenu2, IconX } from '@tabler/icons-react'
 import Brand from './UI/Brand'
 import Button from './UI/Button'
-import { IconMenu2, IconX } from '@tabler/icons-react'
-import { useAuth } from '../contexts/AuthContext'
-import { useNavigate } from 'react-router-dom'
 
 import './MainNavigation.css'
 
@@ -29,6 +28,7 @@ function MainNavigation() {
 			console.log('Błąd wylogowania')
 		}
 	}
+
 
 	return (
 		<>
