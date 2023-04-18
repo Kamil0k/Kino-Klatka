@@ -1,58 +1,182 @@
 @import './UI/colors.scss';
 
-.hamburger-menu{
-    position: sticky;
-    top: 5%;
-    left: 3%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    width: 22vw;
-    padding: 0.2em;
-    text-transform: uppercase;
-    border: 1px solid #777;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
+.hamburger-menu {
+	position: sticky;
+	top: 5%;
+	left: 3%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	width: 100px;
+	padding: 0.2em;
+	text-transform: uppercase;
+	border: 1px solid #777;
+	color: white;
+	border-radius: 5px;
+	cursor: pointer;
 }
 
-.nav{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    bottom: 0;
-    width: 170px;
-    height: 100vh;
-    background-color: black;
-    transform: translateX(-101%);
+.employee-nav {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	position: sticky;
+	top: 0;
+	bottom: 0;
+	width: 200px;
+	height: 100vh;
+	background-color: black;
+	transform: translateX(-101%);
 
-    &__x{
-        position: absolute;
-        top: 5px;
-        left: 5px;
-        color: white;
-        cursor: pointer;
-    }
+	&__x {
+		position: absolute;
+		top: 5px;
+		left: 5px;
+		color: white;
+		cursor: pointer;
+	}
 
-    &__user{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        height: 17vh;
-        margin-top: 0.5em;
-        &-icon{
-            font-size: 4rem;
-            color: $secondary-color;
-            filter: drop-shadow(3px 3px 0px black);
-        }
+	&__user {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		height: 17vh;
+		margin-top: 0.5em;
+		&-icon {
+			font-size: 4rem;
+			color: $secondary-color;
+			filter: drop-shadow(3px 3px 0px black);
+		}
 
-        &-name{
-            color: white;
-        }
-    }
+		&-name {
+            text-align: center;
+			color: white;
+		}
+	}
+}
+
+.show {
+	animation: showNav 0.3s forwards;
+}
+
+.hide {
+	animation: hideNav 0.3s forwards;
+}
+
+@keyframes showNav {
+	from {
+		transform: translateX(-102%);
+	}
+	to {
+		transform: translateX(0%);
+	}
+}
+
+@keyframes hideNav {
+	from {
+		transform: translateX(0%);
+	}
+	to {
+		transform: translateX(-102%);
+	}
+}
+
+@media (min-width: 576px) {
+	.employee-nav {
+		&__x {
+			width: 25px;
+			height: 25px;
+		}
+
+		&__user {
+			margin-top: 0.5em;
+			&-icon {
+				font-size: 5rem;
+			}
+
+			&-name {
+				color: white;
+				font-size: 2rem;
+			}
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.hamburger-menu {
+		display: none;
+	}
+
+	.employee-nav {
+		&__x {
+			display: none;
+		}
+
+		&__user {
+			&-icon {
+				font-size: 5.5rem;
+			}
+		}
+	}
+}
+
+@media (min-height: 800px) {
+	.employee-nav {
+		&__user {
+			margin-top: 0.5em;
+			&-icon {
+				font-size: 5rem;
+			}
+
+			&-name {
+				color: white;
+				font-size: 2rem;
+			}
+		}
+	}
+}
+
+@media (min-height: 900px) {
+	.employee-nav {
+		&__user {
+			&-icon {
+				font-size: 6rem;
+			}
+
+			&-name {
+				font-size: 2.3rem;
+			}
+		}
+	}
+}
+
+@media (min-height: 1100px) {
+	.employee-nav {
+		&__user {
+			&-icon {
+				font-size: 6rem;
+			}
+
+			&-name {
+				font-size: 2.3rem;
+			}
+		}
+	}
+}
+
+@media (min-height: 1300px) {
+	.employee-nav {
+		&__user {
+			&-icon {
+				font-size: 7rem;
+			}
+
+			&-name {
+				font-size: 2.6rem;
+			}
+		}
+	}
 }

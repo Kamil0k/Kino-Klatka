@@ -1,36 +1,106 @@
 @import './UI/colors.scss';
 
-.nav-button{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 80px;
-    height: 80px;
-    padding: 2.8em;
-    background-color: $background-darker;
-    border: 1px solid #777;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+.nav-button {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100px;
+	height: 100px;
+	padding: 2.8em;
+	background-color: $background-darker;
+	border: 1px solid #777;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
 
-    &:hover{
-        background-color: $background-brighter;
-    }
+	&:hover {
+		background-color: $background-brighter;
+	}
 
-    &__icon{
-        font-size: 3.7rem;
-        color: $secondary-color;
-        filter: drop-shadow(3px 3px 0px black);
+	&__icon {
+		font-size: 3.7rem;
+		color: $secondary-color;
+		filter: drop-shadow(3px 3px 0px black);
+	}
 
-    }
+	&__name {
+		margin-top: 0.3em;
+		text-transform: uppercase;
+		font-weight: bold;
+		font-size: 1.4rem;
+		color: white;
+	}
+}
 
-    &__name{
-        margin-top: 0.3em;
-        text-transform: uppercase;
-        font-weight: bold;
-        font-size: 1.4rem;
-        color: white;
-    }
+@media (min-width: 576px) {
+	.nav-button {
+		width: 90px;
+		height: 90px;
 
+		&__icon {
+			font-size: 4rem;
+		}
+
+		&__name {
+			font-size: 1.5rem;
+		}
+	}
+}
+
+
+@media (min-height: 800px) {
+	.nav-button {
+		width: 100px;
+		height: 100px;
+
+		&__icon {
+			font-size: 4rem;
+		}
+	}
+}
+
+@media (min-height: 900px) {
+	.nav-button {
+		width: 120px;
+		height: 120px;
+
+		&__icon {
+			font-size: 4.4rem;
+		}
+
+		&__name {
+			font-size: 1.5rem;
+		}
+	}
+}
+
+@media (min-height: 1100px) {
+	.nav-button {
+		width: 130px;
+		height: 130px;
+
+		&__icon {
+			font-size: 5rem;
+		}
+
+		&__name {
+			font-size: 1.7rem;
+		}
+	}
+}
+
+@media (min-height: 1300px) {
+	.nav-button {
+		width: 150px;
+		height: 150px;
+
+		&__icon {
+			font-size: 6rem;
+		}
+
+		&__name {
+			font-size: 1.9rem;
+		}
+	}
 }

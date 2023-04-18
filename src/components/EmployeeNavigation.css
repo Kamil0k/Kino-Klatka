@@ -12,7 +12,7 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  width: 22vw;
+  width: 100px;
   padding: 0.2em;
   text-transform: uppercase;
   border: 1px solid #777;
@@ -21,27 +21,27 @@
   cursor: pointer;
 }
 
-.nav {
+.employee-nav {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   position: sticky;
   top: 0;
   bottom: 0;
-  width: 170px;
+  width: 200px;
   height: 100vh;
   background-color: black;
   transform: translateX(-101%);
 }
-.nav__x {
+.employee-nav__x {
   position: absolute;
   top: 5px;
   left: 5px;
   color: white;
   cursor: pointer;
 }
-.nav__user {
+.employee-nav__user {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -49,11 +49,100 @@
   height: 17vh;
   margin-top: 0.5em;
 }
-.nav__user-icon {
+.employee-nav__user-icon {
   font-size: 4rem;
   color: #cfb53b;
   filter: drop-shadow(3px 3px 0px black);
 }
-.nav__user-name {
+.employee-nav__user-name {
+  text-align: center;
   color: white;
+}
+
+.show {
+  animation: showNav 0.3s forwards;
+}
+
+.hide {
+  animation: hideNav 0.3s forwards;
+}
+
+@keyframes showNav {
+  from {
+    transform: translateX(-102%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes hideNav {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-102%);
+  }
+}
+@media (min-width: 576px) {
+  .employee-nav__x {
+    width: 25px;
+    height: 25px;
+  }
+  .employee-nav__user {
+    margin-top: 0.5em;
+  }
+  .employee-nav__user-icon {
+    font-size: 5rem;
+  }
+  .employee-nav__user-name {
+    color: white;
+    font-size: 2rem;
+  }
+}
+@media (min-width: 992px) {
+  .hamburger-menu {
+    display: none;
+  }
+  .employee-nav__x {
+    display: none;
+  }
+  .employee-nav__user-icon {
+    font-size: 5.5rem;
+  }
+}
+@media (min-height: 800px) {
+  .employee-nav__user {
+    margin-top: 0.5em;
+  }
+  .employee-nav__user-icon {
+    font-size: 5rem;
+  }
+  .employee-nav__user-name {
+    color: white;
+    font-size: 2rem;
+  }
+}
+@media (min-height: 900px) {
+  .employee-nav__user-icon {
+    font-size: 6rem;
+  }
+  .employee-nav__user-name {
+    font-size: 2.3rem;
+  }
+}
+@media (min-height: 1100px) {
+  .employee-nav__user-icon {
+    font-size: 6rem;
+  }
+  .employee-nav__user-name {
+    font-size: 2.3rem;
+  }
+}
+@media (min-height: 1300px) {
+  .employee-nav__user-icon {
+    font-size: 7rem;
+  }
+  .employee-nav__user-name {
+    font-size: 2.6rem;
+  }
 }/*# sourceMappingURL=EmployeeNavigation.css.map */

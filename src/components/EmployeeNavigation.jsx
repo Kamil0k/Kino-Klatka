@@ -1,22 +1,45 @@
 import Brand from './UI/Brand'
 import Button from './UI/Button'
 import NavButton from './NavButton'
+import { useState } from 'react'
+import { NavLink, useNavigate } from 'react-router-dom'
+import { useAuth } from '../contexts/AuthContext'
 import { IconX, IconMenu2 } from '@tabler/icons-react'
 import './EmployeeNavigation.css'
 
 const EmployeeNavigation = () => {
+	const [isMenuVisible, setIsMenuVisible] = useState(true)
+	const { currentUser, signout } = useAuth()
+	const navigate = useNavigate()
+
+	const handleSignOut = async () => {
+		try {
+			await signout()
+			navigate('/')
+		} catch {
+			console.log('Błąd wylogowania')
+		}
+	}
+
+	const handleMenuButton = () =>{
+		setIsMenuVisible(true)
+	}
+
+	const handleXButton = () =>{
+		setIsMenuVisible(false)
+	}
 	return (
 		<>
-        <div className="hamburger-menu">
-            <IconMenu2 className='hamburger-menu__icon'/>
-            <p className="hamburger-menu__text">menu</p>
-        </div>
-			<div className='nav'>
-				<IconX className='nav__x' />
-				<div className='nav__user'>
-					<i className='fa-regular fa-user nav__user-icon'></i>
-					<p className='nav__user-name'>Kamil Porada</p>
-					<Button>Wyloguj się</Button>
+			<div className='hamburger-menu' onClick={handleMenuButton}>
+				<IconMenu2 className='hamburger-menu__icon' />
+				<p className='hamburger-menu__text'>menu</p>
+			</div>
+			<div className={isMenuVisible ? 'employee-nav show' : 'employee-nav hide'}>
+				<IconX className='employee-nav__x' onClick={handleXButton}/>
+				<div className='employee-nav__user'>
+					<i className='fa-regular fa-user employee-nav__user-icon'></i>
+					<p className='employee-nav__user-name'>{currentUser.displayName}</p>
+					<Button onClick={handleSignOut}>Wyloguj się</Button>
 				</div>
 				<NavButton name='filmy' icon={<i className='fa-solid fa-film'></i>}></NavButton>
 				<NavButton name='repertuar' icon={<i className='fa-regular fa-rectangle-list'></i>}></NavButton>

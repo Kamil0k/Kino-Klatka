@@ -9,8 +9,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   padding: 2.8em;
   background-color: #1a1a1a;
   border: 1px solid #777;
@@ -32,4 +32,62 @@
   font-weight: bold;
   font-size: 1.4rem;
   color: white;
+}
+
+@media (min-width: 576px) {
+  .nav-button {
+    width: 90px;
+    height: 90px;
+  }
+  .nav-button__icon {
+    font-size: 4rem;
+  }
+  .nav-button__name {
+    font-size: 1.5rem;
+  }
+}
+@media (min-height: 800px) {
+  .nav-button {
+    width: 100px;
+    height: 100px;
+  }
+  .nav-button__icon {
+    font-size: 4rem;
+  }
+}
+@media (min-height: 900px) {
+  .nav-button {
+    width: 120px;
+    height: 120px;
+  }
+  .nav-button__icon {
+    font-size: 4.4rem;
+  }
+  .nav-button__name {
+    font-size: 1.5rem;
+  }
+}
+@media (min-height: 1100px) {
+  .nav-button {
+    width: 130px;
+    height: 130px;
+  }
+  .nav-button__icon {
+    font-size: 5rem;
+  }
+  .nav-button__name {
+    font-size: 1.7rem;
+  }
+}
+@media (min-height: 1300px) {
+  .nav-button {
+    width: 150px;
+    height: 150px;
+  }
+  .nav-button__icon {
+    font-size: 6rem;
+  }
+  .nav-button__name {
+    font-size: 1.9rem;
+  }
 }/*# sourceMappingURL=NavButton.css.map */
