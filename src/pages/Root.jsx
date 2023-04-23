@@ -7,6 +7,8 @@ import EmployeeNavigation from '../components/EmployeeNavigation'
 import Footer from '../components/Footer'
 import { NavLink, useNavigate } from 'react-router-dom'
 
+import './Root.css'
+
 function RootLayout() {
 	const { isEmployee, currentUser } = useAuth()
 	const [navigation, setNavigation] = useState(null)
@@ -20,20 +22,20 @@ function RootLayout() {
 			setNavigation(<MainNavigation />)
 			setFooter(<Footer />)
 		}
-		if(!currentUser){
+		if (!currentUser) {
 			setNavigation(<MainNavigation />)
 			setFooter(<Footer />)
 		}
 	}, [isEmployee, currentUser])
 
 	return (
-		<>
+		<div>
 			{navigation}
-			<main>
+			<main className={(isEmployee && currentUser) ? 'main' : ''}>
 				<Outlet />
 			</main>
 			{footer}
-		</>
+		</div>
 	)
 }
 

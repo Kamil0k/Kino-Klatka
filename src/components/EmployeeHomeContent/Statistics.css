@@ -1,0 +1,9 @@
+.statistics {
+  padding: 2.5em 1em;
+}
+
+@media (min-width: 576px) {
+  .statistics {
+    padding: 2em;
+  }
+}/*# sourceMappingURL=Statistics.css.map */

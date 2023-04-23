@@ -21,11 +21,11 @@ const EmployeeNavigation = () => {
 		}
 	}
 
-	const handleMenuButton = () =>{
+	const handleMenuButton = () => {
 		setIsMenuVisible(true)
 	}
 
-	const handleXButton = () =>{
+	const handleXButton = () => {
 		setIsMenuVisible(false)
 	}
 	return (
@@ -35,10 +35,10 @@ const EmployeeNavigation = () => {
 				<p className='hamburger-menu__text'>menu</p>
 			</div>
 			<div className={isMenuVisible ? 'employee-nav show' : 'employee-nav hide'}>
-				<IconX className='employee-nav__x' onClick={handleXButton}/>
+				<IconX className='employee-nav__x' onClick={handleXButton} />
 				<div className='employee-nav__user'>
 					<i className='fa-regular fa-user employee-nav__user-icon'></i>
-					<p className='employee-nav__user-name'>{currentUser.displayName}</p>
+					{currentUser && <p className='employee-nav__user-name'>{currentUser.displayName}</p>}
 					<Button onClick={handleSignOut}>Wyloguj się</Button>
 				</div>
 				<NavButton name='filmy' icon={<i className='fa-solid fa-film'></i>}></NavButton>
