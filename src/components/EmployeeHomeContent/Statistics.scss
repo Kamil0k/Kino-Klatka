@@ -1,9 +1,72 @@
-.statistics{
-    padding: 2.5em 1em;
+@import '../UI/colors.scss';
+.statistics {
+	padding: 2.5em 1em;
+	&__boxes {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: center;
+		flex-wrap: wrap;
+        margin: 2em 0;
+
+		.statistics__box {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			align-items: center;
+			width: 95%;
+			margin-top: 1em;
+            padding: 1em;
+            color: $secondary-color;
+            background-color: $background-brighter;
+            text-shadow: 2px 2px 2px black;
+			border: 1px solid white;
+            border-radius: 5px;
+
+            &-title{
+                margin-bottom: 0.5em;
+                text-transform: uppercase;
+                font-size: 1.9rem;
+            }
+
+            &-value{
+                font-size: 2rem;
+                font-weight: bold;
+            }
+		}
+	}
 }
 
-@media (min-width:576px) {
+@media (min-width: 576px) {
+	.statistics {
+		padding: 2em;
+	}
+}
+
+@media (min-width:768px) {
     .statistics{
-        padding: 2em;
+        .statistics__box {
+			width: 30%;
+		}
+    } 
+}
+
+@media (min-width:992px) {
+    .statistics{
+        .statistics__box {
+			width: 20%;
+
+            &-title{
+                margin-bottom: 0.5em;
+                text-transform: uppercase;
+                font-size: 2.1rem;
+            }
+
+            &-value{
+                font-size: 2.2rem;
+                font-weight: bold;
+            }
+		}
     }
+    
 }

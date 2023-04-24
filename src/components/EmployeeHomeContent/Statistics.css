@@ -1,9 +1,65 @@
+.wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
 .statistics {
   padding: 2.5em 1em;
+}
+.statistics__boxes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 2em 0;
+}
+.statistics__boxes .statistics__box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 95%;
+  margin-top: 1em;
+  padding: 1em;
+  color: #cfb53b;
+  background-color: #424242;
+  text-shadow: 2px 2px 2px black;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+.statistics__boxes .statistics__box-title {
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+  font-size: 1.9rem;
+}
+.statistics__boxes .statistics__box-value {
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 @media (min-width: 576px) {
   .statistics {
     padding: 2em;
+  }
+}
+@media (min-width: 768px) {
+  .statistics .statistics__box {
+    width: 30%;
+  }
+}
+@media (min-width: 992px) {
+  .statistics .statistics__box {
+    width: 20%;
+  }
+  .statistics .statistics__box-title {
+    margin-bottom: 0.5em;
+    text-transform: uppercase;
+    font-size: 2.1rem;
+  }
+  .statistics .statistics__box-value {
+    font-size: 2.2rem;
+    font-weight: bold;
   }
 }/*# sourceMappingURL=Statistics.css.map */

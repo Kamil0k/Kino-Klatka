@@ -3,6 +3,7 @@ import Slider from 'react-slick'
 
 import SectionTitle from '../UI/SectionTitle'
 import RepertoireItem from './RepertoireItem'
+import { useAuth } from '../../contexts/AuthContext'
 
 import film1 from '../../assets/img/film1.jpg'
 import film2 from '../../assets/img/film2.jpg'
@@ -11,6 +12,7 @@ import film4 from '../../assets/img/film4.jpg'
 import film5 from '../../assets/img/film5.jpg'
 
 const InRepertoire = () => {
+	const { currentUser, isEmployee } = useAuth()
 	const settings = {
 		className: 'repertoire__items',
 		dots: true,
@@ -56,7 +58,11 @@ const InRepertoire = () => {
 					<RepertoireItem src={film4} alt='Jest alt!' title='Dawno temu w trawie' />
 					<RepertoireItem src={film5} alt='Jest alt!' title='Tylko mnie kochaj' />
 				</Slider>
-				<p className="repertoire__link">Zapoznaj się z <a href="#">repertuarem</a>, który przygotowaliśmy dla was!</p>
+				{(!currentUser || !isEmployee) && (
+					<p className='repertoire__link'>
+						Zapoznaj się z <a href='#'>repertuarem</a>, który przygotowaliśmy dla was!
+					</p>
+				)}
 			</div>
 		</>
 	)
