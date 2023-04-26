@@ -1,6 +1,6 @@
 @import '../UI/colors.scss';
 .statistics {
-	padding: 2.5em 1em;
+	padding: 2em;
 	&__boxes {
 		display: flex;
 		flex-direction: row;
@@ -39,7 +39,7 @@
 
 @media (min-width: 576px) {
 	.statistics {
-		padding: 2em;
+		padding: 2em 1em;
 	}
 }
 

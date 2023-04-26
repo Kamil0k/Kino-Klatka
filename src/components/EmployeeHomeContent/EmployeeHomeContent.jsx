@@ -1,11 +1,11 @@
-import Statistics from './Statistics'
-import Chart from './Chart'
-import InRepertoire from '../HomePageComponents/InRepertoire'
+import Statistic from '../../components/EmployeeHomeContent/Statistics'
+import Chart from '../../components/EmployeeHomeContent/Chart'
+import InRepertoire from '../../components/HomePageComponents/InRepertoire'
 
 const EmployeeHomeContent = () => {
 	return (
 		<>
-			<Statistics />
+			<Statistic />
 			<Chart />
 			<InRepertoire />
 		</>

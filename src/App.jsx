@@ -6,7 +6,8 @@ import HomePage from './Pages/HomePage'
 import PricePage from './Pages/PricePage'
 import SignInPage from './Pages/SignInPage'
 import SignUpPage from './Pages/SignUpPage'
-import EmployeeHome from './Pages/EmployeePages/EmployeeHome'
+import EmployeeHomePage from './Pages/EmployeePages/EmployeeHomePage'
+import FilmsPage from './Pages/EmployeePages/FilmsPage'
 import AuthProvider from './contexts/AuthContext'
 
 const router = createBrowserRouter([
@@ -32,7 +33,11 @@ const router = createBrowserRouter([
 			},
 			{
 				path: 'employee',
-				element: <EmployeeHome/>,
+				element: <EmployeeHomePage/>,
+			},
+			{
+				path: 'films',
+				element: <FilmsPage/>,
 			},
 		],
 	},

@@ -1,0 +1,124 @@
+@import '../UI/colors.scss';
+
+.new-film {
+	&__error {
+		width: 100%;
+		padding: 0.7em 0;
+		margin-top: 1em 0;
+		text-align: center;
+		font-weight: bold;
+		color: $primary-color;
+		background-color: $background-darker;
+		border-radius: 5px;
+	}
+
+	&__fields {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		margin-top: 0.5em;
+		&-label {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			color: white;
+			margin: 0.3em 0;
+
+			input {
+				background-color: $background-brighter;
+				border: 1px solid #999;
+				color: white;
+				font-size: 1.6rem;
+				padding: 0.2em 0.4em;
+				outline: none;
+				font-size: 1.5rem;
+				margin-top: 0.2em;
+
+				&:focus {
+					outline: 1px solid $secondary-color;
+					border: none;
+				}
+                &::placeholder {
+                    color: white;
+                }
+			}
+
+			input[type='date']::-webkit-calendar-picker-indicator {
+				filter: invert(1);
+			}
+		}
+
+		textarea {
+			background-color: $background-brighter;
+			border: 1px solid #999;
+			width: 100%;
+			min-width: 100%;
+			max-height: 100px;
+			min-height: 50px;
+			font-size: 1.5rem;
+			outline: none;
+			color: white;
+
+			&:focus {
+				outline: 1px solid $secondary-color;
+				border: none;
+			}
+		}
+	}
+
+    &__buttons{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 90%;
+        margin: 1em auto;
+    }
+}
+
+@media (min-width: 768px) {
+	.new-film {
+		&__error {
+			width: 50%;
+			margin: 0 auto;
+		}
+
+		&__fields {
+			&-label {
+				&--half {
+					width: 48%;
+				}
+			}
+		}
+        &__buttons{
+            width: 60%;
+        }
+	}
+}
+
+@media (min-width: 992px) {
+	.new-film {
+		&__error {
+			width: 30%;
+		}
+
+		&__fields {
+			&-label {
+				font-size: 1.8rem;
+
+				input {
+					font-size: 1.6rem;
+				}
+
+			}
+
+			textarea {
+				font-size: 1.6rem;
+			}
+		}
+        &__buttons{
+            width: 30%;
+        }
+	}
+}

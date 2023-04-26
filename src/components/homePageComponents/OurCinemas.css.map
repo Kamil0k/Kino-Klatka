@@ -1,1 +1,1 @@
-{"version":3,"sources":["../UI/colors.scss","OurCinemas.css","OurCinemas.scss"],"names":[],"mappings":"AAOA;EACC,cAAA;EACA,iBAAA;EACA,WAAA;ACND;;ACFA;EACI,YAAA;ADKJ","file":"OurCinemas.css"}
+{"version":3,"sources":["../UI/colors.scss","OurCinemas.css","OurCinemas.scss"],"names":[],"mappings":"AAOA;EACC,cAAA;EACA,iBAAA;EACA,WAAA;ACND;;ACFA;EACC,YAAA;ADKD;;ACFA;EACC;IACC,gBAAA;EDKA;AACF","file":"OurCinemas.css"}

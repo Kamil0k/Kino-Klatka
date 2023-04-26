@@ -5,7 +5,7 @@
 }
 
 .statistics {
-  padding: 2.5em 1em;
+  padding: 2em;
 }
 .statistics__boxes {
   display: flex;
@@ -41,7 +41,7 @@
 
 @media (min-width: 576px) {
   .statistics {
-    padding: 2em;
+    padding: 2em 1em;
   }
 }
 @media (min-width: 768px) {

@@ -1,5 +1,11 @@
 @import '../UI/colors.scss';
 
-.cinema{
-    padding: 2em;
+.cinema {
+	padding: 2em;
+}
+
+@media (min-width: 576px) {
+	.cinema {
+		padding: 2em 1em;
+	}
 }
