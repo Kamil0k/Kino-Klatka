@@ -2,6 +2,7 @@ import { useState } from 'react'
 import SectionTitle from '../UI/SectionTitle'
 import Button from '../UI/Button'
 import NewFilm from './NewFilm'
+import FilmsList from './FilmsList'
 
 import './FilmNavigation.css'
 
@@ -28,7 +29,8 @@ const FilmNavigation = () => {
 						Nowy film
 					</Button>
 				</div>
-				{!isLists && <NewFilm onCancel={handleListsOfFilmButton}/>}
+				{!isLists && <NewFilm onCancel={handleListsOfFilmButton} />}
+				{isLists && <FilmsList/>}
 			</div>
 		</>
 	)
