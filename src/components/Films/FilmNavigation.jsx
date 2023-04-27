@@ -28,7 +28,7 @@ const FilmNavigation = () => {
 						Nowy film
 					</Button>
 				</div>
-				{!isLists && <NewFilm/>}
+				{!isLists && <NewFilm onCancel={handleListsOfFilmButton}/>}
 			</div>
 		</>
 	)

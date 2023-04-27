@@ -14,6 +14,15 @@
   background-color: #1a1a1a;
   border-radius: 5px;
 }
+.new-film__submitting {
+  background-color: #1a1a1a;
+  padding: 0.5em;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  width: 100%;
+  margin: 2em auto;
+}
 .new-film__fields {
   display: flex;
   flex-direction: row;
@@ -80,6 +89,9 @@
     width: 50%;
     margin: 0 auto;
   }
+  .new-film__submitting {
+    width: 50%;
+  }
   .new-film__fields-label--half {
     width: 48%;
   }
@@ -89,7 +101,11 @@
 }
 @media (min-width: 992px) {
   .new-film__error {
-    width: 30%;
+    width: 40%;
+  }
+  .new-film__submitting {
+    font-size: 1.8rem;
+    width: 40%;
   }
   .new-film__fields-label {
     font-size: 1.8rem;
