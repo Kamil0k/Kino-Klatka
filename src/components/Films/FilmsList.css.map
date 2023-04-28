@@ -1,1 +1,1 @@
-{"version":3,"sources":["FilmsList.scss","FilmsList.css"],"names":[],"mappings":"AAAA;EACI,aAAA;EACA,mBAAA;EACA,uBAAA;EACA,eAAA;EACA,SAAA;ACCJ","file":"FilmsList.css"}
+{"version":3,"sources":["../UI/colors.scss","FilmsList.css","FilmsList.scss"],"names":[],"mappings":"AAOA;EACC,cAAA;EACA,iBAAA;EACA,WAAA;ACND;;ACHA;EACC,aAAA;EACA,mBAAA;EACA,uBAAA;EACA,eAAA;EACA,SAAA;EACA,eAAA;ADMD;ACJC;EACC,yBFTkB;EEUlB,cAAA;EACA,kBAAA;EACA,kBAAA;EACA,YAAA;EACA,WAAA;EACA,gBAAA;ADMF;;ACFA;EAEQ;IACI,UAAA;EDIV;AACF;ACAA;EAEQ;IACI,UAAA;EDCV;AACF","file":"FilmsList.css"}

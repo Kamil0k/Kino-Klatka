@@ -2,10 +2,10 @@
 .film-item {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: space-between;
 	background-color: $background-darker;
 	color: white;
-	width: 270px;
+	width: 250px;
 	border: 1px solid black;
 	transition: transform 0.3s;
 	cursor: pointer;
@@ -15,7 +15,7 @@
 	}
 
 	&__img {
-		height: 450px;
+		height: 350px;
 	}
 
 	&__title {

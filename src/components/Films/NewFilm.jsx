@@ -4,7 +4,7 @@ import Button from '../UI/Button'
 
 import { storage, database } from '../../firebase'
 
-const NewFilm = props => {
+const NewFilm = (props) => {
 	const [movie, setMovie] = useState({
 		title: '',
 		genre: '',
@@ -44,9 +44,9 @@ const NewFilm = props => {
 		})
 	}
 
-	const handleCancel = () => {
-		props.onCancel()
-	}
+    const handleCancel = () =>{
+        props.onCancel()
+    }
 
 	const handleAddMovie = async event => {
 		event.preventDefault()
@@ -179,7 +179,7 @@ const NewFilm = props => {
 					</div>
 
 					<div className='new-film__buttons'>
-						<Button onClick={handleCancel}>Anuluj</Button>
+						<Button>Anuluj</Button>
 						<Button>Dodaj</Button>
 					</div>
 				</>

@@ -7,10 +7,10 @@
 .film-item {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   background-color: #1a1a1a;
   color: white;
-  width: 270px;
+  width: 250px;
   border: 1px solid black;
   transition: transform 0.3s;
   cursor: pointer;
@@ -19,7 +19,7 @@
   transform: scale(0.99);
 }
 .film-item__img {
-  height: 450px;
+  height: 350px;
 }
 .film-item__title {
   padding: 0.5em 0em 0em 0.5em;

@@ -1,0 +1,57 @@
+@import '../UI/colors.scss';
+.search-input {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	background-color: white;
+	border-radius: 3px;
+	padding: 0.5em;
+
+	&::before {
+		position: absolute;
+		top: 25%;
+		left: 2em;
+		bottom: 0;
+		content: '';
+		width: 2px;
+		height: 50%;
+		background-color: $primary-color;
+	}
+
+	i {
+		position: relative;
+		margin-right: 1em;
+		width: 8%;
+	}
+
+	input {
+		width: 350%;
+		height: 100%;
+		font-size: 1.6rem;
+		outline: none;
+		border: none;
+	}
+}
+
+@media (min-width: 768px) {
+	.search-input {
+		padding: 0.7em;
+
+		&::before {
+			left: 2.2em;
+		}
+
+		i {
+			position: relative;
+			margin-right: 1em;
+			width: 8%;
+		}
+
+		input {
+			font-size: 1.8rem;
+		}
+	}
+}

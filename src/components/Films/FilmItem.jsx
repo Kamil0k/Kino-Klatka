@@ -1,7 +1,8 @@
 import './FilmItem.css'
 import Button from '../UI/Button'
 
-const FilmItem = (props) => {
+const FilmItem = props => {
+
 	return (
 		<>
 			<div className='film-item'>
@@ -25,14 +26,13 @@ const FilmItem = (props) => {
 					</div>
 					<div className='film-item__box-item'>
 						<i className='fa-solid fa-globe'></i>
-						<p className='film-item__box-item-value'>Wielka Brytania</p>
+						<p className='film-item__box-item-value'>{props.film.country}</p>
 					</div>
-					
 				</div>
-                <div className="film-item__buttons">
-                    <Button>Edytuj</Button>
-                    <Button>Usuń</Button>
-                </div>
+				<div className='film-item__buttons'>
+					<Button>Edytuj</Button>
+					<Button>Usuń</Button>
+				</div>
 			</div>
 		</>
 	)
