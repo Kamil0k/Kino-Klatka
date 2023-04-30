@@ -1,10 +1,10 @@
 import './NewFilm.css'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Button from '../UI/Button'
 
 import { storage, database } from '../../firebase'
 
-const NewFilm = (props) => {
+const NewFilm = props => {
 	const [movie, setMovie] = useState({
 		title: '',
 		genre: '',
@@ -17,6 +17,8 @@ const NewFilm = (props) => {
 		thumbnail: null,
 		heroImage: null,
 	})
+	const [thumbnailURL, setThumbnailURL] = useState('')
+	const [heroImageURL, setHeroImageURL] = useState('')
 	const [isSubmitting, setIsSubmitting] = useState(false)
 	const [errorMessage, setErrorMessage] = useState('')
 
@@ -24,7 +26,7 @@ const NewFilm = (props) => {
 		<p className='new-film__submitting'>
 			Proszę czekać...
 			<br />
-			Trwa dodawanie filmu!
+			Trwa {props.editedFilm ? 'edycja' : 'dodawanie'} filmu!
 		</p>
 	)
 
@@ -44,9 +46,9 @@ const NewFilm = (props) => {
 		})
 	}
 
-    const handleCancel = () =>{
-        props.onCancel()
-    }
+	const handleCancel = () => {
+		props.onCancel()
+	}
 
 	const handleAddMovie = async event => {
 		event.preventDefault()
@@ -68,37 +70,83 @@ const NewFilm = (props) => {
 			return
 		}
 
+		if (!movie.thumbnail || !movie.heroImage) {
+			setErrorMessage('Dodaj oba obrazki (ikona i obrazek tła)!')
+			return
+		}
+
 		try {
 			setIsSubmitting(true)
-			const storageRef = storage.ref()
+			if (props.editedFilm) {
+				const movieData = {
+					title: movie.title,
+					genre: movie.genre,
+					duration: parseInt(movie.duration),
+					ageRating: parseInt(movie.ageRating),
+					releaseDate: movie.releaseDate,
+					country: movie.country,
+					trailerLink: movie.trailerLink,
+					description: movie.description,
+				}
 
-			// Dodawanie obrazków do Firebase Storage
-			const thumbnailRef = storageRef.child(`thumbnails/${movie.thumbnail.name}`)
-			await thumbnailRef.put(movie.thumbnail)
+				const movieRef = database.ref(`films/${props.editedFilm.id}`)
+				await movieRef.update(movieData)
+				console.log('Edytuję!')
 
-			const heroImageRef = storageRef.child(`heroImages/${movie.heroImage.name}`)
-			await heroImageRef.put(movie.heroImage)
+				if (movie.thumbnail && movie.heroImage) {
+					const storageRef = storage.ref()
+					let thumbnailURL = movie.thumbnail
+					let heroImageURL = movie.heroImage
 
-			// Pobieranie URL obrazków z Firebase Storage
-			const thumbnailURL = await thumbnailRef.getDownloadURL()
-			const heroImageURL = await heroImageRef.getDownloadURL()
+					// Jeśli obrazki zostały zmienione, zaktualizuj je w Storage
+					if (movie.thumbnail instanceof File) {
+						const thumbnailRef = storageRef.child(`thumbnails/${movie.thumbnail.name}`)
+						await thumbnailRef.put(movie.thumbnail)
+						thumbnailURL = await thumbnailRef.getDownloadURL()
+					}
 
-			const movieData = {
-				title: movie.title,
-				genre: movie.genre,
-				duration: parseInt(movie.duration),
-				ageRating: parseInt(movie.ageRating),
-				releaseDate: movie.releaseDate,
-				country: movie.country,
-				trailerLink: movie.trailerLink,
-				description: movie.description,
-				thumbnail: thumbnailURL,
-				heroImage: heroImageURL,
+					if (movie.heroImage instanceof File) {
+						const heroImageRef = storageRef.child(`heroImages/${movie.heroImage.name}`)
+						await heroImageRef.put(movie.heroImage)
+						heroImageURL = await heroImageRef.getDownloadURL()
+					}
+
+					// Zaktualizuj URL obrazków w danych filmu
+					await movieRef.update({
+						thumbnail: thumbnailURL,
+						heroImage: heroImageURL,
+					})
+				}
+			} else {
+				const storageRef = storage.ref()
+
+				// Dodawanie obrazków do Firebase Storage
+				const thumbnailRef = storageRef.child(`thumbnails/${movie.thumbnail.name}`)
+				await thumbnailRef.put(movie.thumbnail)
+
+				const heroImageRef = storageRef.child(`heroImages/${movie.heroImage.name}`)
+				await heroImageRef.put(movie.heroImage)
+
+				// Pobieranie URL obrazków z Firebase Storage
+				const thumbnailURL = await thumbnailRef.getDownloadURL()
+				const heroImageURL = await heroImageRef.getDownloadURL()
+
+				const movieData = {
+					title: movie.title,
+					genre: movie.genre,
+					duration: parseInt(movie.duration),
+					ageRating: parseInt(movie.ageRating),
+					releaseDate: movie.releaseDate,
+					country: movie.country,
+					trailerLink: movie.trailerLink,
+					description: movie.description,
+					thumbnail: thumbnailURL,
+					heroImage: heroImageURL,
+				}
+
+				// Dodawanie filmu do bazy danych
+				await database.ref('films').push(movieData)
 			}
-
-			// Dodawanie filmu do bazy danych
-			await database.ref('films').push(movieData)
-
 			// Zresetowanie formularza i komunikatu o błędzie
 			setMovie({
 				title: '',
@@ -115,13 +163,70 @@ const NewFilm = (props) => {
 			setIsSubmitting(false)
 			setErrorMessage('')
 		} catch (error) {
-			console.error('Błąd podczas dodawania filmu:', error)
-			setErrorMessage('Wystąpił błąd podczas dodawania filmu')
+			console.error('Błąd podczas edycji/dodawania filmu:', error)
+			setErrorMessage('Wystąpił błąd podczas edycji/dodawania filmu')
 		}
-
-		console.log('Działa!')
+		props.onCancel()
 		setErrorMessage('')
 	}
+
+	useEffect(() => {
+		if (props.editedFilm) {
+			const {
+				id,
+				title,
+				genre,
+				duration,
+				ageRating,
+				releaseDate,
+				country,
+				trailerLink,
+				description,
+				thumbnail,
+				heroImage,
+			} = props.editedFilm
+
+			setMovie(prevMovie => ({
+				...prevMovie,
+				id,
+				title,
+				genre,
+				duration: duration.toString(),
+				ageRating: ageRating.toString(),
+				releaseDate,
+				country,
+				trailerLink,
+				description,
+				thumbnail,
+				heroImage,
+			}))
+
+			// Pobierz obrazy edytowanego filmu
+			const fetchImages = async () => {
+				try {
+					const storageRef = storage.ref()
+
+					// Pobierz referencję do obrazka na ikonkę
+					const thumbnailRef = storage.refFromURL(thumbnail)
+					setThumbnailURL(await thumbnailRef.getDownloadURL())
+
+					// Pobierz referencję do obrazka na tło
+					const heroImageRef = storage.refFromURL(heroImage)
+					setHeroImageURL(await heroImageRef.getDownloadURL())
+					console.log(thumbnailURL)
+					setMovie(prevMovie => ({
+						...prevMovie,
+						thumbnail: thumbnailURL, // Ustaw pobrany URL obrazka na ikonkę
+						heroImage: heroImageURL, // Ustaw pobrany URL obrazka na tło
+					}))
+				} catch (error) {
+					console.error('Błąd podczas pobierania obrazków:', error)
+				}
+			}
+
+			fetchImages()
+		}
+	}, [props.editedFilm])
 
 	return (
 		<form className='new-film' onSubmit={handleAddMovie}>
@@ -179,8 +284,8 @@ const NewFilm = (props) => {
 					</div>
 
 					<div className='new-film__buttons'>
-						<Button>Anuluj</Button>
-						<Button>Dodaj</Button>
+						<Button onClick={handleCancel}>Anuluj</Button>
+						<Button>{props.editedFilm ? 'Edytuj' : 'Dodaj'}</Button>
 					</div>
 				</>
 			)}

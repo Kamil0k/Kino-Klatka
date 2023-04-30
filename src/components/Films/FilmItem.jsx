@@ -30,7 +30,7 @@ const FilmItem = props => {
 					</div>
 				</div>
 				<div className='film-item__buttons'>
-					<Button>Edytuj</Button>
+					<Button onClick={() => props.onEdit(props.film.id)}>Edytuj</Button>
 					<Button>Usuń</Button>
 				</div>
 			</div>
