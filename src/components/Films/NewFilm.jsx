@@ -208,12 +208,11 @@ const NewFilm = props => {
 
 					// Pobierz referencję do obrazka na ikonkę
 					const thumbnailRef = storage.refFromURL(thumbnail)
-					setThumbnailURL(await thumbnailRef.getDownloadURL())
+					const thumbnailURL = await thumbnailRef.getDownloadURL()
 
 					// Pobierz referencję do obrazka na tło
 					const heroImageRef = storage.refFromURL(heroImage)
-					setHeroImageURL(await heroImageRef.getDownloadURL())
-					console.log(thumbnailURL)
+					const heroImageURL = await heroImageRef.getDownloadURL()
 					setMovie(prevMovie => ({
 						...prevMovie,
 						thumbnail: thumbnailURL, // Ustaw pobrany URL obrazka na ikonkę
@@ -275,11 +274,11 @@ const NewFilm = props => {
 						<textarea id='description' name='description' value={movie.description} onChange={handleInputChange} />
 						<label className='new-film__fields-label new-film__fields-label--half'>
 							Zdjęcie na ikonkę:
-							<input type='file' name='thumbnail' onChange={handleFileInputChange} />
+							<input type='file' name='thumbnail' onChange={handleFileInputChange} value={thumbnailURL || ''} />
 						</label>
 						<label className='new-film__fields-label new-film__fields-label--half'>
 							Zdjęcie na tło:
-							<input type='file' name='heroImage' onChange={handleFileInputChange} />
+							<input type='file' name='heroImage' onChange={handleFileInputChange} value={heroImageURL || ''} />
 						</label>
 					</div>
 

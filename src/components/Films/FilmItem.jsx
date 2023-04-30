@@ -1,7 +1,21 @@
+import { useState } from 'react'
 import './FilmItem.css'
 import Button from '../UI/Button'
 
 const FilmItem = props => {
+	const [isDeleting, setIsDeleting] = useState(false)
+
+	const handleDelete = () => {
+		setIsDeleting(true)
+	}
+
+	const confirmDelete = () => {
+		props.onDelete(props.film.id)
+	}
+
+	const cancelDelete = () => {
+		setIsDeleting(false)
+	}
 
 	return (
 		<>
@@ -30,8 +44,15 @@ const FilmItem = props => {
 					</div>
 				</div>
 				<div className='film-item__buttons'>
-					<Button onClick={() => props.onEdit(props.film.id)}>Edytuj</Button>
-					<Button>Usuń</Button>
+					{!isDeleting && <Button onClick={() => props.onEdit(props.film.id)}>Edytuj</Button>}
+					{isDeleting ? (
+						<>
+							<Button onClick={cancelDelete}>Anuluj</Button>
+							<Button onClick={confirmDelete}>Potwierdź</Button>
+						</>
+					) : (
+						<Button onClick={handleDelete}>Usuń</Button>
+					)}
 				</div>
 			</div>
 		</>
