@@ -1,0 +1,132 @@
+@import '../UI/colors.scss';
+.details-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 2em;
+	margin-top: 1em;
+
+	&__img {
+		width: 100%;
+	}
+
+	&__box {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+
+		&-left {
+			display: flex;
+			flex-direction: column;
+			width: 25%;
+			text-align: right;
+
+			&-data {
+				margin-top: 1.5em;
+				font-size: 1.3rem;
+				color: white;
+
+				&-title {
+					font-weight: bold;
+				}
+
+				&-value {
+					font-weight: lighter;
+				}
+			}
+		}
+
+		&-right {
+			width: 70%;
+			font-size: 1.5rem;
+
+			&-title {
+				margin-top: 1.5em;
+				font-weight: bold;
+				color: $secondary-color;
+			}
+
+			&-genre {
+				margin-bottom: 0.5em;
+				color: white;
+				font-size: 1.4rem;
+			}
+
+			&-description {
+				font-size: 1.3rem;
+				font-weight: lighter;
+				color: white;
+			}
+		}
+	}
+    &__button{
+        margin-top: 2em;
+        width: 40vw;
+    }
+
+}
+
+@media (min-width: 768px) {
+	.details-item {
+		padding: 1em;
+
+		&__box {
+			&-left {
+				width: 20%;
+
+				&-data {
+					font-size: 1.4rem;
+				}
+			}
+
+			&-right {
+				width: 75%;
+				font-size: 1.6rem;
+
+				&-genre {
+					font-size: 1.5rem;
+				}
+
+				&-description {
+					font-size: 1.4rem;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.details-item {
+		&__img {
+			width: 80%;
+			margin: 0 auto;
+		}
+
+		&__box {
+			justify-content: space-around;
+			margin: 0 auto;
+			padding: 0 5em;
+
+			&-left {
+				width: 15%;
+
+				&-data {
+					font-size: 1.6rem;
+				}
+			}
+
+			&-right {
+				width: 75%;
+				font-size: 1.8rem;
+
+				&-genre {
+					font-size: 1.7rem;
+				}
+
+				&-description {
+					font-size: 1.5rem;
+				}
+			}
+		}
+	}
+}

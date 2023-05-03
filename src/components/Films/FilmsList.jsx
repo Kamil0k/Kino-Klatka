@@ -4,36 +4,38 @@ import { database } from '../../firebase'
 import FilmItem from './FilmItem'
 import SearchInput from '../UI/SearchInput'
 import { storage } from '../../firebase'
+import { Link } from 'react-router-dom'
 
 const FilmsList = props => {
 	const [films, setFilms] = useState([])
 	const [searchResults, setSearchResults] = useState([])
+    const [searchTerm, setSearchTerm] = useState('');
 
 	const handleEditFilm = filmID => {
 		const editedFilm = films.find(film => film.id === filmID)
 		props.selectedFilm(editedFilm)
 	}
 
-	const handleDeleteFilm = async (filmID) => {
-  try {
-    // Pobierz informacje o filmie z bazy danych
-    const filmRef = database.ref(`films/${filmID}`);
-    const snapshot = await filmRef.once('value');
-    const film = snapshot.val();
+	const handleDeleteFilm = async filmID => {
+		try {
+			// Pobierz informacje o filmie z bazy danych
+			const filmRef = database.ref(`films/${filmID}`)
+			const snapshot = await filmRef.once('value')
+			const film = snapshot.val()
 
-    // Usuń film z bazy danych
-    await filmRef.remove();
+			// Usuń film z bazy danych
+			await filmRef.remove()
 
-    // Usuń obrazy filmu z Firebase Storage
-    const thumbnailRef = storage.refFromURL(film.thumbnail);
-    const heroImageRef = storage.refFromURL(film.heroImage);
+			// Usuń obrazy filmu z Firebase Storage
+			const thumbnailRef = storage.refFromURL(film.thumbnail)
+			const heroImageRef = storage.refFromURL(film.heroImage)
 
-    await thumbnailRef.delete();
-    await heroImageRef.delete();
-  } catch (error) {
-    console.error('Błąd podczas usuwania filmu:', error);
-  }
-};
+			await thumbnailRef.delete()
+			await heroImageRef.delete()
+		} catch (error) {
+			console.error('Błąd podczas usuwania filmu:', error)
+		}
+	}
 
 	const handleSearch = searchTerm => {
 		if (searchTerm === '') {
@@ -56,7 +58,6 @@ const FilmsList = props => {
 						...filmsData[key],
 					}))
 					setFilms(filmsArray)
-					setSearchResults(filmsArray)
 				}
 			} catch (error) {
 				console.error('Błąd podczas pobierania filmów:', error)
@@ -64,7 +65,16 @@ const FilmsList = props => {
 		}
 
 		fetchFilms()
-	}, [films])
+	}, [])
+
+	useEffect(() => {
+		if (searchTerm === '') {
+			setSearchResults(films)
+		} else {
+			const filteredFilms = films.filter(film => film.title.toLowerCase().includes(searchTerm.toLowerCase()))
+			setSearchResults(filteredFilms)
+		}
+	}, [films, searchTerm])
 
 	return (
 		<>
@@ -72,7 +82,9 @@ const FilmsList = props => {
 			<div className='films__list'>
 				{searchResults.length > 0 ? (
 					searchResults.map(film => (
-						<FilmItem key={film.id} film={film} onEdit={handleEditFilm} onDelete={handleDeleteFilm} />
+						<Link to={`${film.id}`} style={{ textDecoration: 'none' }} key={film.id}>
+							<FilmItem film={film} onEdit={handleEditFilm} onDelete={handleDeleteFilm} />
+						</Link>
 					))
 				) : (
 					<p className='films__list-attention'>Nie znaleziono filmu</p>

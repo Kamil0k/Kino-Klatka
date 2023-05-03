@@ -1,0 +1,110 @@
+.wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.details-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em;
+  margin-top: 1em;
+}
+.details-item__img {
+  width: 100%;
+}
+.details-item__box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.details-item__box-left {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  text-align: right;
+}
+.details-item__box-left-data {
+  margin-top: 1.5em;
+  font-size: 1.3rem;
+  color: white;
+}
+.details-item__box-left-data-title {
+  font-weight: bold;
+}
+.details-item__box-left-data-value {
+  font-weight: lighter;
+}
+.details-item__box-right {
+  width: 70%;
+  font-size: 1.5rem;
+}
+.details-item__box-right-title {
+  margin-top: 1.5em;
+  font-weight: bold;
+  color: #cfb53b;
+}
+.details-item__box-right-genre {
+  margin-bottom: 0.5em;
+  color: white;
+  font-size: 1.4rem;
+}
+.details-item__box-right-description {
+  font-size: 1.3rem;
+  font-weight: lighter;
+  color: white;
+}
+.details-item__button {
+  margin-top: 2em;
+  width: 40vw;
+}
+
+@media (min-width: 768px) {
+  .details-item {
+    padding: 1em;
+  }
+  .details-item__box-left {
+    width: 20%;
+  }
+  .details-item__box-left-data {
+    font-size: 1.4rem;
+  }
+  .details-item__box-right {
+    width: 75%;
+    font-size: 1.6rem;
+  }
+  .details-item__box-right-genre {
+    font-size: 1.5rem;
+  }
+  .details-item__box-right-description {
+    font-size: 1.4rem;
+  }
+}
+@media (min-width: 992px) {
+  .details-item__img {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .details-item__box {
+    justify-content: space-around;
+    margin: 0 auto;
+    padding: 0 5em;
+  }
+  .details-item__box-left {
+    width: 15%;
+  }
+  .details-item__box-left-data {
+    font-size: 1.6rem;
+  }
+  .details-item__box-right {
+    width: 75%;
+    font-size: 1.8rem;
+  }
+  .details-item__box-right-genre {
+    font-size: 1.7rem;
+  }
+  .details-item__box-right-description {
+    font-size: 1.5rem;
+  }
+}/*# sourceMappingURL=FilmDetailsItem.css.map */
