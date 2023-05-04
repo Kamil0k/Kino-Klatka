@@ -1,0 +1,71 @@
+.wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.new-repertoire-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+.new-repertoire-item__fields {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin-top: 0.5em;
+}
+.new-repertoire-item__fields-title {
+  font-size: 1.4rem;
+}
+.new-repertoire-item__fields input {
+  background-color: #424242;
+  border: 1px solid #999;
+  color: white;
+  font-size: 1.6rem;
+  padding: 0.2em 0.4em;
+  outline: none;
+  font-size: 1.5rem;
+  margin-top: 0.2em;
+}
+.new-repertoire-item__fields input:focus {
+  outline: 1px solid #cfb53b;
+  border: none;
+}
+.new-repertoire-item__fields input::-moz-placeholder {
+  color: white;
+}
+.new-repertoire-item__fields input::placeholder {
+  color: white;
+}
+.new-repertoire-item__fields input[type=time]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+.new-repertoire-item__title {
+  text-align: center;
+  font-weight: bold;
+}
+.new-repertoire-item__button-add {
+  padding: 0.3em 0.6em;
+  margin: 0.5em 0;
+  font-size: 2rem;
+}
+
+@media (min-width: 768px) {
+  .new-repertoire-item__fields-title {
+    font-size: 1.6rem;
+  }
+  .new-repertoire-item__title {
+    font-size: 1.7rem;
+  }
+}
+@media (min-width: 992px) {
+  .new-repertoire-item__fields-title {
+    font-size: 1.7rem;
+  }
+  .new-repertoire-item__title {
+    font-size: 1.8rem;
+  }
+}/*# sourceMappingURL=NewRepertoireItem.css.map */

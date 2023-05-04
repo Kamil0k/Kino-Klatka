@@ -9,6 +9,7 @@ import SignUpPage from './Pages/SignUpPage'
 import EmployeeHomePage from './Pages/EmployeePages/EmployeeHomePage'
 import FilmsPage from './Pages/EmployeePages/FilmsPage'
 import FilmDetailsPage from './Pages/EmployeePages/FilmDetailsPage'
+import RepertoirePage from './Pages/EmployeePages/RepertoirePage'
 import AuthProvider from './contexts/AuthContext'
 
 const router = createBrowserRouter([
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
 				path: 'films/:id',
 				element: <FilmDetailsPage />,
 			},
+			{
+				path: 'repertoire',
+				element: <RepertoirePage/>,
+			}
 		],
 	},
 ])

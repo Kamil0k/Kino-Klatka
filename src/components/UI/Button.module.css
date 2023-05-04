@@ -15,7 +15,7 @@
   background-color: #b82227;
   cursor: pointer;
   overflow: hidden;
-  z-index: 100;
+  z-index: 10;
 }
 .button:disabled {
   background-color: #777;

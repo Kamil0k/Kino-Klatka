@@ -5,7 +5,7 @@ import './SectionTitle.css'
 const SectionTitle = (props) =>{
     return(
         <>
-        <h2 className="title" id="aboutus">{props.title}</h2>
+        <h2 className={'title' + ' ' + props.className} id="aboutus">{props.title}</h2>
         </>
     )
 }

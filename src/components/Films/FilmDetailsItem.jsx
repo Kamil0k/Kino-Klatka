@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { database } from '../../firebase'
 import { Link } from 'react-router-dom'
 import Button from '../UI/Button'
+import SectionTitle from '../UI/SectionTitle'
 import './FilmDetailsItem.css'
 
 const FilmDetailsItem = () => {
@@ -29,6 +30,7 @@ const FilmDetailsItem = () => {
 		<div className='details-item wrapper'>
 			{film && (
 				<>
+					<SectionTitle className='details-item__title' title={film.title}/>
 					<img src={film.heroImage} alt={film.describe} className='details-item__img' />
 					<div className='details-item__box'>
 						<div className='details-item__box-left'>

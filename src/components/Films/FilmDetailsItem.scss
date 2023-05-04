@@ -4,7 +4,15 @@
 	flex-direction: column;
 	align-items: center;
 	padding: 2em;
-	margin-top: 1em;
+	margin-top: 2em;
+	margin-bottom: 1em;
+	border-radius: 5px;
+	background-color: $background-darker;
+
+	&__title {
+		margin-bottom: 1em;
+		align-self: flex-start;
+	}
 
 	&__img {
 		width: 100%;
@@ -59,16 +67,15 @@
 			}
 		}
 	}
-    &__button{
-        margin-top: 2em;
-        width: 40vw;
-    }
-
+	&__button {
+		margin-top: 2em;
+		width: 40vw;
+	}
 }
 
 @media (min-width: 768px) {
 	.details-item {
-		padding: 1em;
+		padding: 1em 8em;
 
 		&__box {
 			&-left {
@@ -97,11 +104,6 @@
 
 @media (min-width: 992px) {
 	.details-item {
-		&__img {
-			width: 80%;
-			margin: 0 auto;
-		}
-
 		&__box {
 			justify-content: space-around;
 			margin: 0 auto;

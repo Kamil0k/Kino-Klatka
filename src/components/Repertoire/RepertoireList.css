@@ -1,0 +1,51 @@
+.wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.repertoire-list {
+  display: flex;
+  flex-direction: column;
+  background-color: #1a1a1a;
+  margin-top: 1em;
+}
+.repertoire-list__search {
+  margin: 1em;
+}
+.repertoire-list__item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid #424242;
+  padding: 0.5em;
+}
+.repertoire-list__item-title {
+  width: 60%;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  color: white;
+}
+.repertoire-list__item-button {
+  font-size: 1.3rem;
+}
+
+@media (min-width: 768px) {
+  .repertoire-list__item-title {
+    font-size: 1.4rem;
+  }
+  .repertoire-list__item-button {
+    font-size: 1.5rem;
+  }
+}
+@media (min-width: 992px) {
+  .repertoire-list__item-title {
+    font-size: 1.5rem;
+  }
+  .repertoire-list__item-button {
+    font-size: 1.6rem;
+  }
+}/*# sourceMappingURL=RepertoireList.css.map */

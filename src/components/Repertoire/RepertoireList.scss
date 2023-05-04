@@ -1,0 +1,62 @@
+@import '../UI/colors.scss';
+
+.repertoire-list {
+	display: flex;
+	flex-direction: column;
+	background-color: $background-darker;
+	margin-top: 1em;
+
+    &__search{
+        margin: 1em;
+    }
+
+	&__item {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		border-bottom: 1px solid $background-brighter;
+		padding: 0.5em;
+
+		&-title {
+			width: 60%;
+			font-weight: bold;
+			text-transform: uppercase;
+			font-size: 1.2rem;
+			color: white;
+		}
+
+		&-button {
+			font-size: 1.3rem;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.repertoire-list {
+		&__item {
+			&-title {
+				font-size: 1.4rem;
+			}
+
+			&-button {
+				font-size: 1.5rem;
+			}
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.repertoire-list {
+		&__item {
+			&-title {
+				font-size: 1.5rem;
+			}
+
+			&-button {
+				font-size: 1.6rem;
+			}
+		}
+	}
+}

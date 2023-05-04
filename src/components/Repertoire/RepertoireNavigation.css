@@ -1,0 +1,31 @@
+.film-navigation {
+  padding: 2em;
+}
+.film-navigation__buttons {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1em auto;
+  z-index: 0;
+}
+
+@media (min-width: 576px) {
+  .film-navigation {
+    padding: 2em 1em;
+  }
+  .film-navigation__buttons {
+    width: 80%;
+  }
+}
+@media (min-width: 768px) {
+  .film-navigation__buttons {
+    width: 50%;
+  }
+}
+@media (min-width: 1200px) {
+  .film-navigation__buttons {
+    width: 30%;
+  }
+}/*# sourceMappingURL=RepertoireNavigation.css.map */
