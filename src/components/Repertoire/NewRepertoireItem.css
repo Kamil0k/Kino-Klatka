@@ -20,28 +20,9 @@
 .new-repertoire-item__fields-title {
   font-size: 1.4rem;
 }
-.new-repertoire-item__fields input {
-  background-color: #424242;
-  border: 1px solid #999;
-  color: white;
-  font-size: 1.6rem;
-  padding: 0.2em 0.4em;
-  outline: none;
-  font-size: 1.5rem;
-  margin-top: 0.2em;
-}
-.new-repertoire-item__fields input:focus {
-  outline: 1px solid #cfb53b;
-  border: none;
-}
-.new-repertoire-item__fields input::-moz-placeholder {
-  color: white;
-}
-.new-repertoire-item__fields input::placeholder {
-  color: white;
-}
-.new-repertoire-item__fields input[type=time]::-webkit-calendar-picker-indicator {
-  filter: invert(1);
+.new-repertoire-item__fields-time {
+  font-weight: bold;
+  font-size: 1.4rem;
 }
 .new-repertoire-item__title {
   text-align: center;
@@ -54,7 +35,7 @@
 }
 
 @media (min-width: 768px) {
-  .new-repertoire-item__fields-title {
+  .new-repertoire-item__fields-title, .new-repertoire-item__fields-time {
     font-size: 1.6rem;
   }
   .new-repertoire-item__title {
@@ -62,7 +43,7 @@
   }
 }
 @media (min-width: 992px) {
-  .new-repertoire-item__fields-title {
+  .new-repertoire-item__fields-title, .new-repertoire-item__fields-time {
     font-size: 1.7rem;
   }
   .new-repertoire-item__title {

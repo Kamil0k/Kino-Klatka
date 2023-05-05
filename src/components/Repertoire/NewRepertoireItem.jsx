@@ -16,19 +16,22 @@ const NewRepertoireItem = props => {
 	const handleSelectedFilm = film => {
 		setSelectedFilm(film)
 		setShowRepertoireList(false)
+		props.selectedFilm(film)
 	}
-
 
 	return (
 		<>
 			<div className='new-repertoire-item'>
 				<div className='new-repertoire-item__fields'>
 					<p className='new-repertoire-item__fields-title'>Godzina rozpoczęcia seansu:</p>
-					<input type='time' />
+					<p className='new-repertoire-item__fields-time'>{props.startTime}</p>
 				</div>
 				{!selectedFilm && <p className='new-repertoire-item__error'>Wybierz film</p>}
 				{selectedFilm && <div className='new-repertoire-item__title'>{selectedFilm.title}</div>}
-				<Button className='new-repertoire-item__button-add' onClick={handleShowRepertoireList}>
+				<Button
+					className='new-repertoire-item__button-add'
+					onClick={handleShowRepertoireList}
+					disabled={selectedFilm}>
 					+
 				</Button>
 			</div>
