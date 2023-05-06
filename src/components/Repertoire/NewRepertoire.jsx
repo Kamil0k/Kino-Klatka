@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Button from '../UI/Button'
 import NewRepertoireItem from './NewRepertoireItem'
 import { database } from '../../firebase'
 
 import './NewRepertoire.css'
 
-const NewRepertoire = () => {
+const NewRepertoire = props => {
 	const [isSubmitting, setIsSubmitting] = useState(false)
 	const [errorMessage, setErrorMessage] = useState('')
 	const [formData, setFormData] = useState({
@@ -17,13 +17,15 @@ const NewRepertoire = () => {
 	const [isFormValid, setIsFormValid] = useState(false)
 	const [isAddingFilm, setIsAddingFilm] = useState(false)
 
-	const [repertoireItems, setRepertoireItems] = useState([]) // Nowy stan dla elementów NewRepertoireItem
+	const [repertoireItems, setRepertoireItems] = useState([])
+	const [loadRepertoireDates, setLoadRepertoireDates] = useState([])
 	const [selectedFilm, setSelectedFilm] = useState(null)
 	const [disabledButton, setDisabledButton] = useState(false)
 
 	const handleInputChange = event => {
 		const { name, value } = event.target
 		setFormData(prevData => ({ ...prevData, [name]: value }))
+		console.log(loadRepertoireDates)
 	}
 
 	const validateForm = () => {
@@ -31,12 +33,28 @@ const NewRepertoire = () => {
 		const dateRegex = /^\d{4}-\d{2}-\d{2}$/
 		const timeRegex = /^([01]\d|2[0-3]):([0-5]\d)$/
 		const isDataValid = dateRegex.test(data)
+		const isDataOrginal = checkIfDataOrginal(data)
 		const isOpeningTimeValid = timeRegex.test(openingTime)
 		const isBreakTimeValid = Number(breakTime) > 0
 		const isBreakTimeFilled = breakTime !== ''
 
-		const isFormValid = isDataValid && isOpeningTimeValid && isBreakTimeValid && isBreakTimeFilled
+		if (!isDataOrginal) {
+			setErrorMessage('W tym dniu repertuar został już zaplanowany!')
+		} else {
+			setErrorMessage(null)
+		}
+
+		const isFormValid = isDataValid && isDataOrginal && isOpeningTimeValid && isBreakTimeValid && isBreakTimeFilled
 		setIsFormValid(isFormValid)
+	}
+
+	const checkIfDataOrginal = data => {
+		for (let i = 0; i < loadRepertoireDates.length; i++) {
+			if (loadRepertoireDates[i] === data) {
+				return false
+			}
+		}
+		return true
 	}
 
 	const handleAddFilm = event => {
@@ -86,7 +104,7 @@ const NewRepertoire = () => {
 			const { data } = formData
 
 			// Zapis danych do Firebase Realtime Database
-            await database.ref(`repertoire/${data}`).push(repertoireItems)
+			await database.ref(`repertoire/${data}`).push(repertoireItems)
 
 			setIsSubmitting(false)
 			setErrorMessage('')
@@ -108,6 +126,24 @@ const NewRepertoire = () => {
 			Trwa tworzenie repertuaru!
 		</p>
 	)
+
+	useEffect(() => {
+		const fetchRepertoireDates = async () => {
+			try {
+				const snapshot = await database.ref('repertoire').once('value')
+				const repertoireData = snapshot.val()
+
+				if (repertoireData) {
+					const repertoireDates = Object.keys(repertoireData)
+					setLoadRepertoireDates(repertoireDates)
+				}
+			} catch (error) {
+				console.error('Błąd podczas pobierania dat:', error)
+			}
+		}
+
+		fetchRepertoireDates()
+	}, [])
 
 	return (
 		<>
@@ -164,8 +200,8 @@ const NewRepertoire = () => {
 							))}
 						</div>
 						<div className='new-repertoire__buttons'>
-							<Button>Anuluj</Button>
-							<Button disabled={disabledButton} onClick={saveRepertoire}>
+							<Button onClick={props.onCancel}>Anuluj</Button>
+							<Button disabled={repertoireItems.length === 0 ? true : disabledButton} onClick={saveRepertoire}>
 								Zapisz
 							</Button>
 						</div>

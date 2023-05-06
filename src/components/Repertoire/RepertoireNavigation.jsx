@@ -2,6 +2,7 @@ import { useState } from 'react'
 import SectionTitle from '../UI/SectionTitle'
 import Button from '../UI/Button'
 import NewRepertoire from './NewRepertoire'
+import RepertoireMenu from './RepertoireMenu'
 
 import './RepertoireNavigation.css'
 
@@ -16,6 +17,10 @@ const FilmNavigation = () => {
 		setIsLists(false)
 	}
 
+	const handleCancel = () =>{
+		setIsLists(true)
+	}
+
 	return (
 		<>
 			<div className='film-navigation wrapper'>
@@ -28,8 +33,8 @@ const FilmNavigation = () => {
 						Twórz repertuar
 					</Button>
 				</div>
-				{!isLists && <NewRepertoire/>}
-				{/* {isLists && <FilmsList />} */}
+				{!isLists && <NewRepertoire onCancel={handleCancel}/>}
+				{isLists && <RepertoireMenu/>}
 			</div>
 		</>
 	)

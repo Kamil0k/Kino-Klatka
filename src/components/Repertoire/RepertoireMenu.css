@@ -1,0 +1,19 @@
+.wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.data-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 2em;
+}
+
+.new-item-active {
+  background-color: #b82227;
+}/*# sourceMappingURL=RepertoireMenu.css.map */

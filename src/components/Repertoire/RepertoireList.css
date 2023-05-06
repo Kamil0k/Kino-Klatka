@@ -21,20 +21,28 @@
   width: 100%;
   border-bottom: 1px solid #424242;
   padding: 0.5em;
-}
-.repertoire-list__item-title {
-  width: 60%;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 1.2rem;
   color: white;
 }
+.repertoire-list__item-title {
+  width: 40%;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+}
+.repertoire-list__item-time {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
 .repertoire-list__item-button {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 
 @media (min-width: 768px) {
   .repertoire-list__item-title {
+    width: 25%;
+    font-size: 1.4rem;
+  }
+  .repertoire-list__item-time {
     font-size: 1.4rem;
   }
   .repertoire-list__item-button {
@@ -42,7 +50,7 @@
   }
 }
 @media (min-width: 992px) {
-  .repertoire-list__item-title {
+  .repertoire-list__item-title, .repertoire-list__item-time {
     font-size: 1.5rem;
   }
   .repertoire-list__item-button {

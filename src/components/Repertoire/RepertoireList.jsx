@@ -58,6 +58,7 @@ const RepertoireList = props => {
 				{searchResults.map(film => (
 					<div className='repertoire-list__item' key={film.id}>
 						<p className='repertoire-list__item-title'>{film.title}</p>
+                        <p className='repertoire-list__item-time'>{film.duration} min.</p>
 						<Button className='repertoire-list__item-button' onClick={() => handleSelectedFilm(film)}>
 							Wybierz
 						</Button>

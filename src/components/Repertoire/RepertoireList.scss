@@ -18,17 +18,22 @@
 		width: 100%;
 		border-bottom: 1px solid $background-brighter;
 		padding: 0.5em;
+		color: white;
 
 		&-title {
-			width: 60%;
+			width: 40%;
 			font-weight: bold;
 			text-transform: uppercase;
-			font-size: 1.2rem;
-			color: white;
+			font-size: 1.1rem;
+		}
+
+		&-time {
+			font-weight: bold;
+			font-size: 1.1rem;
 		}
 
 		&-button {
-			font-size: 1.3rem;
+			font-size: 1.2rem;
 		}
 	}
 }
@@ -36,7 +41,11 @@
 @media (min-width: 768px) {
 	.repertoire-list {
 		&__item {
-			&-title {
+			&-title{
+				width: 25%;
+				font-size: 1.4rem;
+			}
+			&-time {
 				font-size: 1.4rem;
 			}
 
@@ -50,7 +59,7 @@
 @media (min-width: 992px) {
 	.repertoire-list {
 		&__item {
-			&-title {
+			&-title, &-time {
 				font-size: 1.5rem;
 			}
 

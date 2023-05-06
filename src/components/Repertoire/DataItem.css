@@ -1,0 +1,47 @@
+.wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.data-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100px;
+  padding: 1em 0.8em;
+  color: white;
+  background-color: #777;
+  border-radius: 7px;
+  transition: background-color 0.3s;
+  box-shadow: inset -3px -3px 2px black;
+  cursor: pointer;
+}
+.data-item:hover {
+  background-color: #b82227;
+}
+.data-item__day-of-week {
+  font-size: 1.3rem;
+  margin-bottom: 0.3em;
+}
+.data-item__day-of-month {
+  font-size: 1.5rem;
+  margin-bottom: 0.3em;
+  font-weight: bold;
+}
+.data-item__month {
+  font-size: 1.4rem;
+}
+
+@media (min-width: 992px) {
+  .data-item__day-of-week {
+    font-size: 1.4rem;
+  }
+  .data-item__day-of-month {
+    font-size: 1.6rem;
+  }
+  .data-item__month {
+    font-size: 1.5rem;
+  }
+}/*# sourceMappingURL=DataItem.css.map */
