@@ -77,7 +77,7 @@ const NewRepertoire = props => {
 			const updatedItems = [...prevItems]
 			updatedItems[repertoireItems.length - 1] = {
 				...updatedItems[repertoireItems.length - 1],
-				selectedFilm: film.title,
+				selectedFilm: film,
 			}
 			return updatedItems
 		})
@@ -112,6 +112,7 @@ const NewRepertoire = props => {
 			setRepertoireItems([])
 			setSelectedFilm(null)
 			setDisabledButton(false)
+			props.onCancel()
 		} catch (error) {
 			setIsSubmitting(false)
 			setErrorMessage('Wystąpił błąd podczas zapisywania repertuaru.')

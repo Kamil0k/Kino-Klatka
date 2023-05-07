@@ -9,6 +9,20 @@
 	margin-top: 2em;
 }
 
+.repertoire-items{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 2em;
+
+    &__information{
+        text-align: center;
+        color: $secondary-color;
+    }
+}
+
 .new-item-active {
 	background-color: $primary-color;
 }

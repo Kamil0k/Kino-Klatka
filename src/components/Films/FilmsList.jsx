@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 const FilmsList = props => {
 	const [films, setFilms] = useState([])
 	const [searchResults, setSearchResults] = useState([])
-    const [searchTerm, setSearchTerm] = useState('');
+	const [searchTerm, setSearchTerm] = useState('')
 
 	const handleEditFilm = filmID => {
 		const editedFilm = films.find(film => film.id === filmID)
@@ -82,9 +82,7 @@ const FilmsList = props => {
 			<div className='films__list'>
 				{searchResults.length > 0 ? (
 					searchResults.map(film => (
-						<Link to={`${film.id}`} style={{ textDecoration: 'none' }} key={film.id}>
-							<FilmItem film={film} onEdit={handleEditFilm} onDelete={handleDeleteFilm} />
-						</Link>
+						<FilmItem film={film} onEdit={handleEditFilm} onDelete={handleDeleteFilm} key={film.id} />
 					))
 				) : (
 					<p className='films__list-attention'>Nie znaleziono filmu</p>

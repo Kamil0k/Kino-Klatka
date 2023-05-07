@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { database } from '../../firebase'
 import { Link } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import Button from '../UI/Button'
 import SectionTitle from '../UI/SectionTitle'
 import './FilmDetailsItem.css'
@@ -9,6 +10,7 @@ import './FilmDetailsItem.css'
 const FilmDetailsItem = () => {
 	const [film, setFilm] = useState(null)
 	const { id } = useParams()
+	const location = useLocation()
 
 	useEffect(() => {
 		const fetchFilm = async () => {
@@ -30,7 +32,7 @@ const FilmDetailsItem = () => {
 		<div className='details-item wrapper'>
 			{film && (
 				<>
-					<SectionTitle className='details-item__title' title={film.title}/>
+					<SectionTitle className='details-item__title' title={film.title} />
 					<img src={film.heroImage} alt={film.describe} className='details-item__img' />
 					<div className='details-item__box'>
 						<div className='details-item__box-left'>
@@ -57,7 +59,7 @@ const FilmDetailsItem = () => {
 							<p className='details-item__box-right-description'>{film.description}</p>
 						</div>
 					</div>
-					<Link to='/films'>
+					<Link to={location.state?.from || '/films'}>
 						<Button className='details-item__button'>Powrót</Button>
 					</Link>
 				</>

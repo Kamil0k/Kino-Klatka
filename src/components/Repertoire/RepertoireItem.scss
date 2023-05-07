@@ -1,0 +1,166 @@
+@import '../UI/colors.scss';
+.repertoire-item {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	border: 1px solid black;
+	background-color: $background-darker;
+	color: white;
+	&__img {
+		width: 35%;
+	}
+
+	&__data-box {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: 60%;
+		font-size: 1.4rem;
+		margin: 0.8em 0;
+
+		&-title {
+			font-size: 1.5rem;
+			color: $primary-color;
+			font-weight: bold;
+		}
+
+		&-genre {
+			margin-bottom: 0.3em;
+		}
+
+		&-link {
+			margin-top: 0.3em;
+			text-decoration: none;
+			font-size: 1.3rem;
+			color: $secondary-color;
+		}
+
+		&-time {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			margin-top: 1em;
+
+			i {
+				margin-right: 0.5em;
+				font-size: 2.3rem;
+				color: $secondary-color;
+				box-shadow: -5px -5px 2px solid black;
+			}
+
+			&-value {
+				font-weight: bold;
+				font-size: 1.7rem;
+			}
+		}
+	}
+}
+
+@media (min-width: 576px) {
+	.repertoire-item {
+		&__data-box {
+			font-size: 1.5rem;
+
+			&-title {
+				font-size: 1.6rem;
+			}
+
+			&-genre {
+				margin-bottom: 0.5em;
+			}
+
+			&-link {
+				font-size: 1.3rem;
+			}
+
+			&-time {
+				margin-top: 2em;
+
+				i {
+					font-size: 2.4rem;
+				}
+
+				&-value {
+					font-size: 1.8rem;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.repertoire-item {
+		height: 250px;
+
+        &__img{
+            width: 175px;
+            height: 100%;
+            object-fit: cover;
+        }
+
+		&__data-box {
+			font-size: 1.7rem;
+
+			&-title {
+				font-size: 1.8rem;
+			}
+
+			&-genre {
+				margin-bottom: 0.7em;
+			}
+
+			&-link {
+				font-size: 1.5rem;
+			}
+
+			&-time {
+                justify-content: flex-start;
+				margin-top: 2em;
+
+				i {
+					font-size: 2.6rem;
+				}
+
+				&-value {
+					font-size: 2rem;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.repertoire-item {
+        width: 75%;
+
+		&__data-box {
+			font-size: 1.8rem;
+
+			&-title {
+				font-size: 1.9rem;
+			}
+
+			&-genre {
+				margin-bottom: 0.8em;
+			}
+
+			&-link {
+				font-size: 1.6rem;
+			}
+
+			&-time {
+				margin-top: 1.8em;
+
+				i {
+					font-size: 2.7rem;
+				}
+
+				&-value {
+					font-size: 2.1rem;
+				}
+			}
+		}
+	}
+}

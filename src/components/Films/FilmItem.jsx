@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './FilmItem.css'
 import Button from '../UI/Button'
+import { Link } from 'react-router-dom'
 
 const FilmItem = props => {
 	const [isDeleting, setIsDeleting] = useState(false)
@@ -20,7 +21,9 @@ const FilmItem = props => {
 	return (
 		<>
 			<div className='film-item'>
-				<img className='film-item__img' src={props.film.thumbnail} alt='Jest alt' />
+				<Link to={`${props.film.id}`} style={{ textDecoration: 'none' }}>
+					<img className='film-item__img' src={props.film.thumbnail} alt='Jest alt' />
+				</Link>
 				<h3 className='film-item__title'>{props.film.title}</h3>
 				<p className='film-item__genre'>{props.film.genre}</p>
 				<div className='film-item__box'>

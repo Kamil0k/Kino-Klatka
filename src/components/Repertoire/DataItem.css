@@ -9,7 +9,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 100px;
+  width: 85px;
   padding: 1em 0.8em;
   color: white;
   background-color: #777;
@@ -35,6 +35,9 @@
 }
 
 @media (min-width: 992px) {
+  .data-item {
+    width: 100px;
+  }
   .data-item__day-of-week {
     font-size: 1.4rem;
   }

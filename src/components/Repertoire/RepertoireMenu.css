@@ -14,6 +14,19 @@
   margin-top: 2em;
 }
 
+.repertoire-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 2em;
+}
+.repertoire-items__information {
+  text-align: center;
+  color: #cfb53b;
+}
+
 .new-item-active {
   background-color: #b82227;
 }/*# sourceMappingURL=RepertoireMenu.css.map */

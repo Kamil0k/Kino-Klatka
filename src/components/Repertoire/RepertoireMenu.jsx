@@ -1,9 +1,12 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import DataItem from './DataItem'
+import RepertoireItem from './RepertoireItem'
 import './RepertoireMenu.css'
+import { database } from '../../firebase'
 
 const RepertoireMenu = () => {
 	const [selectedItem, setSelectedItem] = useState(0)
+	const [repertoireItems, setRepertoireItems] = useState([])
 	const today = new Date()
 
 	const dates = []
@@ -36,9 +39,36 @@ const RepertoireMenu = () => {
 		)
 	})
 
+	useEffect(() => {
+		const repertoireRef = database.ref('repertoire')
+
+		repertoireRef.on('value', snapshot => {
+			const data = snapshot.val()
+			const items = Object.keys(data).map(key => ({
+				id: key,
+				...data[key],
+			}))
+			setRepertoireItems(items)
+		})
+	}, [])
+
+	const repertoireItemsToRender = repertoireItems.filter(
+		item => item.id === dates[selectedItem].toISOString().split('T')[0]
+	)
+
+	const { id, ...rest } = repertoireItemsToRender.length > 0 ? repertoireItemsToRender[0] : {}
+	const itemsArray = Object.values(rest)[0]
+
 	return (
 		<>
 			<div className='data-items'>{dataItems}</div>
+			<div className='repertoire-items'>
+				{!itemsArray && <p className='repertoire-items__information'>Brak zaplanowanego repertuaru na ten dzień!</p>}
+				{itemsArray &&
+					itemsArray.map(item => (
+						<RepertoireItem key={item.id} selectedFilm={item.selectedFilm} startTime={item.startTime} />
+					))}
+			</div>
 		</>
 	)
 }
