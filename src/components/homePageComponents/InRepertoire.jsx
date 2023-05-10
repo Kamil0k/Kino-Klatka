@@ -3,21 +3,19 @@ import Slider from 'react-slick'
 
 import SectionTitle from '../UI/SectionTitle'
 import RepertoireItem from './RepertoireItem'
+import { useEffect, useState } from 'react'
 import { useAuth } from '../../contexts/AuthContext'
-
-import film1 from '../../assets/img/film1.jpg'
-import film2 from '../../assets/img/film2.jpg'
-import film3 from '../../assets/img/film3.jpg'
-import film4 from '../../assets/img/film4.jpg'
-import film5 from '../../assets/img/film5.jpg'
-
+import { database } from '../../firebase'
+import { Link } from 'react-router-dom'
 const InRepertoire = () => {
+	const [films, setFilms] = useState([])
 	const { currentUser, isEmployee } = useAuth()
 	const settings = {
 		className: 'repertoire__items',
 		dots: true,
 		infinite: true,
 		slidesToShow: 3,
+		slidesToScroll: 1,
 		autoplay: true,
 		centerPadding: '50px',
 		autoplaySpeed: 4000,
@@ -47,20 +45,49 @@ const InRepertoire = () => {
 		],
 	}
 
+	useEffect(() => {
+		const fetchFilms = async () => {
+			try {
+				const snapshot = await database.ref('films').once('value')
+				const filmsData = snapshot.val()
+
+				if (filmsData) {
+					const filmsArray = Object.keys(filmsData).map(key => ({
+						id: key,
+						...filmsData[key],
+					}))
+					setFilms(filmsArray.sort(() => Math.random() - 0.5))
+				}
+			} catch (error) {
+				console.error('Błąd podczas pobierania filmów:', error)
+			}
+		}
+
+		fetchFilms()
+	}, [])
+
+	const renderSlider = () => {
+		if (films.length === 0) {
+			return null
+		}
+
+		return (
+			<Slider {...settings} className='repertoire__items'>
+				{films.map(film => (
+					<RepertoireItem id={film.id} key={film.id} src={film.thumbnail} alt={film.title} title={film.title} />
+				))}
+			</Slider>
+		)
+	}
+
 	return (
 		<>
 			<div className='repertoire wrapper'>
 				<SectionTitle className='repertoire__title' title='W repertuarze' />
-				<Slider {...settings} className='repertoire__items'>
-					<RepertoireItem src={film1} alt='Jest alt!' title='Asterix i Obelix Misja Kleopatra' />
-					<RepertoireItem src={film2} alt='Jest alt!' title='Bóg nie umarł!' />
-					<RepertoireItem src={film3} alt='Jest alt!' title='Obecność' />
-					<RepertoireItem src={film4} alt='Jest alt!' title='Dawno temu w trawie' />
-					<RepertoireItem src={film5} alt='Jest alt!' title='Tylko mnie kochaj' />
-				</Slider>
+				{renderSlider()}
 				{(!currentUser || !isEmployee) && (
 					<p className='repertoire__link'>
-						Zapoznaj się z <a href='#'>repertuarem</a>, który przygotowaliśmy dla was!
+						Zapoznaj się z <Link to={'/repertoire'}>repertuarem</Link>, który przygotowaliśmy dla was!
 					</p>
 				)}
 			</div>

@@ -4,7 +4,6 @@ import { database } from '../../firebase'
 import FilmItem from './FilmItem'
 import SearchInput from '../UI/SearchInput'
 import { storage } from '../../firebase'
-import { Link } from 'react-router-dom'
 
 const FilmsList = props => {
 	const [films, setFilms] = useState([])
