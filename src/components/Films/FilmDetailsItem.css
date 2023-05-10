@@ -12,7 +12,6 @@
   margin-top: 2em;
   margin-bottom: 1em;
   border-radius: 5px;
-  background-color: #1a1a1a;
 }
 .details-item__title {
   margin-bottom: 1em;
@@ -62,11 +61,19 @@
   font-weight: lighter;
   color: white;
 }
+.details-item__trailer {
+  transform: scale(0.5);
+}
 .details-item__button {
   margin-top: 2em;
   width: 40vw;
 }
 
+@media (min-width: 576px) {
+  .details-item__trailer {
+    transform: scale(0.7);
+  }
+}
 @media (min-width: 768px) {
   .details-item {
     padding: 1em 8em;
@@ -86,6 +93,9 @@
   }
   .details-item__box-right-description {
     font-size: 1.4rem;
+  }
+  .details-item__trailer {
+    transform: scale(0.8);
   }
 }
 @media (min-width: 992px) {
@@ -109,5 +119,8 @@
   }
   .details-item__box-right-description {
     font-size: 1.5rem;
+  }
+  .details-item__trailer {
+    transform: scale(1);
   }
 }/*# sourceMappingURL=FilmDetailsItem.css.map */

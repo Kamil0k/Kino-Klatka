@@ -20,7 +20,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  margin-top: 2em;
+  margin: 2em 0;
 }
 .repertoire-items__information {
   text-align: center;

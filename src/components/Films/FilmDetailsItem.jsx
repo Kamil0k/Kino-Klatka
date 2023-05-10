@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { database } from '../../firebase'
-import { Link } from 'react-router-dom'
-import { useLocation } from 'react-router-dom'
+import Modal from '../UI/Modal'
 import Button from '../UI/Button'
 import SectionTitle from '../UI/SectionTitle'
+import YouTube from 'react-youtube'
 import './FilmDetailsItem.css'
 
 const FilmDetailsItem = () => {
 	const [film, setFilm] = useState(null)
+	const [showTrailerModal, setShowTrailerModal] = useState(false)
 	const { id } = useParams()
-	const location = useLocation()
 
 	useEffect(() => {
 		const fetchFilm = async () => {
@@ -27,6 +27,14 @@ const FilmDetailsItem = () => {
 
 		fetchFilm()
 	}, [id])
+
+	const handleTrailerButtonClick = () => {
+		setShowTrailerModal(true)
+	}
+
+	const handleCloseModal = () => {
+		setShowTrailerModal(false)
+	}
 
 	return (
 		<div className='details-item wrapper'>
@@ -59,9 +67,14 @@ const FilmDetailsItem = () => {
 							<p className='details-item__box-right-description'>{film.description}</p>
 						</div>
 					</div>
-					<Link to={location.state?.from || '/films'}>
-						<Button className='details-item__button'>Powrót</Button>
-					</Link>
+					{showTrailerModal && (
+						<Modal onClose={handleCloseModal}>
+							<YouTube className='details-item__trailer' videoId={film.trailerLink} />
+						</Modal>
+					)}
+					<Button className='details-item__button' onClick={handleTrailerButtonClick}>
+						Zobacz zwiastun
+					</Button>
 				</>
 			)}
 		</div>

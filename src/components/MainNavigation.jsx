@@ -75,7 +75,7 @@ function MainNavigation() {
 							</li>
 							<li>
 								<NavLink
-									to='/pupa'
+									to='/showrepertoire'
 									className={({ isActive }) => (isActive ? 'nav-item active' : 'nav-item')}
 									onClick={handleLinks}>
 									repertuar
@@ -107,7 +107,7 @@ function MainNavigation() {
 								</NavLink>
 							</li>
 							<li>
-								<NavLink to='/pupa' className={({ isActive }) => (isActive ? 'nav-item active' : 'nav-item')}>
+								<NavLink to='/showrepertoire' className={({ isActive }) => (isActive ? 'nav-item active' : 'nav-item')}>
 									repertuar
 								</NavLink>
 							</li>
