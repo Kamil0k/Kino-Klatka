@@ -91,32 +91,6 @@ const NewFilm = props => {
 
 				const movieRef = database.ref(`films/${props.editedFilm.id}`)
 				await movieRef.update(movieData)
-				console.log('Edytuję!')
-
-				if (movie.thumbnail && movie.heroImage) {
-					const storageRef = storage.ref()
-					let thumbnailURL = movie.thumbnail
-					let heroImageURL = movie.heroImage
-
-					// Jeśli obrazki zostały zmienione, zaktualizuj je w Storage
-					if (movie.thumbnail instanceof File) {
-						const thumbnailRef = storageRef.child(`thumbnails/${movie.thumbnail.name}`)
-						await thumbnailRef.put(movie.thumbnail)
-						thumbnailURL = await thumbnailRef.getDownloadURL()
-					}
-
-					if (movie.heroImage instanceof File) {
-						const heroImageRef = storageRef.child(`heroImages/${movie.heroImage.name}`)
-						await heroImageRef.put(movie.heroImage)
-						heroImageURL = await heroImageRef.getDownloadURL()
-					}
-
-					// Zaktualizuj URL obrazków w danych filmu
-					await movieRef.update({
-						thumbnail: thumbnailURL,
-						heroImage: heroImageURL,
-					})
-				}
 			} else {
 				const storageRef = storage.ref()
 
@@ -172,19 +146,7 @@ const NewFilm = props => {
 
 	useEffect(() => {
 		if (props.editedFilm) {
-			const {
-				id,
-				title,
-				genre,
-				duration,
-				ageRating,
-				releaseDate,
-				country,
-				trailerLink,
-				description,
-				thumbnail,
-				heroImage,
-			} = props.editedFilm
+			const { id, title, genre, duration, ageRating, releaseDate, country, trailerLink, description } = props.editedFilm
 
 			setMovie(prevMovie => ({
 				...prevMovie,
@@ -197,33 +159,7 @@ const NewFilm = props => {
 				country,
 				trailerLink,
 				description,
-				thumbnail,
-				heroImage,
 			}))
-
-			// Pobierz obrazy edytowanego filmu
-			const fetchImages = async () => {
-				try {
-					const storageRef = storage.ref()
-
-					// Pobierz referencję do obrazka na ikonkę
-					const thumbnailRef = storage.refFromURL(thumbnail)
-					const thumbnailURL = await thumbnailRef.getDownloadURL()
-
-					// Pobierz referencję do obrazka na tło
-					const heroImageRef = storage.refFromURL(heroImage)
-					const heroImageURL = await heroImageRef.getDownloadURL()
-					setMovie(prevMovie => ({
-						...prevMovie,
-						thumbnail: thumbnailURL, // Ustaw pobrany URL obrazka na ikonkę
-						heroImage: heroImageURL, // Ustaw pobrany URL obrazka na tło
-					}))
-				} catch (error) {
-					console.error('Błąd podczas pobierania obrazków:', error)
-				}
-			}
-
-			fetchImages()
 		}
 	}, [props.editedFilm])
 
@@ -274,11 +210,11 @@ const NewFilm = props => {
 						<textarea id='description' name='description' value={movie.description} onChange={handleInputChange} />
 						<label className='new-film__fields-label new-film__fields-label--half'>
 							Zdjęcie na ikonkę:
-							<input type='file' name='thumbnail' onChange={handleFileInputChange} value={thumbnailURL || ''} />
+							<input type='file' name='thumbnail' onChange={handleFileInputChange} />
 						</label>
 						<label className='new-film__fields-label new-film__fields-label--half'>
 							Zdjęcie na tło:
-							<input type='file' name='heroImage' onChange={handleFileInputChange} value={heroImageURL || ''} />
+							<input type='file' name='heroImage' onChange={handleFileInputChange} />
 						</label>
 					</div>
 

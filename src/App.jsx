@@ -11,6 +11,7 @@ import EmployeeHomePage from './Pages/EmployeePages/EmployeeHomePage'
 import FilmsPage from './Pages/EmployeePages/FilmsPage'
 import FilmDetailsPage from './Pages/EmployeePages/FilmDetailsPage'
 import RepertoirePage from './Pages/EmployeePages/RepertoirePage'
+import PromotionPage from './Pages/EmployeePages/PromotionsPage'
 import AuthProvider from './contexts/AuthContext'
 
 const router = createBrowserRouter([
@@ -52,8 +53,12 @@ const router = createBrowserRouter([
 			},
 			{
 				path: 'repertoire',
-				element: <RepertoirePage/>,
-			}
+				element: <RepertoirePage />,
+			},
+			{
+				path: 'promotions',
+				element: <PromotionPage />,
+			},
 		],
 	},
 ])

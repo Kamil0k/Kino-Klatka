@@ -1,0 +1,31 @@
+.promotion-navigation {
+  padding: 2em;
+}
+.promotion-navigation__buttons {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1em auto;
+  z-index: 0;
+}
+
+@media (min-width: 576px) {
+  .promotion-navigation {
+    padding: 2em 1em;
+  }
+  .promotion-navigation__buttons {
+    width: 80%;
+  }
+}
+@media (min-width: 768px) {
+  .promotion-navigation__buttons {
+    width: 60%;
+  }
+}
+@media (min-width: 1200px) {
+  .promotion-navigation__buttons {
+    width: 40%;
+  }
+}/*# sourceMappingURL=PromotionsNavigation.css.map */

@@ -12,7 +12,7 @@ const InRepertoire = () => {
 	const { currentUser, isEmployee } = useAuth()
 	const settings = {
 		className: 'repertoire__items',
-		dots: true,
+		dots: false,
 		infinite: true,
 		slidesToShow: 3,
 		slidesToScroll: 1,

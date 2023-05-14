@@ -43,7 +43,7 @@ const EmployeeNavigation = () => {
 				</div>
 				<NavButton path="/films" name='filmy' icon={<i className='fa-solid fa-film'></i>}></NavButton>
 				<NavButton path="/repertoire" name='repertuar' icon={<i className='fa-regular fa-rectangle-list'></i>}></NavButton>
-				<NavButton path="/" name='promocje' icon={<i className='fa-solid fa-tag'></i>}></NavButton>
+				<NavButton path="/promotions" name='promocje' icon={<i className='fa-solid fa-tag'></i>}></NavButton>
 				<NavButton path="/" name='bilety' icon={<i className='fa-solid fa-ticket'></i>}></NavButton>
 				<Brand />
 			</nav>

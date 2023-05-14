@@ -1,0 +1,122 @@
+.wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.new-promotion__error {
+  width: 100%;
+  padding: 0.7em 0;
+  margin-top: 1em 0;
+  text-align: center;
+  font-weight: bold;
+  color: #b82227;
+  background-color: #1a1a1a;
+  border-radius: 5px;
+}
+.new-promotion__submitting {
+  background-color: #1a1a1a;
+  padding: 0.5em;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  width: 100%;
+  margin: 2em auto;
+}
+.new-promotion__fields {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 0.5em;
+}
+.new-promotion__fields-label {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  color: white;
+  margin: 0.3em 0;
+}
+.new-promotion__fields-label input {
+  background-color: #424242;
+  border: 1px solid #999;
+  color: white;
+  font-size: 1.6rem;
+  padding: 0.2em 0.4em;
+  outline: none;
+  font-size: 1.5rem;
+  margin-top: 0.2em;
+}
+.new-promotion__fields-label input:focus {
+  outline: 1px solid #cfb53b;
+  border: none;
+}
+.new-promotion__fields-label input::-moz-placeholder {
+  color: white;
+}
+.new-promotion__fields-label input::placeholder {
+  color: white;
+}
+.new-promotion__fields-label input[type=date]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+.new-promotion__fields textarea {
+  background-color: #424242;
+  border: 1px solid #999;
+  width: 100%;
+  min-width: 100%;
+  max-height: 100px;
+  min-height: 50px;
+  font-size: 1.5rem;
+  outline: none;
+  color: white;
+}
+.new-promotion__fields textarea:focus {
+  outline: 1px solid #cfb53b;
+  border: none;
+}
+.new-promotion__buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 90%;
+  margin: 1em auto;
+}
+
+@media (min-width: 768px) {
+  .new-promotion__error {
+    width: 50%;
+    margin: 0 auto;
+  }
+  .new-promotion__submitting {
+    width: 50%;
+  }
+  .new-promotion__fields-label--half {
+    width: 48%;
+  }
+  .new-promotion__buttons {
+    width: 60%;
+  }
+}
+@media (min-width: 992px) {
+  .new-promotion__error {
+    width: 40%;
+  }
+  .new-promotion__submitting {
+    font-size: 1.8rem;
+    width: 40%;
+  }
+  .new-promotion__fields-label {
+    font-size: 1.8rem;
+  }
+  .new-promotion__fields-label input {
+    font-size: 1.6rem;
+  }
+  .new-promotion__fields textarea {
+    font-size: 1.6rem;
+  }
+  .new-promotion__buttons {
+    width: 30%;
+  }
+}/*# sourceMappingURL=NewPromotion.css.map */

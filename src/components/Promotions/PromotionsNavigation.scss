@@ -1,0 +1,38 @@
+.promotion-navigation {
+	padding: 2em;
+
+	&__buttons {
+        position: relative;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: center;
+        margin: 1em auto;
+        z-index: 0;
+	}
+}
+
+@media (min-width: 576px) {
+	.promotion-navigation {
+		padding: 2em 1em;
+        &__buttons {
+			width: 80%;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.promotion-navigation {
+		&__buttons {
+			width: 60%;
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	.promotion-navigation {
+		&__buttons {
+			width: 40%;
+		}
+	}
+}
