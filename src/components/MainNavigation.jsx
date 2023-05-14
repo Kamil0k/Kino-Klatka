@@ -91,7 +91,7 @@ function MainNavigation() {
 							</li>
 							<li>
 								<NavLink
-									to='/dupa'
+									to='/showpromotions'
 									className={({ isActive }) => (isActive ? 'nav-item active' : 'nav-item')}
 									onClick={handleLinks}>
 									promocje
@@ -117,7 +117,7 @@ function MainNavigation() {
 								</NavLink>
 							</li>
 							<li>
-								<NavLink to='/dupa' className={({ isActive }) => (isActive ? 'nav-item active' : 'nav-item')}>
+								<NavLink to='/showpromotions' className={({ isActive }) => (isActive ? 'nav-item active' : 'nav-item')}>
 									promocje
 								</NavLink>
 							</li>

@@ -1,7 +1,7 @@
 @import '../UI/colors.scss';
 .promotion-item {
 	position: relative;
-	margin-bottom: 1em;
+	margin: 1em 0;
 
 	&__content:hover + .promotion-item__shadow {
 		background-color: rgba(0, 0, 0, 0.7);

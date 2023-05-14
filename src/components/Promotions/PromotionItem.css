@@ -6,7 +6,7 @@
 
 .promotion-item {
   position: relative;
-  margin-bottom: 1em;
+  margin: 1em 0;
 }
 .promotion-item__content:hover + .promotion-item__shadow {
   background-color: rgba(0, 0, 0, 0.7);

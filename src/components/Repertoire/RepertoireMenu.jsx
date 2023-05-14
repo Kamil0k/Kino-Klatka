@@ -59,15 +59,18 @@ const RepertoireMenu = () => {
 	const { id, ...rest } = repertoireItemsToRender.length > 0 ? repertoireItemsToRender[0] : {}
 	const itemsArray = Object.values(rest)[0]
 
+	
+
 	return (
 		<>
 			<div className='data-items'>{dataItems}</div>
 			<div className='repertoire-items'>
 				{!itemsArray && <p className='repertoire-items__information'>Brak zaplanowanego repertuaru na ten dzień!</p>}
 				{itemsArray &&
-					itemsArray.map(item => (
-						<RepertoireItem key={item.id} selectedFilm={item.selectedFilm} startTime={item.startTime} />
-					))}
+					itemsArray.map(item => {
+						const key = `${item.selectedFilm.id}-${item.startTime}`
+						return <RepertoireItem key={key} selectedFilm={item.selectedFilm} startTime={item.startTime} />
+					})}
 			</div>
 		</>
 	)

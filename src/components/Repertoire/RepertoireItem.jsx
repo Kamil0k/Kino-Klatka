@@ -27,7 +27,7 @@ const RepertoireItem = props => {
 				<p className='repertoire-item__data-box-duration'>Czas trwania: {props.selectedFilm.duration} minut</p>
 				<p className='repertoire-item__data-box-age-rating'>Od lat: {props.selectedFilm.ageRating}</p>
 				<p className='repertoire-item__data-box-country'>Produkcja: {props.selectedFilm.country}</p>
-				<NavLink to={`../films/${props.selectedFilm.id}`} exact={false} className='repertoire-item__data-box-link'>
+				<NavLink to={`../films/${props.selectedFilm.id}`} exact="false" className='repertoire-item__data-box-link'>
 					<p>Zobacz więcej...</p>
 				</NavLink>
 				<div className='repertoire-item__data-box-time'>
