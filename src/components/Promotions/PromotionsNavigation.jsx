@@ -3,6 +3,7 @@ import SectionTitle from '../UI/SectionTitle'
 import Button from '../UI/Button'
 
 import NewPromotion from './NewPromotion'
+import ListOfPromotion from './ListsOfPromotion'
 
 import './PromotionsNavigation.css'
 
@@ -39,7 +40,7 @@ const PromotionNavigation = () => {
 					</Button>
 				</div>
 				{!isLists && <NewPromotion onCancel={handleListsOfPromotionsButton}/>}
-				{/* {isLists && <FilmsList selectedFilm={handleSelectedFilm} />} */}
+				{isLists && <ListOfPromotion />}
 			</div>
 		</>
 	)
