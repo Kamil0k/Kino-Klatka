@@ -38,8 +38,7 @@ const DropDownMenu = props => {
 							</li>
 						</Link>
 					)}
-
-					<Link to='/' className='menu-container__link'>
+					<Link to='/settings' className='menu-container__link'>
 						<li className='menu-container__dropdown-item'>
 							<i className='fa-solid fa-gear'></i> Ustawienia
 						</li>

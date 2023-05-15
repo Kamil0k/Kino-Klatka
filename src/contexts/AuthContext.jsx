@@ -6,6 +6,7 @@ const AuthContext = React.createContext()
 export function useAuth() {
 	return useContext(AuthContext)
 }
+
 export default function AuthProvider({ children }) {
 	const [currentUser, setCurrentUser] = useState()
 	const [loading, setLoading] = useState(false)
@@ -27,6 +28,19 @@ export default function AuthProvider({ children }) {
 			})
 			.catch(error => {
 				console.error(error)
+			})
+	}
+
+	function changePassword(oldPassword, newPassword) {
+		const credential = firebase.auth.EmailAuthProvider.credential(currentUser.email, oldPassword)
+
+		return currentUser
+			.reauthenticateWithCredential(credential)
+			.then(() => {
+				return currentUser.updatePassword(newPassword)
+			})
+			.catch(error => {
+				throw new Error('Błąd podczas zmiany hasła. Sprawdź poprawność starego hasła.')
 			})
 	}
 
@@ -61,6 +75,7 @@ export default function AuthProvider({ children }) {
 		signin,
 		signup,
 		signout,
+		changePassword,
 	}
 
 	return <AuthContext.Provider value={value}>{!loading && children}</AuthContext.Provider>

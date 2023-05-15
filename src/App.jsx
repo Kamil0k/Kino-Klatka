@@ -6,6 +6,7 @@ import HomePage from './Pages/HomePage'
 import PricePage from './Pages/PricePage'
 import ShowRepertoirePage from './Pages/RepertoirePage'
 import ShowPromotionsPage from './Pages/PromotionsPage'
+import SettingsPage from './Pages/SettingsPage'
 import SignInPage from './Pages/SignInPage'
 import SignUpPage from './Pages/SignUpPage'
 import EmployeeHomePage from './Pages/EmployeePages/EmployeeHomePage'
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
 			{
 				path: 'showpromotions',
 				element: <ShowPromotionsPage />,
+			},
+			{
+				path: 'settings',
+				element: <SettingsPage />,
 			},
 			{
 				path: 'signin',
