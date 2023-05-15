@@ -4,6 +4,7 @@ import { useAuth } from '../contexts/AuthContext'
 import { IconMenu2, IconX } from '@tabler/icons-react'
 import Brand from './UI/Brand'
 import Button from './UI/Button'
+import DropDownMenu from './DropDownMenu'
 
 import './MainNavigation.css'
 
@@ -23,7 +24,6 @@ function MainNavigation() {
 	const handleSignout = async () => {
 		try {
 			await signout()
-			navigate('/signin')
 		} catch {
 			console.log('Błąd wylogowania')
 		}
@@ -51,7 +51,7 @@ function MainNavigation() {
 						<ul className={`nav-mobile__list ` + `${isMenuVisible ? 'show' : 'hide'}`}>
 							<div className='login-mobile'>
 								{currentUser ? (
-									<Button onClick={handleSignout}>Wyloguj się</Button>
+									<DropDownMenu onSignOut={handleSignout}/>
 								) : (
 									<NavLink to='/signin'>
 										<Button>Zaloguj się</Button>
@@ -125,7 +125,7 @@ function MainNavigation() {
 					</nav>
 					<div className='login-desktop'>
 						{currentUser ? (
-							<Button onClick={handleSignout}>Wyloguj się</Button>
+							<DropDownMenu onSignOut={handleSignout}/>
 						) : (
 							<NavLink to='/signin'>
 								<Button>Zaloguj się</Button>
