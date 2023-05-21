@@ -5,6 +5,7 @@ import RootLayout from './Pages/Root'
 import HomePage from './Pages/HomePage'
 import PricePage from './Pages/PricePage'
 import ShowRepertoirePage from './Pages/RepertoirePage'
+import TicketReservationPage from './Pages/TicketsReservationPage'
 import ShowPromotionsPage from './Pages/PromotionsPage'
 import SettingsPage from './Pages/SettingsPage'
 import SignInPage from './Pages/SignInPage'
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
 			{
 				path: 'showrepertoire',
 				element: <ShowRepertoirePage />,
+			},
+			{
+				path: 'ticketsreservation',
+				element: <TicketReservationPage />,
 			},
 			{
 				path: 'showpromotions',

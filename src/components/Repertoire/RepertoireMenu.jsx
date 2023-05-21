@@ -52,14 +52,13 @@ const RepertoireMenu = () => {
 		})
 	}, [])
 
+	const selectedDate = dates[selectedItem].toISOString().split('T')[0]
 	const repertoireItemsToRender = repertoireItems.filter(
 		item => item.id === dates[selectedItem].toISOString().split('T')[0]
 	)
 
 	const { id, ...rest } = repertoireItemsToRender.length > 0 ? repertoireItemsToRender[0] : {}
 	const itemsArray = Object.values(rest)[0]
-
-	
 
 	return (
 		<>
@@ -69,7 +68,14 @@ const RepertoireMenu = () => {
 				{itemsArray &&
 					itemsArray.map(item => {
 						const key = `${item.selectedFilm.id}-${item.startTime}`
-						return <RepertoireItem key={key} selectedFilm={item.selectedFilm} startTime={item.startTime} />
+						return (
+							<RepertoireItem
+								key={key}
+								selectedFilm={item.selectedFilm}
+								startTime={item.startTime}
+								date={selectedDate}
+							/>
+						)
 					})}
 			</div>
 		</>

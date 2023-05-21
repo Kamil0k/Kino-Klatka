@@ -1,0 +1,41 @@
+.wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.selected-film {
+  padding: 1em;
+  margin: 1em 0.5em;
+  color: white;
+  font-weight: lighter;
+}
+.selected-film__title {
+  margin: 0.5em 0;
+  color: #cfb53b;
+}
+
+@media (min-width: 768px) {
+  .selected-film {
+    font-size: 1.7rem;
+  }
+  .selected-film__title {
+    margin: 0.5em 0;
+    color: #cfb53b;
+  }
+}
+@media (min-width: 992px) {
+  .selected-film {
+    font-size: 1.8rem;
+    padding: 1em 0;
+  }
+  .selected-film__box {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .selected-film__box-title, .selected-film__box-time {
+    margin-right: 2em;
+  }
+}/*# sourceMappingURL=SelectedFilm.css.map */

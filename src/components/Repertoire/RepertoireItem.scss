@@ -1,4 +1,5 @@
 @import '../UI/colors.scss';
+
 .repertoire-item {
 	display: flex;
 	flex-direction: row;
@@ -6,12 +7,26 @@
 	border: 1px solid black;
 	background-color: $background-darker;
 	color: white;
-    width: 100%;
-	&__img{
-        width: 120px;
-        height: 100%;
-        object-fit: cover;
-    }
+	width: 100%;
+	height: 250px;
+	padding-bottom: 0.5em;
+
+	&__img-box {
+		width: 150px;
+		margin-right: 10px;
+		&-img {
+			width: 100%;
+			height: 80%;
+			object-fit: cover;
+		}
+
+		&-btn {
+			width: 100%;
+			height: 15%;
+			margin-top: 0.5em;
+			font-size: 1.2rem;
+		}
+	}
 
 	&__data-box {
 		display: flex;
@@ -43,8 +58,8 @@
 			flex-direction: row;
 			justify-content: center;
 			align-items: center;
-			margin-top: 1em;
-            justify-content: flex-start;
+			margin-top: 1.5em;
+			justify-content: flex-start;
 
 			i {
 				margin-right: 0.5em;
@@ -95,13 +110,19 @@
 
 @media (min-width: 768px) {
 	.repertoire-item {
-		height: 250px;
+		height: 280px;
 
-        &__img{
-            width: 175px;
-            height: 100%;
-            object-fit: cover;
-        }
+		&__img-box {
+			display: flex;
+			flex-direction: column;
+			width: 160px;
+			margin-right: 0px;
+
+			&-btn {
+				margin-top: 0.7em;
+				font-size: 1.5rem;
+			}
+		}
 
 		&__data-box {
 			font-size: 1.7rem;
@@ -119,7 +140,7 @@
 			}
 
 			&-time {
-                justify-content: flex-start;
+				justify-content: flex-start;
 				margin-top: 2em;
 
 				i {
@@ -136,7 +157,7 @@
 
 @media (min-width: 992px) {
 	.repertoire-item {
-        width: 75%;
+		width: 75%;
 
 		&__data-box {
 			font-size: 1.8rem;
