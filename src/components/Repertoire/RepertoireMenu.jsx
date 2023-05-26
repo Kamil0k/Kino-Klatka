@@ -66,14 +66,15 @@ const RepertoireMenu = () => {
 			<div className='repertoire-items'>
 				{!itemsArray && <p className='repertoire-items__information'>Brak zaplanowanego repertuaru na ten dzień!</p>}
 				{itemsArray &&
-					itemsArray.map(item => {
-						const key = `${item.selectedFilm.id}-${item.startTime}`
+					itemsArray.map((item, index) => {
+						const key = `${item.selectedFilm.id}-${index}`
 						return (
 							<RepertoireItem
 								key={key}
 								selectedFilm={item.selectedFilm}
 								startTime={item.startTime}
 								date={selectedDate}
+								index={index}
 							/>
 						)
 					})}

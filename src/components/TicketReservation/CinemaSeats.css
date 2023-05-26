@@ -1,0 +1,64 @@
+.wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.cinema-seats {
+  margin-top: 0.5em;
+}
+.cinema-seats__title {
+  margin-bottom: 0.5em;
+  color: #cfb53b;
+}
+.cinema-seats__selected, .cinema-seats__total-sum {
+  margin-bottom: 0.4em;
+  font-weight: bold;
+}
+.cinema-seats__box {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-gap: 10px;
+}
+.cinema-seats__box-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  background-color: green;
+  color: white;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s;
+  cursor: pointer;
+}
+.cinema-seats__box-item:hover {
+  background-color: #cfb53b;
+  transform: scale(0.9);
+}
+.cinema-seats__box-item.selected {
+  background-color: #cfb53b;
+  transform: scale(0.9);
+}
+.cinema-seats__box-item.occupied {
+  background-color: #b82227;
+  transform: scale(0.9);
+  cursor: default;
+}
+.cinema-seats__box-item-value {
+  margin-top: 5px;
+}
+
+@media (min-width: 768px) {
+  .cinema-seats {
+    font-size: 1.7rem;
+  }
+  .cinema-seats__title {
+    color: #cfb53b;
+  }
+}
+@media (min-width: 992px) {
+  .cinema-seats {
+    font-size: 1.8rem;
+  }
+}/*# sourceMappingURL=CinemaSeats.css.map */

@@ -1,8 +1,8 @@
-
 import SelectedFilm from './SelectedFilm'
+import CinemaSeats from './CinemaSeats'
 
 const TicketReservationPageContent = () => {
-	return <div className="reservation wrapper">
+	return <div className="wrapper">
         <SelectedFilm/>
     </div>
 }

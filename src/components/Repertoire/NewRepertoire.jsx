@@ -73,6 +73,8 @@ const NewRepertoire = props => {
 	const handleSelectedFilm = film => {
 		setSelectedFilm(film)
 		setDisabledButton(false)
+		const randomNumber = Math.floor(Math.random() * 1000000) + 1 // Losowa liczba z zakresu 1-1000000
+		const key = `${film.id}-${randomNumber}` // Klucz zawierający losową liczbę
 		setRepertoireItems(prevItems => {
 			const updatedItems = [...prevItems]
 			updatedItems[repertoireItems.length - 1] = {
@@ -97,28 +99,41 @@ const NewRepertoire = props => {
 		return `${String(finalHours).padStart(2, '0')}:${String(finalMinutes).padStart(2, '0')}`
 	}
 
-	const saveRepertoire = async event => {
-		event.preventDefault()
+	const saveRepertoire = async (event) => {
+		event.preventDefault();
 		try {
-			setIsSubmitting(true)
-			const { data } = formData
-
-			// Zapis danych do Firebase Realtime Database
-			await database.ref(`repertoire/${data}`).push(repertoireItems)
-
-			setIsSubmitting(false)
-			setErrorMessage('')
-			setFormData({ data: '', openingTime: '', breakTime: '' })
-			setRepertoireItems([])
-			setSelectedFilm(null)
-			setDisabledButton(false)
-			props.onCancel()
+		  setIsSubmitting(true);
+		  const { data } = formData;
+	  
+		  const cinemaPlanItems = {};
+	  
+		  // Tworzenie elementów CinemaPlan dla każdego elementu repertoireItems
+		  repertoireItems.forEach((item, index) => {
+			const cinemaPlanKey = `${data}-${index}`;
+			const cinemaPlan = Array(200).fill(false);
+			cinemaPlanItems[cinemaPlanKey] = cinemaPlan;
+		  });
+	  
+		  // Zapisanie elementów CinemaPlan do Firebase
+		  await database.ref(`CinemaPlan`).update(cinemaPlanItems);
+	  
+		  // Zapisanie danych repertuaru do Firebase
+		  await database.ref(`repertoire/${data}`).push(repertoireItems);
+	  
+		  setIsSubmitting(false);
+		  setErrorMessage("");
+		  setFormData({ data: "", openingTime: "", breakTime: "" });
+		  setRepertoireItems([]);
+		  setSelectedFilm(null);
+		  setDisabledButton(false);
+		  props.onCancel();
 		} catch (error) {
-			setIsSubmitting(false)
-			setErrorMessage('Wystąpił błąd podczas zapisywania repertuaru.')
-			console.error(error)
+		  setIsSubmitting(false);
+		  setErrorMessage("Wystąpił błąd podczas zapisywania repertuaru.");
+		  console.error(error);
 		}
-	}
+	  };
+	  
 
 	const submittingContent = (
 		<p className='new-repertoire__submitting'>
@@ -173,7 +188,7 @@ const NewRepertoire = props => {
 									value={formData.openingTime}
 									onChange={handleInputChange}
 									onBlur={validateForm}
-									disabled={isAddingFilm} // Dodany atrybut disabled
+									disabled={isAddingFilm}
 								/>
 							</label>
 							<label className='new-repertoire__fields-label new-repertoire__fields-label--half'>
@@ -185,7 +200,7 @@ const NewRepertoire = props => {
 									value={formData.breakTime}
 									onChange={handleInputChange}
 									onKeyUp={validateForm}
-									disabled={isAddingFilm} // Dodany atrybut disabled
+									disabled={isAddingFilm}
 								/>
 							</label>
 						</div>
