@@ -1,0 +1,50 @@
+.ticket-navigation {
+	padding: 2em;
+
+	&__buttons {
+        position: relative;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: center;
+        margin: 1em auto;
+        z-index: 0;
+
+		&-btn{
+			font-size: 1.4rem;
+		}
+	}
+}
+
+@media (min-width: 576px) {
+	.ticket-navigation {
+		padding: 2em 1em;
+        &__buttons {
+			&-btn{
+				font-size: 1.5rem;
+			}
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.ticket-navigation {
+		&__buttons {
+			&-btn{
+				font-size: 1.6rem;
+			}
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	.ticket-navigation {
+		&__buttons {
+			width: 50%;
+
+			&-btn{
+				font-size: 1.7rem;
+			}
+		}
+	}
+}

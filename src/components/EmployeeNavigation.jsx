@@ -48,7 +48,7 @@ const EmployeeNavigation = () => {
 					name='repertuar'
 					icon={<i className='fa-regular fa-rectangle-list'></i>}></NavButton>
 				<NavButton path='/promotions' name='promocje' icon={<i className='fa-solid fa-tag'></i>}></NavButton>
-				<NavButton path='/' name='bilety' icon={<i className='fa-solid fa-ticket'></i>}></NavButton>
+				<NavButton path='/tickets' name='bilety' icon={<i className='fa-solid fa-ticket'></i>}></NavButton>
 				<Brand />
 			</nav>
 		</>

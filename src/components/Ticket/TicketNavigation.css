@@ -1,0 +1,37 @@
+.ticket-navigation {
+  padding: 2em;
+}
+.ticket-navigation__buttons {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1em auto;
+  z-index: 0;
+}
+.ticket-navigation__buttons-btn {
+  font-size: 1.4rem;
+}
+
+@media (min-width: 576px) {
+  .ticket-navigation {
+    padding: 2em 1em;
+  }
+  .ticket-navigation__buttons-btn {
+    font-size: 1.5rem;
+  }
+}
+@media (min-width: 768px) {
+  .ticket-navigation__buttons-btn {
+    font-size: 1.6rem;
+  }
+}
+@media (min-width: 1200px) {
+  .ticket-navigation__buttons {
+    width: 50%;
+  }
+  .ticket-navigation__buttons-btn {
+    font-size: 1.7rem;
+  }
+}/*# sourceMappingURL=TicketNavigation.css.map */

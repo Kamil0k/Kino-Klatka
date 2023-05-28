@@ -1,0 +1,89 @@
+.wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.change-price {
+  padding: 0.5em;
+  background-color: #1a1a1a;
+  color: white;
+  border-radius: 5px;
+}
+.change-price__title-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1em;
+}
+.change-price__title-box-title {
+  font-weight: bold;
+}
+.change-price__title-box-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  font-size: 1.2rem;
+}
+.change-price__datepicker input {
+  background-color: #424242;
+  border: 1px solid #999;
+  color: white;
+  font-size: 1.6rem;
+  padding: 0.2em 0.4em;
+  outline: none;
+  font-size: 1.5rem;
+  margin-bottom: 0.5em;
+}
+.change-price__datepicker input:focus {
+  outline: 1px solid #cfb53b;
+  border: none;
+}
+.change-price__datepicker input::-moz-placeholder {
+  color: white;
+}
+.change-price__datepicker input::placeholder {
+  color: white;
+}
+.change-price__datepicker input[type=date]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+.change-price__datepicker-buttons {
+  margin-bottom: 0.5em;
+}
+.change-price__datepicker-buttons-btn-save, .change-price__datepicker-buttons-btn-cancel {
+  font-size: 1.3rem;
+}
+.change-price__datepicker-buttons-btn-save {
+  margin-right: 0.8em;
+}
+.change-price__item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.3em;
+  border-bottom: 1px solid #424242;
+}
+.change-price__item-title {
+  font-weight: lighter;
+  width: 50%;
+}
+.change-price__item-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.change-price__item-box-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  font-size: 1.2rem;
+  margin-left: 1em;
+}/*# sourceMappingURL=ChangePrice.css.map */

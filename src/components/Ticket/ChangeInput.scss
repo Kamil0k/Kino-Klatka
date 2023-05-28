@@ -1,0 +1,33 @@
+@import '../UI/colors.scss';
+.change-input {
+    input {
+        background-color: $background-brighter;
+        border: 1px solid #999;
+        color: white;
+        font-size: 1.6rem;
+        padding: 0.2em 0.4em;
+        outline: none;
+        font-size: 1.5rem;
+        margin-bottom: 0.5em;
+
+        &:focus {
+            outline: 1px solid $secondary-color;
+            border: none;
+        }
+        &::placeholder {
+            color: white;
+        }
+    }
+
+    &__buttons {
+        margin-bottom: 0.5em;
+
+        &-btn-save, &-btn-cancel{
+            font-size: 1.3rem;
+        }
+
+        &-btn-save{
+            margin-right: 0.8em;
+        }
+    }
+}
