@@ -36,7 +36,7 @@ const RepertoireItem = (props) => {
       <div className='repertoire-item'>
         <div className='repertoire-item__img-box'>
           <img src={props.selectedFilm.thumbnail} alt='alt' className='repertoire-item__img-box-img' />
-          <Button disabled={currentUser && isEmployee} className='repertoire-item__img-box-btn' onClick={handleSelectedFilm}>
+          <Button disabled={!currentUser || isEmployee} className='repertoire-item__img-box-btn' onClick={handleSelectedFilm}>
             <Link style={{ color: 'white', textDecoration: 'none' }} to='/ticketsreservation'>
               Zarezerwuj bilet
             </Link>
