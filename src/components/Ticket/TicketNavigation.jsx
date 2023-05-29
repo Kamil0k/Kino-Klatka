@@ -2,6 +2,7 @@ import { useState } from 'react'
 import SectionTitle from '../UI/SectionTitle'
 import Button from '../UI/Button'
 import ChangePrice from './ChangePrice'
+import ReservationList from './ReservationList'
 
 import './TicketNavigation.css'
 
@@ -23,17 +24,17 @@ const TicketNavigation = () => {
 	return (
 		<>
 			<div className='ticket-navigation wrapper'>
-				<SectionTitle title={isLists ? 'Rezerwacja biletów' : 'Ceny biletów'} />
+				<SectionTitle title={isLists ? 'Rezerwacje biletów' : 'Ceny biletów'} />
 				<div className='ticket-navigation__buttons'>
 					<Button className='ticket-navigation__buttons-btn' onClick={handleReservationButton} disabled={isLists}>
-						Rezerwacja biletów
+						Rezerwacje biletów
 					</Button>
 					<Button className='ticket-navigation__buttons-btn' onClick={handleChangePriceButton}  disabled={!isLists}>
 						Ceny biletów
 					</Button>
 				</div>
 				{!isLists && <ChangePrice onCancel={handleCancel}/>}
-				{/* {isLists && <RepertoireMenu/>} */}
+				{isLists && <ReservationList/>}
 			</div>
 		</>
 	)

@@ -1,0 +1,68 @@
+.wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.reservation-item {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 5px;
+  margin-top: 0.5em;
+  color: white;
+  font-weight: lighter;
+  background-color: #1a1a1a;
+  padding: 0.7em;
+  border-radius: 5px;
+  border: 1px solid #424242;
+}
+.reservation-item.completed {
+  color: #424242;
+}
+.reservation-item__first-block-id-title, .reservation-item__first-block-title {
+  font-weight: bold;
+}
+.reservation-item__second-block-title {
+  font-weight: bold;
+}
+.reservation-item__third-block-title {
+  font-weight: bold;
+}
+.reservation-item__fourth-block-ticket {
+  font-weight: bold;
+}
+.reservation-item__fourth-block-btn {
+  margin-top: 0.3em;
+  font-size: 1.3rem;
+}
+.reservation-item__fourth-block-btn.completed {
+  background-color: #424242;
+  color: #999;
+}
+@media (min-width: 768px) {
+  .reservation-item {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .reservation-item__third-block {
+    width: 60%;
+  }
+}
+@media (min-width: 1200px) {
+  .reservation-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .reservation-item__first-block {
+    width: 20%;
+  }
+  .reservation-item__second-block {
+    width: 25%;
+  }
+  .reservation-item__third-block {
+    width: 25%;
+  }
+  .reservation-item__fourth-block {
+    width: 20%;
+  }
+}/*# sourceMappingURL=ReservationItem.css.map */

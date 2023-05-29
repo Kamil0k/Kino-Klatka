@@ -13,7 +13,6 @@ const SelectedFilm = () => {
 	const [selectedTicket, setSelectedTicket] = useState(0)
 	const [selectedSeats, setSelectedSeats] = useState([])
 	const [totalPrice, setTotalPrice] = useState(0)
-	const [newOrderId, setNewOrderId] = useState(0)
 	const { currentUser } = useAuth()
 	const navigate = useNavigate()
 
@@ -37,19 +36,6 @@ const SelectedFilm = () => {
 	}
 
 	useEffect(() => {
-		const ordersRef = firebase.database().ref('orders')
-		ordersRef.on('value', snapshot => {
-			const ordersData = snapshot.val()
-			const count = Object.keys(ordersData).length
-			setNewOrderId(count)
-		})
-
-		return () => {
-			ordersRef.off('value')
-		}
-	}, [])
-
-	useEffect(() => {
 		setSelectedSeats([])
 	}, [selectedTicket])
 
@@ -70,14 +56,17 @@ const SelectedFilm = () => {
 	}
 
 	const handleReservation = async () => {
-		const ordersRef = firebase.database().ref('orders')
+		const ordersRef = firebase.database().ref(`orders`);
 		const newOrder = {
-			id: newOrderId,
+			user: currentUser.displayName,
 			email: currentUser.email,
-			savedFilm,
-			selectedSeats,
-			selectedTicket,
-			totalPrice,
+			savedFilm: savedFilm,
+			selectedSeats: selectedSeats,
+			amountOfSeats: selectedSeats.length,
+			selectedTicket: selectedTicket,
+			ticketPrice: totalPrice/selectedSeats.length,
+			totalPrice: totalPrice,
+			status: false,
 		}
 
 		const convertedSeats = selectedSeats.map(seat => convertSeatIndex(seat))
