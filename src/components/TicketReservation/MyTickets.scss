@@ -1,0 +1,9 @@
+.my-tickets{
+    padding: 2em;
+}
+
+@media (min-width:992px) {
+    .my-tickets{
+        padding: 2em 0;
+    }
+}

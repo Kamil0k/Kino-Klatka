@@ -32,7 +32,7 @@ const DropDownMenu = props => {
 			<div className={`menu-container__dropdown ${isOpen ? 'open' : ''}`}>
 				<ul>
 					{currentUser && !isEmployee && (
-						<Link to='/' className='menu-container__link'>
+						<Link to='/mytickets' className='menu-container__link'>
 							<li className='menu-container__dropdown-item'>
 								<i className='fa-solid fa-ticket'></i> Bilety
 							</li>

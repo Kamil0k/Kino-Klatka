@@ -1,83 +1,94 @@
 @import '../UI/colors.scss';
 .reservation-item {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 5px;
-    margin-top: 0.5em;
-    color: white;
-    font-weight: lighter;
-    background-color: $background-darker;
-    padding: 0.7em;
-    border-radius: 5px;
-    border: 1px solid $background-brighter;
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	grid-gap: 5px;
+	margin: 0.5em 0;
 
-    &.completed {
-        color: $background-brighter;
-      }
+	color: white;
+	font-weight: lighter;
+	background-color: $background-darker;
+	padding: 0.7em;
+	border-radius: 5px;
+	border: 1px solid $background-brighter;
 
-    
+	&__first-block {
+		&-id-title,
+		&-title {
+			font-weight: bold;
+		}
+	}
 
-    &__first-block{
-        &-id-title, &-title{
-            font-weight: bold;
-        }
+	&__second-block {
+		&-title {
+			font-weight: bold;
+		}
+	}
+
+	&__third-block {
+		&-title {
+			font-weight: bold;
+		}
+	}
+
+	&__fourth-block {
+		&-ticket {
+			font-weight: bold;
+		}
+
+		&-btn {
+			margin-top: 0.3em;
+			font-size: 1.3rem;
+			&.completed {
+				background-color: $background-brighter;
+				color: #999;
+			}
+		}
+
+		.question {
+			font-size: 1.4rem;
+			font-weight: normal;
+      color: $secondary-color;
+		}
+
+		.btn-yes,
+		.btn-no {
+			margin-top: 0.3em;
+			font-size: 1.3rem;
+		}
+
+    .btn-yes{
+      margin-right: 0.5em;
     }
+	}
 
-    &__second-block{
-        &-title{
-            font-weight: bold;
-        }
-    }
+	@media (min-width: 768px) {
+		grid-template-columns: repeat(2, 1fr);
 
-    &__third-block{
-        &-title{
-            font-weight: bold;
-        }
-    }
+		&__third-block {
+			width: 60%;
+		}
+	}
 
-    &__fourth-block{
-        &-ticket{
-            font-weight: bold;
-        }
+	@media (min-width: 1200px) {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
 
-        &-btn{
-            margin-top: 0.3em;
-            font-size: 1.3rem;
-            &.completed{
-                background-color: $background-brighter;
-                color: #999;
-            }
-        }
-    }
+		&__first-block {
+			width: 20%;
+		}
 
-  
-    @media (min-width: 768px) {
-      grid-template-columns: repeat(2, 1fr);
+		&__second-block {
+			width: 25%;
+		}
 
-      &__third-block{
-        width: 60%;
-      }
-    }
-  
-    @media (min-width: 1200px) {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
+		&__third-block {
+			width: 25%;
+		}
 
-      &__first-block{
-        width: 20%;
-      }
-      
-      &__second-block{
-        width: 25%;
-      }
-      
-      &__third-block{
-        width: 25%;
-      }
-
-      &__fourth-block{
-        width: 20%;
-      }
-    }
-  }
+		&__fourth-block {
+			width: 20%;
+		}
+	}
+}

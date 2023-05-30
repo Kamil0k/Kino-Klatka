@@ -7,6 +7,7 @@ import PricePage from './Pages/PricePage'
 import ShowRepertoirePage from './Pages/RepertoirePage'
 import TicketReservationPage from './Pages/TicketsReservationPage'
 import ShowPromotionsPage from './Pages/PromotionsPage'
+import MyTicketsPage from './Pages/MyTicketsPage'
 import SettingsPage from './Pages/SettingsPage'
 import SignInPage from './Pages/SignInPage'
 import SignUpPage from './Pages/SignUpPage'
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
 			{
 				path: 'showrepertoire',
 				element: <ShowRepertoirePage />,
+			},
+			{
+				path: 'mytickets',
+				element: <MyTicketsPage/>,
 			},
 			{
 				path: 'ticketsreservation',
