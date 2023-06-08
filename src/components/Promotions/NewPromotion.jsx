@@ -11,7 +11,6 @@ const NewPromotion = props => {
 		heroImage: null,
 		description: '',
 	})
-
 	const [isSubmitting, setIsSubmitting] = useState(false)
 	const [errorMessage, setErrorMessage] = useState('')
 
@@ -60,11 +59,9 @@ const NewPromotion = props => {
 			setIsSubmitting(true)
 			const storageRef = storage.ref()
 
-			// Dodawanie obrazków do Firebase Storage
 			const heroImageRef = storageRef.child(`heroPromotion/${promotion.heroImage.name}`)
 			await heroImageRef.put(promotion.heroImage)
 
-			// Pobieranie URL obrazków z Firebase Storage
 			const heroImageURL = await heroImageRef.getDownloadURL()
 
 			const promotionData = {
@@ -73,10 +70,8 @@ const NewPromotion = props => {
 				heroImage: heroImageURL,
 			}
 
-			// Dodawanie filmu do bazy danych
 			await database.ref('promotions').push(promotionData)
 
-			// Zresetowanie formularza i komunikatu o błędzie
 			setPromotion({
 				title: '',
 				description: '',

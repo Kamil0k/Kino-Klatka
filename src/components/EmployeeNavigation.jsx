@@ -1,11 +1,12 @@
-import Brand from './UI/Brand'
-import Button from './UI/Button'
-import NavButton from './NavButton'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useAuth } from '../contexts/AuthContext'
 import { IconX, IconMenu2 } from '@tabler/icons-react'
+
+import Brand from './UI/Brand'
+import NavButton from './NavButton'
+import { useAuth } from '../contexts/AuthContext'
 import DropDownMenu from './DropDownMenu'
+
 import './EmployeeNavigation.css'
 
 const EmployeeNavigation = () => {

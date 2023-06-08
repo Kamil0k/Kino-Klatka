@@ -4,12 +4,12 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	border: 1px solid black;
-	background-color: $background-darker;
-	color: white;
 	width: 100%;
 	height: 250px;
 	padding-bottom: 0.5em;
+	border: 1px solid black;
+	background-color: $background-darker;
+	color: white;
 
 	&__img-box {
 		width: 150px;
@@ -33,8 +33,8 @@
 		flex-direction: column;
 		justify-content: center;
 		width: 60%;
-		font-size: 1.4rem;
 		margin: 0.8em 0;
+		font-size: 1.4rem;
 
 		&-title {
 			font-size: 1.5rem;
@@ -56,10 +56,9 @@
 		&-time {
 			display: flex;
 			flex-direction: row;
-			justify-content: center;
+			justify-content: flex-start;
 			align-items: center;
 			margin-top: 1.5em;
-			justify-content: flex-start;
 
 			i {
 				margin-right: 0.5em;

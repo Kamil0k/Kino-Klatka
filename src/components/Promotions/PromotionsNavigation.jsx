@@ -1,7 +1,7 @@
 import { useState } from 'react'
+
 import SectionTitle from '../UI/SectionTitle'
 import Button from '../UI/Button'
-
 import NewPromotion from './NewPromotion'
 import ListOfPromotion from './ListsOfPromotion'
 
@@ -18,13 +18,6 @@ const PromotionNavigation = () => {
 	const handleNewPromotionButton = () => {
 		setIsLists(false)
 		setSelectedFilm(null)
-	}
-
-	const handleSelectedPromotion = film => {
-		setSelectedFilm(film)
-		if (film !== null) {
-			setIsLists(false)
-		}
 	}
 
 	return (

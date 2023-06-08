@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
 import { database } from '../../firebase'
+
 import './CinemaSeats.css'
 
 const CinemaSeats = props => {
-	const rows = 'ABCDEFGHIJKLMNOUPRSTW' // Litery rządów
+	const rows = 'ABCDEFGHIJKLMNOUPRSTW' 
 
 	const [selectedSeats, setSelectedSeats] = useState([])
 	const [occupiedSeats, setOccupiedSeats] = useState([])
@@ -15,13 +16,11 @@ const CinemaSeats = props => {
 	useEffect(() => {
 		const fetchOccupiedSeats = async () => {
 			try {
-				// Pobierz zajęte miejsca z bazy danych na podstawie daty i indeksu
-				const date = savedFilm.date // Zależnie od struktury danych w `savedFilm` dostosuj sposób pobierania daty
-				const index = savedFilm.index // Zależnie od struktury danych w `savedFilm` dostosuj sposób pobierania indeksu
+				const date = savedFilm.date 
+				const index = savedFilm.index 
 				const snapshot = await database.ref(`CinemaPlan/${date}-${index}`).once('value')
 				const occupiedSeatsData = snapshot.val() || []
 
-				// Ustaw zajęte miejsca w stanie komponentu
 				setOccupiedSeats(occupiedSeatsData)
 			} catch (error) {
 				console.error('Błąd podczas pobierania zajętych miejsc:', error)
@@ -32,18 +31,17 @@ const CinemaSeats = props => {
 	}, [savedFilm])
 
 	useEffect(() => {
-		setSelectedSeats([]) // Zresetuj wybrane miejsca po zmianie biletu
+		setSelectedSeats([]) 
 	}, [props.selectedTicket])
 
 	useEffect(() => {
-		// Pobierz wartości biletów z bazy danych i zaktualizuj stan komponentu
 		database
 			.ref('ticketsPrice')
 			.once('value')
 			.then(snapshot => {
 				const ticketPricesFromFirebase = snapshot.val()
 				if (ticketPricesFromFirebase) {
-					const prices = Object.values(ticketPricesFromFirebase).slice(1, 6) // Pobierz tylko 5 pierwszych wartości
+					const prices = Object.values(ticketPricesFromFirebase).slice(1, 6)
 					setTicketPrices(prices)
 				}
 			})
@@ -53,14 +51,13 @@ const CinemaSeats = props => {
 	}, [])
 
 	useEffect(() => {
-		// Oblicz sumę zapłaty na podstawie wybranych miejsc i ceny biletów
 		let sum = 0
 		selectedSeats.forEach(seat => {
 			sum += +ticketPrices[+props.selectedTicket]
 		})
-		const roundedTotalPrice = sum.toFixed(2) // Zaokrąglenie do dwóch miejsc po przecinku
+		const roundedTotalPrice = sum.toFixed(2)
 		setTotalPrice(roundedTotalPrice)
-		props.onTotalPriceChange(roundedTotalPrice) // Przekazanie wartości totalPrice do rodzica
+		props.onTotalPriceChange(roundedTotalPrice)
 	}, [selectedSeats, ticketPrices, props.onTotalPriceChange])
 
 	const handleSeatClick = seatNumber => {
@@ -70,7 +67,7 @@ const CinemaSeats = props => {
 		const isOccupied = occupiedSeats[row * 8 + col - 1]
 
 		if (isOccupied) {
-			return // Zwróć, jeśli miejsce jest zajęte
+			return 
 		}
 
 		let updatedSelectedSeats
@@ -81,7 +78,7 @@ const CinemaSeats = props => {
 		}
 
 		setSelectedSeats(updatedSelectedSeats)
-		props.onSeatSelection(updatedSelectedSeats) // Wywołaj funkcję zwrotną i przekaż zaktualizowane miejsca
+		props.onSeatSelection(updatedSelectedSeats)
 	}
 
 	const renderSeats = () => {

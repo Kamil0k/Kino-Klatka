@@ -3,7 +3,6 @@
 .tickets {
 	padding: 1em;
 
-
 	&__header {
 		margin-top: 1.5em;
 		text-align: center;
@@ -96,7 +95,7 @@
 
 @media (min-width: 992px) {
 	.tickets {
-        padding: 1em 0;
+		padding: 1em 0;
 		&__header {
 			&-title {
 				font-size: 1.8rem;
@@ -104,9 +103,9 @@
 		}
 
 		&__list {
+			width: 40vw;
 			padding: 1.2em;
 			margin: 1em auto;
-			width: 40vw;
 
 			&-item {
 				font-size: 1.7rem;

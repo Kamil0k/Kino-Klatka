@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { database } from '../../firebase'
+import YouTube from 'react-youtube'
+
 import Modal from '../UI/Modal'
 import Button from '../UI/Button'
 import SectionTitle from '../UI/SectionTitle'
-import YouTube from 'react-youtube'
+
 import './FilmDetailsItem.css'
 
 const FilmDetailsItem = () => {

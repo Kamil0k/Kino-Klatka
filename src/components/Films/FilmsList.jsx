@@ -1,9 +1,11 @@
-import './FilmsList.css'
 import React, { useEffect, useState } from 'react'
 import { database } from '../../firebase'
+import { storage } from '../../firebase'
+
 import FilmItem from './FilmItem'
 import SearchInput from '../UI/SearchInput'
-import { storage } from '../../firebase'
+
+import './FilmsList.css'
 
 const FilmsList = props => {
 	const [films, setFilms] = useState([])
@@ -17,15 +19,12 @@ const FilmsList = props => {
 
 	const handleDeleteFilm = async filmID => {
 		try {
-			// Pobierz informacje o filmie z bazy danych
 			const filmRef = database.ref(`films/${filmID}`)
 			const snapshot = await filmRef.once('value')
 			const film = snapshot.val()
 
-			// Usuń film z bazy danych
 			await filmRef.remove()
 
-			// Usuń obrazy filmu z Firebase Storage
 			const thumbnailRef = storage.refFromURL(film.thumbnail)
 			const heroImageRef = storage.refFromURL(film.heroImage)
 

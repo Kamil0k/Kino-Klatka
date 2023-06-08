@@ -1,5 +1,4 @@
 import './BonusTicket.css'
-import Button from '../UI/Button'
 
 const BonusTicket = (props) =>{
     return <>

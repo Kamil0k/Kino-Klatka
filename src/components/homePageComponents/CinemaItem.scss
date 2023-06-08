@@ -18,9 +18,9 @@
 	}
 
 	&__content {
-		background-color: $background-darker;
 		padding: 1em;
 		color: white;
+		background-color: $background-darker;
 		z-index: 10;
 
 		&-title {
@@ -37,8 +37,8 @@
 
 @media (min-width: 768px) {
 	.box {
-		height: 230px;
 		flex-direction: row;
+		height: 230px;
 
 		&--right {
 			flex-direction: row-reverse;

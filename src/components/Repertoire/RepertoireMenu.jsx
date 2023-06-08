@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
+import { database } from '../../firebase'
+
 import DataItem from './DataItem'
 import RepertoireItem from './RepertoireItem'
+
 import './RepertoireMenu.css'
-import { database } from '../../firebase'
 
 const RepertoireMenu = () => {
 	const [selectedItem, setSelectedItem] = useState(0)

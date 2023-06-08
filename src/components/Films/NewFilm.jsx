@@ -1,8 +1,8 @@
-import './NewFilm.css'
 import React, { useState, useEffect } from 'react'
+import { storage, database } from '../../firebase'
 import Button from '../UI/Button'
 
-import { storage, database } from '../../firebase'
+import './NewFilm.css'
 
 const NewFilm = props => {
 	const [movie, setMovie] = useState({
@@ -17,8 +17,6 @@ const NewFilm = props => {
 		thumbnail: null,
 		heroImage: null,
 	})
-	const [thumbnailURL, setThumbnailURL] = useState('')
-	const [heroImageURL, setHeroImageURL] = useState('')
 	const [isSubmitting, setIsSubmitting] = useState(false)
 	const [errorMessage, setErrorMessage] = useState('')
 
@@ -94,14 +92,12 @@ const NewFilm = props => {
 			} else {
 				const storageRef = storage.ref()
 
-				// Dodawanie obrazków do Firebase Storage
 				const thumbnailRef = storageRef.child(`thumbnails/${movie.thumbnail.name}`)
 				await thumbnailRef.put(movie.thumbnail)
 
 				const heroImageRef = storageRef.child(`heroImages/${movie.heroImage.name}`)
 				await heroImageRef.put(movie.heroImage)
 
-				// Pobieranie URL obrazków z Firebase Storage
 				const thumbnailURL = await thumbnailRef.getDownloadURL()
 				const heroImageURL = await heroImageRef.getDownloadURL()
 
@@ -118,10 +114,9 @@ const NewFilm = props => {
 					heroImage: heroImageURL,
 				}
 
-				// Dodawanie filmu do bazy danych
 				await database.ref('films').push(movieData)
 			}
-			// Zresetowanie formularza i komunikatu o błędzie
+			
 			setMovie({
 				title: '',
 				genre: '',

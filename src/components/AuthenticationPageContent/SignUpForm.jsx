@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { useAuth } from '../../contexts/AuthContext'
 import { useNavigate } from 'react-router-dom'
+
+import { useAuth } from '../../contexts/AuthContext'
 import 'firebase/auth'
 import Button from '../UI/Button'
 
@@ -11,14 +12,13 @@ const SignUpForm = () => {
 		name: '',
 		surname: '',
 		isEmployee: false,
-		idOfEmployee: '',
 		email: '',
 		password: '',
 		confirmPassword: '',
 	})
 	const [errors, setErrors] = useState({})
 	const [disabledButton, setDisabledButton] = useState(false)
-	const { signup, isEmployee } = useAuth()
+	const { signup } = useAuth()
 	const navigate = useNavigate()
 
 	const handleChange = event => {
@@ -44,7 +44,6 @@ const SignUpForm = () => {
 					formData.email,
 					formData.password,
 					formData.isEmployee,
-					formData.isEmployee ? formData.idOfEmployee : null
 				)
 				navigate('/')
 			} catch (error) {
@@ -62,15 +61,6 @@ const SignUpForm = () => {
 		}
 		if (!data.surname) {
 			errors.surname = 'Podaj nazwisko!'
-		}
-		if (formData.isEmployee) {
-			if (!data.idOfEmployee) {
-				errors.idOfEmployee = 'Podaj identfikator!'
-			} else if (data.idOfEmployee.length !== 12) {
-				errors.idOfEmployee = 'Identyfikator musi posiadać 12 znaków!'
-			} else if (parseInt(data.idOfEmployee.charAt(data.idOfEmployee.length - 1)) % 5 !== 0) {
-				errors.idOfEmployee = 'Niepoprawny identyfikator!'
-			}
 		}
 		if (!data.email) {
 			errors.email = 'Podaj adres email!'
@@ -99,15 +89,6 @@ const SignUpForm = () => {
 				{errors.name && <span className='form-signup__error'>{errors.name}</span>}
 				<input type='text' id='surname' placeholder='Nazwisko' className='form-signup__input' onChange={handleChange} />
 				{errors.surname && <span className='form-signup__error'>{errors.surname}</span>}
-				{formData.isEmployee && (
-					<input
-						type='text'
-						id='idOfEmployee'
-						placeholder='ID pracownika'
-						className='form-signup__input'
-						onChange={handleChange}
-					/>
-				)}
 				{errors.idOfEmployee && formData.isEmployee && (
 					<span className='form-signup__error'>{errors.idOfEmployee}</span>
 				)}

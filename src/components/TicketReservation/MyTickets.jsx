@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { database } from '../../firebase'
+
 import ReservationItem from '../Ticket/ReservationItem'
 import SectionTitle from '../UI/SectionTitle'
 import { useAuth } from '../../contexts/AuthContext'
@@ -7,9 +8,9 @@ import { useAuth } from '../../contexts/AuthContext'
 import './MyTickets.css'
 
 const MyTickets = () => {
-	const { currentUser } = useAuth()
 	const [userOrders, setUserOrders] = useState([])
 	const [refresh, setRefresh] = useState()
+	const { currentUser } = useAuth()
 
 	useEffect(() => {
 		const fetchUserOrders = async () => {

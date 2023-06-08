@@ -4,11 +4,10 @@
 	grid-template-columns: repeat(1, 1fr);
 	grid-gap: 5px;
 	margin: 0.5em 0;
-
+	padding: 0.7em;
 	color: white;
 	font-weight: lighter;
 	background-color: $background-darker;
-	padding: 0.7em;
 	border-radius: 5px;
 	border: 1px solid $background-brighter;
 

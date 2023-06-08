@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+
 import { useAuth } from '../../contexts/AuthContext'
 import Button from '../UI/Button'
 
@@ -39,14 +40,12 @@ const ChangePassword = () => {
     try {
       setIsSubmitting(true)
       await changePassword(oldPassword, newPassword)
-      // Zmiana hasła powiodła się
       setOldPassword('')
       setNewPassword('')
       setRepeatPassword('')
       setErrorMessage('')
-      navigate('/') // Przekierowanie na stronę główną
+      navigate('/') 
     } catch (error) {
-      // Błąd podczas zmiany hasła
       setErrorMessage(error.message)
     } finally {
       setIsSubmitting(false)

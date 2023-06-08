@@ -1,5 +1,6 @@
-import './SearchInput.css'
 import React, { useState } from 'react'
+
+import './SearchInput.css'
 
 const SearchInput = ({ handleSearch }, props) => {
   const [searchTerm, setSearchTerm] = useState('')

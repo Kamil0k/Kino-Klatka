@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
-import { useAuth } from '../contexts/AuthContext'
 import { IconMenu2, IconX } from '@tabler/icons-react'
+
+import { useAuth } from '../contexts/AuthContext'
 import Brand from './UI/Brand'
 import Button from './UI/Button'
 import DropDownMenu from './DropDownMenu'
@@ -51,10 +52,10 @@ function MainNavigation() {
 						<ul className={`nav-mobile__list ` + `${isMenuVisible ? 'show' : 'hide'}`}>
 							<div className='login-mobile'>
 								{currentUser ? (
-									<DropDownMenu onSignOut={handleSignout}/>
+									<DropDownMenu onSignOut={handleSignout} />
 								) : (
 									<NavLink to='/signin'>
-										<Button>Zaloguj się</Button>
+										<Button onClick={handleLinks}>Zaloguj się</Button>
 									</NavLink>
 								)}
 								{currentUser && (
@@ -125,7 +126,7 @@ function MainNavigation() {
 					</nav>
 					<div className='login-desktop'>
 						{currentUser ? (
-							<DropDownMenu onSignOut={handleSignout}/>
+							<DropDownMenu onSignOut={handleSignout} />
 						) : (
 							<NavLink to='/signin'>
 								<Button>Zaloguj się</Button>

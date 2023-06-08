@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+
 import { useAuth } from '../../contexts/AuthContext'
 import Button from '../UI/Button'
 
@@ -10,11 +11,9 @@ const SignInForm = () => {
 		email: '',
 		password: '',
 	})
-
 	const [disabledButton, setDisabledButton] = useState(false)
 	const [error, setError] = useState(null)
-	const { signin, currentUser, isEmployee } = useAuth()
-	const navigate = useNavigate()
+	const { signin } = useAuth()
 
 	const handleChange = event => {
 		const name = event.target.id
@@ -49,12 +48,6 @@ const SignInForm = () => {
 					onChange={handleChange}
 				/>
 				{error && <span className='form-signup__error'>{error}</span>}
-				<div className='form-signin__check'>
-					<input type='checkbox' id='employee-checkbox' name='employee' className='form-signin__check-input' />
-					<label className='form-signin__check-label' forhtml='employee-checkbox'>
-						Jestem pracownikiem
-					</label>
-				</div>
 				<Button disabled={disabledButton}>Zaloguj się</Button>
 				<p className='form-signin__text'>
 					Nie masz jeszcze konta?

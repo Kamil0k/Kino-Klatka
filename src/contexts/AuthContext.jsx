@@ -12,7 +12,7 @@ export default function AuthProvider({ children }) {
 	const [loading, setLoading] = useState(false)
 	const [isEmployee, setIsEmployee] = useState(false)
 
-	function signup(name, surname, email, password, isEmployee, idOfEmployee) {
+	function signup(name, surname, email, password, isEmployee) {
 		auth
 			.createUserWithEmailAndPassword(email, password)
 			.then(userCredential => {
@@ -20,7 +20,6 @@ export default function AuthProvider({ children }) {
 					name: name,
 					surname: surname,
 					isEmployee: isEmployee,
-					idOfEmployee: idOfEmployee,
 				})
 				return userCredential.user.updateProfile({
 					displayName: `${name} ${surname}`,

@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { database } from '../../firebase';
+
 import ReservationItem from './ReservationItem';
 import SearchInput from '../UI/SearchInput';
+
 import './ReservationList.css';
 
 const ReservationList = () => {
@@ -40,11 +42,11 @@ const ReservationList = () => {
 
   const sortedOrders = [...filteredOrders].sort((a, b) => {
     if (a.status === false && b.status === true) {
-      return -1; // Zamówienie a jest przed zamówieniem b
+      return -1;
     } else if (a.status === true && b.status === false) {
-      return 1; // Zamówienie b jest przed zamówieniem a
+      return 1;
     } else {
-      return 0; // Porządek nie jest zmieniany
+      return 0;
     }
   });
 

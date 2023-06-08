@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import firebase from '../../firebase'
+import { useNavigate } from 'react-router-dom'
+
 import SectionTitle from '../UI/SectionTitle'
 import CinemaSeats from './CinemaSeats'
 import Button from '../UI/Button'
-import { Link } from 'react-router-dom'
-import firebase from '../../firebase'
 import { useAuth } from '../../contexts/AuthContext'
-import { useNavigate } from 'react-router-dom'
+
 import './SelectedFilm.css'
 
 const SelectedFilm = () => {
@@ -71,17 +73,14 @@ const SelectedFilm = () => {
 
 		const convertedSeats = selectedSeats.map(seat => convertSeatIndex(seat))
 
-		// Zaktualizuj tabelę miejsc w bazie danych
 		const cinemaPlanRef = firebase.database().ref('CinemaPlan')
 		const cinemaPlanSnapshot = await cinemaPlanRef.child(savedFilm.date + '-' + savedFilm.index).once('value')
 		const cinemaPlanData = cinemaPlanSnapshot.val()
 
-		// Zaktualizuj status wybranych miejsc na "zajęte" (true)
 		convertedSeats.forEach(seatIndex => {
 			cinemaPlanData[seatIndex] = true
 		})
 
-		// Zapisz zaktualizowaną tabelę miejsc w bazie danych
 		await cinemaPlanRef.child(savedFilm.date + '-' + savedFilm.index).set(cinemaPlanData)
 
 		await ordersRef
@@ -91,7 +90,6 @@ const SelectedFilm = () => {
 			})
 			.catch(error => {
 				console.error('Błąd podczas zapisywania zamówienia:', error)
-				// Tutaj możesz dodać kod do wyświetlenia informacji o błędzie zapisu zamówienia
 			})
 	}
 

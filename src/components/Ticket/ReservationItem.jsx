@@ -1,7 +1,9 @@
 import { useState } from 'react'
+import firebase, { database } from '../../firebase'
+
 import Button from '../UI/Button'
 import { useAuth } from '../../contexts/AuthContext'
-import firebase, { database } from '../../firebase'
+
 import './ReservationItem.css'
 
 const ReservationItem = props => {
@@ -55,21 +57,17 @@ const ReservationItem = props => {
 			props.onRemove()
 			const convertedSeats = props.order.selectedSeats.map(seat => convertSeatIndex(seat))
 
-			// Zaktualizuj tabelę miejsc w bazie danych
 			const cinemaPlanRef = firebase.database().ref('CinemaPlan')
 			const cinemaPlanSnapshot = await cinemaPlanRef
 				.child(props.order.savedFilm.date + '-' + props.order.savedFilm.index)
 				.once('value')
 			const cinemaPlanData = cinemaPlanSnapshot.val()
 
-			// Zaktualizuj status wybranych miejsc na "zajęte" (true)
 			convertedSeats.forEach(seatIndex => {
 				cinemaPlanData[seatIndex] = false
 			})
 
-			// Zapisz zaktualizowaną tabelę miejsc w bazie danych
 			await cinemaPlanRef.child(props.order.savedFilm.date + '-' + props.order.savedFilm.index).set(cinemaPlanData)
-			// Dodatkowe operacje po usunięciu zamówienia, jeśli są wymagane
 		} catch (error) {
 			console.error('Błąd podczas anulowania zamówienia:', error)
 		}

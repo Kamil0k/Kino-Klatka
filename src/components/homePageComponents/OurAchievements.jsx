@@ -1,7 +1,7 @@
-import './OurAchievements.css'
-
 import SectionTitle from '../UI/SectionTitle'
 import Achievement from './Achievement'
+
+import './OurAchievements.css'
 
 const OurAchievements = () => {
 	return (

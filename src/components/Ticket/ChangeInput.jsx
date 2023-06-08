@@ -1,22 +1,20 @@
 import { useState } from 'react';
-import Button from '../UI/Button';
 import { database } from '../../firebase';
+
+import Button from '../UI/Button';
+
 import './ChangeInput.css';
 
 const ChangeInput = (props) => {
   const [inputValue, setInputValue] = useState('');
 
   const handleSave = () => {
-
-    // Sprawdź, czy wartość inputu jest poprawna (np. czy jest liczbą)
-
-    // Zapisz wartość do bazy danych
     database
       .ref(`ticketsPrice/ticket-${props.index}`)
       .set(inputValue)
       .then(() => {
         console.log(`Ticket-${props.index} saved successfully in Firebase!`);
-        props.onCancel(); // Wywołanie funkcji onCancel po zapisaniu lub anulowaniu zmian
+        props.onCancel();
       })
       .catch((error) => {
         console.error(`Error saving ticket-${props.index} to Firebase:`, error);

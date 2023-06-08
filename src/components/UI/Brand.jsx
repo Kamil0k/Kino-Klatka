@@ -1,13 +1,17 @@
-import { Fragment } from 'react'
-import { NavLink } from 'react-router-dom'
-import { IconMovie, IconStereoGlasses } from '@tabler/icons-react'
+import { useNavigate } from 'react-router-dom'
+import { IconMovie } from '@tabler/icons-react'
 
 import './Brand.css'
 
 function Brand() {
+	const navigate = useNavigate()
+
+	const handleClick = () => {
+		navigate('/')
+	}
 	return (
 		<>
-			<div className='brand'>
+			<div className='brand' onClick={handleClick}>
 				<IconMovie className='brand__icon' />
 				<h1 className='brand__title'>
 					kino

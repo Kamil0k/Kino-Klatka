@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+
 import Button from '../UI/Button';
 import SectionTitle from '../UI/SectionTitle';
 import ChangePassword from './ChangePassword';
 import { useAuth } from '../../contexts/AuthContext';
 import { db } from '../../firebase';
+
 import './UserData.css';
 
 const UserData = () => {

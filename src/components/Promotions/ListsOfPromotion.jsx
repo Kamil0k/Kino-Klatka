@@ -3,7 +3,6 @@ import { database } from '../../firebase'
 
 import PromotionItem from './PromotionItem'
 
-import './ListOfPromotion.css'
 
 const ListOfPromotion = () => {
 	const [promotions, setPromotions] = useState([])

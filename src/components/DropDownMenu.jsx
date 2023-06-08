@@ -1,7 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+
 import { useAuth } from '../contexts/AuthContext'
 import Button from './UI/Button'
+
 import './DropDownMenu.css'
 
 const DropDownMenu = props => {

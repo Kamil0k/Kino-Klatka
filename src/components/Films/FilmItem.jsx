@@ -1,7 +1,9 @@
 import { useState } from 'react'
-import './FilmItem.css'
-import Button from '../UI/Button'
 import { Link } from 'react-router-dom'
+
+import Button from '../UI/Button'
+
+import './FilmItem.css'
 
 const FilmItem = props => {
 	const [isDeleting, setIsDeleting] = useState(false)

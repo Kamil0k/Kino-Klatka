@@ -1,8 +1,9 @@
-import './RepertoireItem.css'
-
 import { NavLink, Link } from 'react-router-dom'
+
 import Button from '../UI/Button'
 import { useAuth } from '../../contexts/AuthContext'
+
+import './RepertoireItem.css'
 
 const RepertoireItem = (props) => {
   const [endHour, endMinute] = calculateEndTime(props.startTime, props.selectedFilm.duration)
@@ -26,7 +27,7 @@ const RepertoireItem = (props) => {
       title: props.selectedFilm.title,
       startTime: props.startTime,
       date: props.date,
-      index: props.index, // Dodanie atrybutu "index"
+      index: props.index,
     }
     localStorage.setItem('film', JSON.stringify(film))
   }

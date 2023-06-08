@@ -18,9 +18,9 @@
 			margin-top: 1em;
             padding: 1em;
             color: $secondary-color;
-            background-color: $background-brighter;
             text-shadow: 2px 2px 2px black;
-			border: 1px solid white;
+            box-shadow: inset -5px -5px 0px black;
+            background-color: $primary-color-darker;
             border-radius: 5px;
 
             &-title{

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
+import { database } from '../../firebase'
+
 import Button from '../UI/Button'
 import NewRepertoireItem from './NewRepertoireItem'
-import { database } from '../../firebase'
 
 import './NewRepertoire.css'
 
@@ -13,10 +14,8 @@ const NewRepertoire = props => {
 		openingTime: '',
 		breakTime: '',
 	})
-
 	const [isFormValid, setIsFormValid] = useState(false)
 	const [isAddingFilm, setIsAddingFilm] = useState(false)
-
 	const [repertoireItems, setRepertoireItems] = useState([])
 	const [loadRepertoireDates, setLoadRepertoireDates] = useState([])
 	const [selectedFilm, setSelectedFilm] = useState(null)
@@ -60,7 +59,6 @@ const NewRepertoire = props => {
 	const handleAddFilm = event => {
 		event.preventDefault()
 		setIsAddingFilm(true)
-		// Dodanie nowego elementu NewRepertoireItem do tablicy
 		const { openingTime, breakTime } = formData
 		const newFilmItem = {
 			startTime: repertoireItems.length === 0 ? openingTime : calculateStartTime(breakTime, selectedFilm.duration),
@@ -73,8 +71,7 @@ const NewRepertoire = props => {
 	const handleSelectedFilm = film => {
 		setSelectedFilm(film)
 		setDisabledButton(false)
-		const randomNumber = Math.floor(Math.random() * 1000000) + 1 // Losowa liczba z zakresu 1-1000000
-		const key = `${film.id}-${randomNumber}` // Klucz zawierający losową liczbę
+		const randomNumber = Math.floor(Math.random() * 1000000) + 1 
 		setRepertoireItems(prevItems => {
 			const updatedItems = [...prevItems]
 			updatedItems[repertoireItems.length - 1] = {
@@ -107,17 +104,14 @@ const NewRepertoire = props => {
 	  
 		  const cinemaPlanItems = {};
 	  
-		  // Tworzenie elementów CinemaPlan dla każdego elementu repertoireItems
 		  repertoireItems.forEach((item, index) => {
 			const cinemaPlanKey = `${data}-${index}`;
 			const cinemaPlan = Array(200).fill(false);
 			cinemaPlanItems[cinemaPlanKey] = cinemaPlan;
 		  });
 	  
-		  // Zapisanie elementów CinemaPlan do Firebase
 		  await database.ref(`CinemaPlan`).update(cinemaPlanItems);
 	  
-		  // Zapisanie danych repertuaru do Firebase
 		  await database.ref(`repertoire/${data}`).push(repertoireItems);
 	  
 		  setIsSubmitting(false);

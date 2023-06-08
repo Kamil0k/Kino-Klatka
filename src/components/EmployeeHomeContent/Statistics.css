@@ -24,9 +24,9 @@
   margin-top: 1em;
   padding: 1em;
   color: #cfb53b;
-  background-color: #424242;
   text-shadow: 2px 2px 2px black;
-  border: 1px solid white;
+  box-shadow: inset -5px -5px 0px black;
+  background-color: #97171c;
   border-radius: 5px;
 }
 .statistics__boxes .statistics__box-title {

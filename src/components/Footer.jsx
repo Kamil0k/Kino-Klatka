@@ -1,11 +1,10 @@
-import './Footer.css'
-
 import Brand from './UI/Brand'
 
-const date = new Date();
-const year = date.getFullYear()
+import './Footer.css'
 
 const Footer = () => {
+	const date = new Date()
+	const year = date.getFullYear()
 	return (
 		<>
 			<footer className='footer'>
@@ -20,9 +19,9 @@ const Footer = () => {
 					<i className='fa-brands fa-youtube'></i>
 					<i className='fa-brands fa-google-plus'></i>
 				</div>
-                <div className="footer__bottom">
-                    <p className="footer__bottom-text">Copyright &copy; {year} Kino Klatka</p>
-                </div>
+				<div className='footer__bottom'>
+					<p className='footer__bottom-text'>Copyright &copy; {year} Kino Klatka</p>
+				</div>
 			</footer>
 		</>
 	)

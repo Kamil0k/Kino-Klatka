@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { database } from '../../firebase'
+
 import Button from '../UI/Button'
 import SearchInput from '../UI/SearchInput'
 import SectionTitle from '../UI/SectionTitle'
@@ -27,7 +28,7 @@ const RepertoireList = props => {
 						...filmsData[key],
 					}))
 					setFilms(filmsArray)
-					setSearchResults(filmsArray) // Initialize searchResults with all films
+					setSearchResults(filmsArray)
 				}
 			} catch (error) {
 				console.error('Błąd podczas pobierania filmów:', error)

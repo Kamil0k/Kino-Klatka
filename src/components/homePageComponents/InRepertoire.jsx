@@ -1,12 +1,14 @@
-import './InRepertoire.css'
+import { useEffect, useState } from 'react'
 import Slider from 'react-slick'
+import { database } from '../../firebase'
+import { Link } from 'react-router-dom'
 
 import SectionTitle from '../UI/SectionTitle'
 import RepertoireItem from './RepertoireItem'
-import { useEffect, useState } from 'react'
 import { useAuth } from '../../contexts/AuthContext'
-import { database } from '../../firebase'
-import { Link } from 'react-router-dom'
+
+import './InRepertoire.css'
+
 const InRepertoire = () => {
 	const [films, setFilms] = useState([])
 	const { currentUser, isEmployee } = useAuth()

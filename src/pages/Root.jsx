@@ -1,11 +1,10 @@
-import { Fragment, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
-import { useAuth } from '../contexts/AuthContext'
 
+import { useAuth } from '../contexts/AuthContext'
 import MainNavigation from '../components/MainNavigation'
 import EmployeeNavigation from '../components/EmployeeNavigation'
 import Footer from '../components/Footer'
-import { NavLink, useNavigate } from 'react-router-dom'
 
 import './Root.css'
 

@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
 import { database } from '../../firebase'
-import './Tickets.css'
 
 import SectionTitle from '../UI/SectionTitle'
+
+import './Tickets.css'
 
 const Tickets = () => {
 	const [endDate, setEndDate] = useState(new Date())
@@ -26,7 +27,6 @@ const Tickets = () => {
 	}
 
 	useEffect(() => {
-		// Pobierz wartości biletów z bazy danych i zaktualizuj stan komponentu
 		database
 			.ref('ticketsPrice')
 			.once('value')
@@ -34,7 +34,7 @@ const Tickets = () => {
 				const ticketPricesFromFirebase = snapshot.val()
 				if (ticketPricesFromFirebase) {
 					const endDateValue = ticketPricesFromFirebase.endDate
-					const prices = Object.values(ticketPricesFromFirebase).slice(1, 6) // Pobierz tylko 5 pierwszych wartości
+					const prices = Object.values(ticketPricesFromFirebase).slice(1, 6)
 					setTicketPrices(prices)
 					setEndDate(new Date(endDateValue))
 				}

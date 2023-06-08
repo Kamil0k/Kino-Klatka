@@ -16,13 +16,13 @@ function Chart() {
           data: [11, 32, 45, 32, 34, 52, 41],
         },
         {
-            name: "pracownicy",
-            data: [11, 16, 12, 22, 34, 42, 56],
-          },
+          name: "pracownicy",
+          data: [11, 16, 12, 22, 34, 42, 56],
+        },
         {
-            name: "promocje",
-            data: [2, 6, 9, 2, 11, 8, 14],
-          },
+          name: "promocje",
+          data: [2, 6, 9, 2, 11, 8, 14],
+        },
       ],
       chart: {
         height: 350,
@@ -38,13 +38,13 @@ function Chart() {
       xaxis: {
         type: "datetime",
         categories: [
-          "2018-09-19T00:00:00.000Z",
-          "2018-09-19T01:30:00.000Z",
-          "2018-09-19T02:30:00.000Z",
-          "2018-09-19T03:30:00.000Z",
-          "2018-09-19T04:30:00.000Z",
-          "2018-09-19T05:30:00.000Z",
-          "2018-09-19T06:30:00.000Z",
+          new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString(),
+          new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(),
+          new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString(),
+          new Date().toISOString(),
+          new Date(Date.now() + 1 * 24 * 60 * 60 * 1000).toISOString(),
+          new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString(),
+          new Date(Date.now() + 3 * 24 * 60 * 60 * 1000).toISOString(),
         ],
       },
       tooltip: {

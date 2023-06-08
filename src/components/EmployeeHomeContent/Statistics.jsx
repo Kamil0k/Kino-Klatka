@@ -1,6 +1,5 @@
 import Sectiontitle from '../UI/SectionTitle'
-import Chart from './Chart'
-import InRepertoire from '../HomePageComponents/InRepertoire'
+
 import './Statistics.css'
 
 

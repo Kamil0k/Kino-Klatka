@@ -1,6 +1,7 @@
-import './BonusTickets.css'
 import SectionTitle from '../UI/SectionTitle'
 import BonusTicket from './BonusTicket'
+
+import './BonusTickets.css'
 
 const BonusTickets = () => {
 	return (

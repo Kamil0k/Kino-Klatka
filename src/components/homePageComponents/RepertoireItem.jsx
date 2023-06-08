@@ -1,6 +1,8 @@
-import './RepertoireItem.css'
-import Button from '../UI/Button'
 import { Link } from 'react-router-dom'
+
+import Button from '../UI/Button'
+
+import './RepertoireItem.css'
 
 const RepertoireItem = props => {
 	return (

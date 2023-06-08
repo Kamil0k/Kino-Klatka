@@ -1,8 +1,7 @@
 import Map from '../../assets/img/mapa.png'
+import SectionTitle from '../UI/SectionTitle'
 
 import './AboutUs.css'
-
-import SectionTitle from '../UI/SectionTitle'
 
 const AboutUs = () => {
 	return (
